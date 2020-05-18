@@ -295,6 +295,10 @@ boolean foeTdisapp = false;
 boolean foeT2disapp = false;
 boolean foeT3disapp = false;
 
+boolean foe1disapp = false;
+boolean foe2disapp = false;
+boolean foe3disapp = false;
+
 int cursorX;
 int cursorY;
 
@@ -363,6 +367,10 @@ void setup() {
   foeT2 = loadImage("goblin.png");
   foeT3 = loadImage("goblin.png");
   
+  foe6 = loadImage("goblin.png");
+  foe7 = loadImage("goblin.png");
+  foe8 = loadImage("goblin.png");
+  
   foeWhite = loadImage("goblinwhite.png");
   foeRed = loadImage("goblinred.png");
   
@@ -423,18 +431,18 @@ void setup() {
   minim3 = new Minim(this);
   minim4 = new Minim(this);
   
-  foe1SizeX = 125 * 1.1;
-  foe1SizeY = 200 * 1.1;
-  foe1CoordX = 390 - 60;
-  foe1CoordY = height - 380 - 25 - 20;
-  foe2SizeX = 125 * 1.1;
-  foe2SizeY = 200 * 1.1;
-  foe2CoordX = 180 - 60;
-  foe2CoordY = height - 400 - 75 - 20;
-  foe3SizeX = 125 * 1.1;
-  foe3SizeY = 200 * 1.1;
-  foe3CoordX = 600 - 60;
-  foe3CoordY = height - 430 - 20;
+  //foe1SizeX = 125 * 1.1;
+  //foe1SizeY = 200 * 1.1;
+  //foe1CoordX = 390 - 60;
+  //foe1CoordY = height - 380 - 25 - 20;
+  //foe2SizeX = 125 * 1.1;
+  //foe2SizeY = 200 * 1.1;
+  //foe2CoordX = 180 - 60;
+  //foe2CoordY = height - 400 - 75 - 20;
+  //foe3SizeX = 125 * 1.1;
+  //foe3SizeY = 200 * 1.1;
+  //foe3CoordX = 600 - 60;
+  //foe3CoordY = height - 430 - 20;
   
   foetutorialSizeX = 125 * 1.1;
   foetutorialSizeY = 200 * 1.1;
@@ -450,6 +458,21 @@ void setup() {
   foeT3SizeY = 200 * 1.1;
   foeT3X = width/2 + 30 + 50;
   foeT3Y = height - 380 - 130 - 50;  
+  
+  foe1SizeX = 125 * 1.1;
+  foe1SizeY = 200 * 1.1;
+  foe1CoordX = width/2 - 100;
+  foe1CoordY = height - 380 - 50;
+  
+  foe2SizeX = 125 * 1.1;
+  foe2SizeY = 200 * 1.1;
+  foe2CoordX = width/2 - 230 - 50;
+  foe2CoordY = height - 380 - 130 - 50;
+
+  foe3SizeX = 125 * 1.1;
+  foe3SizeY = 200 * 1.1;
+  foe3CoordX = width/2 + 30 + 50;
+  foe3CoordY = height - 380 - 130 - 50;  
   
   foe4SizeX = 125 * 1.1;
   foe4SizeY = 200 * 1.1;
@@ -1386,8 +1409,7 @@ void draw() {
       if(foeTAlive == true) {  
         if (foeTdisapp == false) {
           image(foetutorial, foetutorialX, foetutorialY, foetutorialSizeX, foetutorialSizeY);
-        } 
-
+        }
         if (foeTAttack == false && foeTHP > 0) {
           foeTt = foeTinterval-int(millis()/1000);
             
@@ -1412,60 +1434,34 @@ void draw() {
             firstAttack = false;
           }
         }
-
       }   
       if(foeT2Alive == true) {
         if (foeT2disapp == false) {
           image(foeT2, foeT2X, foeT2Y, foeT2SizeX, foeT2SizeY);
         }
-
       }
       if(foeT3Alive == true) {
         if (foeT3disapp == false) {
           image(foeT3, foeT3X, foeT3Y, foeT3SizeX, foeT3SizeY);
         } 
-      
       }        
     }
     else if (stage1 == true) {
       if(foe1Alive == true) {
-        if (foe1Attack == false) {
-          foe1t = foe1interval-int(millis()/1000);
-          if (foe1t > 0) {
-            image(foe1, foe1CoordX, foe1CoordY, foe1SizeX, foe1SizeY);
-          }
-          if(foe1t == 0){
-            foe1whiteint += 3;
-            foe1flashint += 4;
-            foe1redint += 5;
-            foe1flash2int += 6;
-            foe1Attack = true;
-          }
-          if (playerAttacked && foe1t > 0) {
-            image(foe1, foe1CoordX, foe1CoordY - 30, foe1SizeX, foe1SizeY);
-            fill(117,0,0,155);
-            stroke(#FFFFFF);
-            rect(0, 1, 1099, 898);               
-          }
+        if (foe1disapp == false) {
+          image(foe1, foe1CoordX, foe1CoordY, foe1SizeX, foe1SizeY);
         }
-        if(shield == true && attackBlocked == false) {
-          fill(70, 100, 0, 190);
-          noStroke();
-          rect(foe1CoordX, foe1CoordY, foe1SizeX, foe1SizeY);
-        }
-      }
+      }  
       if (foe2Alive == true) {
-        image(foe2, foe2CoordX, foe2CoordY, foe2SizeX, foe2SizeY);
+        if (foe2disapp == false) {
+          image(foe2, foe2CoordX, foe2CoordY, foe2SizeX, foe2SizeY);
+        }        
       }
       if(foe3Alive == true) {
-        image(foe3, foe3CoordX, foe3CoordY, foe3SizeX, foe3SizeY);           
+        if (foe3disapp == false) {
+          image(foe3, foe3CoordX, foe3CoordY, foe3SizeX, foe3SizeY);
+        }                  
       }
-      if(foe4Alive == true) {
-        image(foe4, foe4CoordX, foe4CoordY, foe4SizeX, foe4SizeY);
-      } 
-      if(foe5Alive == true) {    
-        image(foe5, foe5CoordX, foe5CoordY, foe5SizeX, foe5SizeY);
-      }        
     }
   }
 }
