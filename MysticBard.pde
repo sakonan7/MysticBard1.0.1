@@ -598,21 +598,29 @@ void draw() {
     text("\n" + "\n" + "Click Right to Go to Title Screen", width - 520, height - 165);
   }  
   if (victory == true) {
-    fill(#0035FF);
-    stroke(#98FFFC);
-    strokeWeight(3);
-    rect(50, 50, width - 100, height - 100, 9);
+    fill(#000096);
+    rect(25, 25, width - 50, height - 50);
+    textFont(Font2);
+    fill(#FFFFFF);
     
     stroke(#98FFFC);
     strokeWeight(3);
     textFont(Font2);
-
-    image(treasure, width/2, height/2, 400, 300);
-
+    
+    text("Victory" + "\n", 50, height - height + 90);     
+    textFont(Font3);
     fill(#FFFFFF);
-    text("Hurrah!!" + 
-    "\n" + "You have successfully protected" + "\n" + "the Village!!", 70, height - height + 120);
+    text("Congratulations!!" + "\n", 50, height - height + 150);
+    textFont(Font1);
     fill(#FFF300);
+    fill(#FFFFFF);
+    text("You have successfully protected the village!", 50, 210);
+    
+    image(tutorialV, 230, 250, 625, 463);
+    
+    fill(#FFF300);
+    textFont(Font1);
+    text("\n" + "\n" + clickRight, width - 385, height - 165);
 
   }
   if (redDeadPage == true) {
