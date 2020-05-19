@@ -142,7 +142,7 @@ int foe8HP = 150;
 
 int playerHP = 100;
 
-int damage = 10;
+int damage = 150;
 float HPbar = 600;
 
 int currentHP = playerHP;
@@ -325,6 +325,8 @@ boolean tutorialVictory = false;
 
 boolean tutorialVictoryPage = false;
 boolean tutorialConclude = false;
+
+boolean stayTuned = false;
 boolean musicCredits = false;
 
 boolean redDead = false;
@@ -527,6 +529,31 @@ void draw() {
     text("\n" + "\n" + clickRight, width - 385, height - 165);   
   }
   if (tutorialConclude == true) {
+    fill(#000096);
+    rect(25, 25, width - 50, height - 50);
+    textFont(Font2);
+    fill(#FFFFFF);
+    
+    stroke(#98FFFC);
+    strokeWeight(3);
+    textFont(Font2);
+    
+    text("Victory" + "\n", 50, height - height + 90);     
+    textFont(Font3);
+    fill(#FFFFFF);
+    text("Congratulations!!" + "\n", 50, height - height + 150);
+    textFont(Font1);
+    fill(#FFF300);
+    fill(#FFFFFF);
+    text("You have defeated your first enemy! But the battle has just begun", 50, 210);
+    
+    image(tutorialV, 230, 250, 625, 463);
+    text("The true challenge is yet to come", 50, 772); 
+    fill(#FFF300);
+    textFont(Font1);
+    text("\n" + "\n" + "Click Right to Start", width - 320, height - 165);     
+  }
+  if (stayTuned == true) {
     fill(#000096);
     rect(25, 25, width - 50, height - 50);
     textFont(Font2);
@@ -1208,6 +1235,7 @@ void draw() {
       }    
       playerAttacked = false;
       if (playerHP <= 0 && (tutorialStage == true || stage1 == true)) {
+        //may need to do if stage2, foe not alive to make them disappear
         playerAlive = false;
         redDead = true;
         redDeadPage = true;
@@ -2033,20 +2061,13 @@ void mousePressed () {
     if (mouseButton == RIGHT && tutorialVictoryPage == true) {
       tutorialVictoryPage = false;
       tutorialConclude = true;
-    }    
+      //tutorialEnd = true;
+    }
     else if (mouseButton == RIGHT && tutorialConclude == true) {
       tutorialConclude = false;
-      musicCredits = true;
-    }  
-    else if (mouseButton == LEFT && tutorialConclude == true) {
-      tutorialConclude = false;
-      tutorialVictoryPage = true;
-    }   
-    else if (mouseButton == RIGHT && musicCredits == true) {
-      musicCredits = false;
-      tutorialVictory = false;
+      stage1 = true;
       warmUp = true;
-      firstAttack = true; 
+      firstAttack = true;
       playerHP = 100;
       currentHP = playerHP;
       HPbar = originalHPbar;
@@ -2061,23 +2082,14 @@ void mousePressed () {
       shieldBar = 190;
       currentShieldBarX = originalShieldBarX;
       shieldDrained = false;
-      foeTAlive = true;
-      foeT2Alive = true;
-      foeT3Alive = true;
       playerAlive = true;
+      minim3.stop();
       
-      titlePage = true;
-      minim3.stop(); 
-      messageOver = false;
-      player = minim.loadFile("Title Theme.mp3", 800);
+      player = minim.loadFile("Battle.mp3", 800);
       player.play();
       player.shiftGain(player.getGain(),-15,FADE);
       player.loop();      
-    }    
-    else if (mouseButton == LEFT && musicCredits == true) {
-      musicCredits = false;
-      tutorialConclude = true;
-    }         
+    }
 
   }
   else if (redDead == true) {
@@ -2093,6 +2105,8 @@ void mousePressed () {
       tutorialDead = false;
       tutorialRestart = true;
     }
+    //use this for starting another level
+    //stageOne = true;
     else if (mouseButton == RIGHT && tutorialRestart == true) {
       warmUp = true;
       firstAttack = true;
