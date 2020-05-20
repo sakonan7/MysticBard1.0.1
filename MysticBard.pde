@@ -77,6 +77,8 @@ PImage title;
 
 PImage violinUI;
 
+PImage dead;
+
 float foe1SizeX;
 float foe1SizeY;
 float foe2SizeX;
@@ -188,6 +190,7 @@ boolean foe8Alive = true;
 
 boolean playerAlive = true;
 boolean playerDead = false;
+boolean tryAgain = false;
 
 boolean playerTDead = false;
 
@@ -420,7 +423,7 @@ void setup() {
   title = loadImage("titlePage.png");
   
   violinUI = loadImage("violinUI.png");
-  
+  dead = loadImage("Loss.png");
   
   minim = new Minim(this);
   player = minim.loadFile("Title Theme.mp3", 800);
@@ -643,13 +646,13 @@ void draw() {
     }     
     if (tutorialStage == true) {
         if (foeTAlive == true) {
-          image(foetutorial, foetutorialX, foetutorialY - 30, foetutorialSizeX, foetutorialSizeY);
+          image(foetutorial, foetutorialX, foetutorialY, foetutorialSizeX, foetutorialSizeY);
         }
         if (foeT2Alive == true) {
-          image(foeT2, foeT2X, foeT2Y - 30, foeT2SizeX, foeT2SizeY);
+          image(foeT2, foeT2X, foeT2Y, foeT2SizeX, foeT2SizeY);
         }
         if (foeT3Alive == true) {
-          image(foeT3, foeT3X, foeT3Y - 30, foeT3SizeX, foeT3SizeY);
+          image(foeT3, foeT3X, foeT3Y, foeT3SizeX, foeT3SizeY);
         }      
     }
     fill(117,0,0,175);   
@@ -663,24 +666,58 @@ void draw() {
     
   }
   if (playerDead == true) {
-    fill(#0035FF);
-    stroke(#98FFFC);
-    strokeWeight(3);
-    rect(50, 50, width - 100, height - 100, 9);
 
+    fill(#000096);
+    rect(25, 25, width - 50, height - 50);
+    textFont(Font2);
     fill(#FFFFFF);
     
     stroke(#98FFFC);
     strokeWeight(3);
     textFont(Font2);
     
-    text("GAME OVER" + 
-    "\n" + "You were defeated and the village" + "\n" + "was overrun by monsters.", 70, height - height + 120);
+    text("Game Over" + "\n", 50, height - height + 90);     
+    textFont(Font3);
+    fill(#FFFFFF);
+    text("You Died", 50, height - height + 150);
+
+    textFont(Font1);
     fill(#FFF300);
-    //indicator to clickRight to continue
-    //Click left to start over
-    //reset values
+    fill(#FFFFFF);
+    text("You were defeated and the village was overrun by monsters.", 50, 210);
+
+    image(dead, 180, 230, 1002, 563);
+    fill(#FFF300);
+    textFont(Font1);
+    text("\n" + "\n" + "Click Right to Try Again", width - 390, height - 165);    
   } 
+  //try again
+  if (tryAgain == true) {
+
+    fill(#000096);
+    rect(25, 25, width - 50, height - 50);
+    textFont(Font2);
+    fill(#FFFFFF);
+    
+    stroke(#98FFFC);
+    strokeWeight(3);
+    textFont(Font2);
+    
+    text("Game Over" + "\n", 50, height - height + 90);     
+    textFont(Font3);
+    fill(#FFFFFF);
+    text("You Died", 50, height - height + 150);
+
+    textFont(Font1);
+    fill(#FFF300);
+    fill(#FFFFFF);
+    text("You were defeated and the village was overrun by monsters.", 50, 210);
+
+    image(dead, 180, 230, 1002, 563);
+    fill(#FFF300);
+    textFont(Font1);
+    text("\n" + "\n" + "Click Right to Try Again", width - 390, height - 165);    
+  }  
   if (tutorialDead == true) {
     fill(#000096);
     rect(25, 25, width - 50, height - 50);
@@ -704,7 +741,7 @@ void draw() {
     image(tutorialD, 180, 230, 478, 563);
     fill(#FFF300);
     textFont(Font1);
-    text("\n" + "\n" + "Click Right to Try Again", width - 390, height - 165);
+    text("\n" + "\n" + "Click Right to Restart", width - 360, height - 165);
   }  
   if (tutorialRestart == true) {
     fill(#000096);
