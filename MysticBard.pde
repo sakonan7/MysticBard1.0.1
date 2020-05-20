@@ -1937,6 +1937,180 @@ void mousePressed () {
             }
      
           }
+          if (stage1 == true) {
+            if (firstBlast == true) {
+              if ((mouseX <= width && mouseX >= 0) && (mouseY <= height && mouseY >= 0)) {
+                textSize(32);
+                image(background, 0, -15, width, height);
+                if (foeTHP > 0) {
+                  image(foetutorial, foetutorialX - 10, foetutorialY - 60, foetutorialSizeX * 1.1, foetutorialSizeY * 1.1);
+                  image(musicNote2, foetutorialX + 5, foetutorialY - 60, 100, 100);
+                  text("  " + 15, foetutorialX + foetutorialSizeX/5, foetutorialY - 60);
+                  foeTHP -= 15;
+                }
+                if (foeTHP > 0) {
+                  image(foeT2, foeT2X - 10, foeT2Y - 60, foeT2SizeX * 1.1, foeT2SizeY * 1.1);
+                  image(musicNote2, foeT2X + 5, foeT2Y - 60, 100, 100);
+                  text("  " + 15, foeT2X + foeT2SizeX/5, foeT2Y - 60);
+                  foeT2HP -= 15;
+                }
+                if (foeT3HP > 0) {
+                  image(foeT3, foeT3X - 10, foeT3Y - 60, foeT3SizeX * 1.1, foeT3SizeY * 1.1);
+                  image(musicNote2, foeT3X + 5, foeT3Y - 60, 100, 100);
+                  text("  " + 15, foeT3X + foeT3SizeX/5, foeT3Y - 60);
+                  foeT3HP -= 15;
+                }
+
+                noFill();
+                strokeWeight(7);
+                stroke(#FFC246);
+                ellipse(cursorX, cursorY, width/2 + 250, width/2 + 240);
+                ellipse(cursorX, cursorY, width/2 + 120, width/2 + 110);
+                ellipse(cursorX, cursorY, width/2 - 10, width/2);
+                ellipse(cursorX, cursorY, width/2 - 140, width/2 - 150);
+                image(trombone, cursorX - 40, cursorY - 15, 100, 40);
+
+                fill(#E505FF);
+                image(violinUI, 251, height - 156, 240, 156);
+                image(tromboneD, 7, height - 157, 244, 156);
+                image(shieldD, width - 253, height - 157, 244, 156);                
+              
+                setGradient(currentHPX, 50, HPbar, 40, c2, c1, 3);
+          
+                setGradient(currentShieldBarX, height-105, shieldBar, 15, c3, c4, 2);
+                setGradient(currentViolinBarX, height-105, violinBar, 15, c3, c4, 2); //Violin
+                setGradient(currentTromboneBarX, height-105, tromboneBar, 15, c3, c4, 2);
+
+                strokeWeight(3);
+                stroke(#FFCE46);
+          
+                rect(13, height - 148, 235, 135, 8);
+                foeTattacked = true;
+                monsterTrombone = true;
+                player2 = minim2.loadFile("firstTrumpet.mp3", 500);
+                player2.play();
+                player2.shiftGain(player2.getGain(), -30,FADE); 
+                if (foeTFlash == true && foeTattacked == true) {
+                  foeTAttack = false;
+                  foeTAlive = true;
+                  foeTInterupt = true; 
+                  foeTFlash = false;
+                  foeTinterval = int(millis()/1000) + 5;
+                  
+                  foeTwhiteint = int(millis()/1000) + 3; 
+                  foeTflashint = int(millis()/1000) + 3;
+                  foeTredint = int(millis()/1000) + 3; 
+                  foeTflash2int = int(millis()/1000) + 3;              
+             
+                }        
+
+                if (foeTInterupt == true) {
+                  foeTInterupt = false;
+                  foeTattacked = false;       
+                }                
+              }              
+            }
+            if (secondBlast == true) {
+              if (mouseX <= foetutorialSizeX + foetutorialX + 140 && mouseX >= foetutorialX - 140
+              && (mouseY <= foetutorialSizeY + foetutorialY + 140 && mouseY >= foetutorialY - 140) && foeTHP > 0) { 
+
+                image(foetutorial, foetutorialX - 10, foetutorialY - 60, foetutorialSizeX * 1.1, foetutorialSizeY * 1.1);
+
+                image(musicNote2, foetutorialX + 5, foetutorialY - 60, 100, 100);
+
+                noFill();
+                strokeWeight(7);
+                stroke(#FFC246);
+                ellipse(cursorX, cursorY, 280, 280);
+                ellipse(cursorX, cursorY , 200, 200);
+                ellipse(cursorX, cursorY , 120, 120);
+                ellipse(cursorX, cursorY , 60, 60);
+                
+                image(trombone, cursorX - 40, cursorY - 15, 100, 40);
+      
+                foeTHP -= 10;
+                text("  " + 10, foetutorialX + foetutorialSizeX/5, foetutorialY - 60);
+                
+                fill(#E505FF);
+
+                foeTattacked = true;
+                monsterTrombone = true;
+                player2 = minim2.loadFile("secondTrumpet.mp3", 500);
+                player2.play();
+                player2.shiftGain(player2.getGain(), -30,FADE); 
+                if (foeTFlash == true && foeTattacked == true) {
+                  foeTAttack = false;
+                  foeTAlive = true;
+                  foeTInterupt = true;
+                  foeTFlash = false;
+                  foeTinterval = int(millis()/1000) + 5;
+                  foeTwhiteint = int(millis()/1000) + 3; 
+                  foeTflashint = int(millis()/1000) + 3;
+                  foeTredint = int(millis()/1000) + 3; 
+                  foeTflash2int = int(millis()/1000) + 3;              
+             
+                }        
+
+                if (foeTInterupt == true) {
+                  foeTInterupt = false;
+                  foeTattacked = false;      
+                }                
+              }
+              if (mouseX <= foeT2SizeX + foeT2X + 140 && mouseX >= foeT2X - 140
+              && (mouseY <= foeT2SizeY + foeT2Y + 140 && mouseY >= foeT2Y - 140) && foeT2HP > 0) { 
+                
+                image(foeT2, foeT2X - 10, foeT2Y - 60, foeT2SizeX * 1.1, foeT2SizeY * 1.1);
+          
+                image(musicNote2, foeT2X + 5, foeT2Y - 60, 100, 100);
+
+                noFill();
+                strokeWeight(7);
+                stroke(#FFC246);
+                ellipse(cursorX, cursorY, 280, 280);
+                ellipse(cursorX, cursorY , 200, 200);
+                ellipse(cursorX, cursorY , 120, 120);
+                ellipse(cursorX, cursorY , 60, 60);
+                image(trombone, cursorX - 40, cursorY - 15, 100, 40);
+      
+                foeT2HP -= 10;
+                text("  " + 10, foeT2X + foeT2SizeX/5, foeT2Y - 60);
+                
+                fill(#E505FF);
+
+                monsterTrombone = true;
+                player2 = minim2.loadFile("secondTrumpet.mp3", 500);
+                player2.play();
+                player2.shiftGain(player2.getGain(), -30,FADE);                
+              }
+              if (mouseX <= foeT3SizeX + foeT3X + 140 && mouseX >= foeT3X - 140
+              && (mouseY <= foeT3SizeY + foeT3Y + 140 && mouseY >= foeT3Y - 140) && foeT3HP > 0) { 
+
+                image(foeT3, foeT3X - 10, foeT3Y - 60, foeT3SizeX * 1.1, foeT3SizeY * 1.1);
+          
+                image(musicNote2, foeT3X + 5, foeT3Y - 60, 100, 100);
+
+                noFill();
+                strokeWeight(7);
+                stroke(#FFC246);
+                ellipse(cursorX, cursorY, 280, 280);
+                ellipse(cursorX, cursorY , 200, 200);
+                ellipse(cursorX, cursorY , 120, 120);
+                ellipse(cursorX, cursorY , 60, 60);
+                
+                image(trombone, cursorX - 40, cursorY - 15, 100, 40);
+      
+                foeT3HP -= 10;
+                text("  " + 10, foeT3X + foeT3SizeX/5, foeT3Y - 60);
+                
+                fill(#E505FF);
+              
+                monsterTrombone = true;
+                player2 = minim2.loadFile("secondTrumpet.mp3", 500);
+                player2.play();
+                player2.shiftGain(player2.getGain(), -30,FADE);                
+              }              
+            }            
+          }
         }
 
       }
