@@ -2068,12 +2068,12 @@ void mousePressed () {
             }
             //need to add interupt code to other foes
             if (secondBlast == true) {
-              if (mouseX <= foetutorialSizeX + foetutorialX + 140 && mouseX >= foetutorialX - 140
-              && (mouseY <= foetutorialSizeY + foetutorialY + 140 && mouseY >= foetutorialY - 140) && foeTHP > 0) { 
+              if (mouseX <= foe1SizeX + foe1CoordX + 140 && mouseX >= foe1CoordX - 140
+              && (mouseY <= foe1SizeY + foe1CoordY + 140 && mouseY >= foe1CoordY - 140) && foe1HP > 0) { 
 
-                image(foetutorial, foetutorialX - 10, foetutorialY - 60, foetutorialSizeX * 1.1, foetutorialSizeY * 1.1);
+                image(foe1, foe1CoordX - 10, foe1CoordY - 60, foe1SizeX * 1.1, foe1SizeY * 1.1);
 
-                image(musicNote2, foetutorialX + 5, foetutorialY - 60, 100, 100);
+                image(musicNote2, foe1CoordX + 5, foe1CoordY - 60, 100, 100);
 
                 noFill();
                 strokeWeight(7);
@@ -2085,32 +2085,32 @@ void mousePressed () {
                 
                 image(trombone, cursorX - 40, cursorY - 15, 100, 40);
       
-                foeTHP -= 10;
-                text("  " + 10, foetutorialX + foetutorialSizeX/5, foetutorialY - 60);
+                foe1HP -= 10;
+                text("  " + 10, foe1CoordX + foe1SizeX/5, foe1CoordY - 60);
                 
                 fill(#E505FF);
 
-                foeTattacked = true;
+                foe1attacked = true;
                 monsterTrombone = true;
                 player2 = minim2.loadFile("secondTrumpet.mp3", 500);
                 player2.play();
                 player2.shiftGain(player2.getGain(), -30,FADE); 
-                if (foeTFlash == true && foeTattacked == true) {
-                  foeTAttack = false;
-                  foeTAlive = true;
-                  foeTInterupt = true;
-                  foeTFlash = false;
-                  foeTinterval = int(millis()/1000) + 5;
-                  foeTwhiteint = int(millis()/1000) + 3; 
-                  foeTflashint = int(millis()/1000) + 3;
-                  foeTredint = int(millis()/1000) + 3; 
-                  foeTflash2int = int(millis()/1000) + 3;              
+                if (foe1Flash == true && foe1attacked == true) {
+                  foe1Attack = false;
+                  foe1Alive = true;
+                  foe1Interupt = true; 
+                  foe1Flash = false;
+                  foe1interval = int(millis()/1000) + 5;
+                  
+                  foe1whiteint = int(millis()/1000) + 3; 
+                  foe1flashint = int(millis()/1000) + 3;
+                  foe1redint = int(millis()/1000) + 3; 
+                  foe1flash2int = int(millis()/1000) + 3;              
              
                 }        
-
-                if (foeTInterupt == true) {
-                  foeTInterupt = false;
-                  foeTattacked = false;      
+                if (foe1Interupt == true) {
+                  foe1Interupt = false;
+                  foe1attacked = false;       
                 }                
               }
               if (mouseX <= foeT2SizeX + foeT2X + 140 && mouseX >= foeT2X - 140
