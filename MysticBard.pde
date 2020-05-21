@@ -197,38 +197,6 @@ boolean playerTDead = false;
 boolean tutorialStage = false;
 boolean stage1 = false;
 
-int foe1interval = 5;
-int foe1t = 0;
-String foe1time = "005";
-int foe1whiteint = 3;
-int foe1whitet = 0;
-String foe1whitetime = "003";
-int foe1flashint = 3;
-int foe1flasht = 0;
-String foe1flashtime = "003";
-int foe1flash2int = 3;
-int foe1flash2t = 0;
-String foe1flash2time = "003";
-int foe1redint = 3;
-int foe1redt = 0;
-String foe1redtime = "003";
-
-int foe2interval = 10;
-int foe2t = 0;
-String foe2time = "005";
-int foe2whiteint = 3;
-int foe2whitet = 0;
-String foe2whitetime = "003";
-int foe2flashint = 3;
-int foe2flasht = 0;
-String foe2flashtime = "003";
-int foe2flash2int = 3;
-int foe2flash2t = 0;
-String foe2flash2time = "003";
-int foe2redint = 3;
-int foe2redt = 0;
-String foe2redtime = "003";
-
 int foeTinterval = int(random(5, 8));
 int foeTt = 0;
 String foeTtime = "005";
@@ -248,6 +216,57 @@ boolean foeTFlash = false;
 
 boolean warmUp = true;
 boolean firstAttack = true;
+
+int foe1interval = 5;
+int foe1t = 0;
+String foe1time = "005";
+int foe1whiteint = 3;
+int foe1whitet = 0;
+String foe1whitetime = "003";
+int foe1flashint = 3;
+int foe1flasht = 0;
+String foe1flashtime = "003";
+int foe1flash2int = 3;
+int foe1flash2t = 0;
+String foe1flash2time = "003";
+int foe1redint = 3;
+int foe1redt = 0;
+String foe1redtime = "003";
+boolean foe1Flash = false;
+
+int foe2interval = 10;
+int foe2t = 0;
+String foe2time = "005";
+int foe2whiteint = 3;
+int foe2whitet = 0;
+String foe2whitetime = "003";
+int foe2flashint = 3;
+int foe2flasht = 0;
+String foe2flashtime = "003";
+int foe2flash2int = 3;
+int foe2flash2t = 0;
+String foe2flash2time = "003";
+int foe2redint = 3;
+int foe2redt = 0;
+String foe2redtime = "003";
+boolean foe2Flash = false;
+
+int foe3interval = 10;
+int foe3t = 0;
+String foe3time = "005";
+int foe3whiteint = 3;
+int foe3whitet = 0;
+String foe3whitetime = "003";
+int foe3flashint = 3;
+int foe3flasht = 0;
+String foe3flashtime = "003";
+int foe3flash2int = 3;
+int foe3flash2t = 0;
+String foe3flash2time = "003";
+int foe3redint = 3;
+int foe3redt = 0;
+String foe3redtime = "003";
+boolean foe3Flash = false;
 
 boolean shield = false;
 int shieldInterval = 3;
@@ -1942,23 +1961,23 @@ void mousePressed () {
               if ((mouseX <= width && mouseX >= 0) && (mouseY <= height && mouseY >= 0)) {
                 textSize(32);
                 image(background, 0, -15, width, height);
-                if (foeTHP > 0) {
-                  image(foetutorial, foetutorialX - 10, foetutorialY - 60, foetutorialSizeX * 1.1, foetutorialSizeY * 1.1);
-                  image(musicNote2, foetutorialX + 5, foetutorialY - 60, 100, 100);
-                  text("  " + 15, foetutorialX + foetutorialSizeX/5, foetutorialY - 60);
-                  foeTHP -= 15;
+                if (foe1HP > 0) {
+                  image(foe1, foe1CoordX - 10, foe1CoordY - 60, foe1SizeX * 1.1, foe1SizeY * 1.1);
+                  image(musicNote2, foe1CoordX + 5, foe1CoordY - 60, 100, 100);
+                  text("  " + 15, foe1CoordX + foe1SizeX/5, foe1CoordY - 60);
+                  foe1HP -= 15;
                 }
-                if (foeTHP > 0) {
-                  image(foeT2, foeT2X - 10, foeT2Y - 60, foeT2SizeX * 1.1, foeT2SizeY * 1.1);
-                  image(musicNote2, foeT2X + 5, foeT2Y - 60, 100, 100);
-                  text("  " + 15, foeT2X + foeT2SizeX/5, foeT2Y - 60);
-                  foeT2HP -= 15;
+                if (foe2HP > 0) {
+                  image(foe2, foe2CoordX - 10, foe2CoordY - 60, foe2SizeX * 1.1, foe2SizeY * 1.1);
+                  image(musicNote2, foe2CoordX + 5, foe2CoordY - 60, 100, 100);
+                  text("  " + 15, foe2CoordX + foe2SizeX/5, foe2CoordY - 60);
+                  foe2HP -= 15;
                 }
-                if (foeT3HP > 0) {
-                  image(foeT3, foeT3X - 10, foeT3Y - 60, foeT3SizeX * 1.1, foeT3SizeY * 1.1);
-                  image(musicNote2, foeT3X + 5, foeT3Y - 60, 100, 100);
-                  text("  " + 15, foeT3X + foeT3SizeX/5, foeT3Y - 60);
-                  foeT3HP -= 15;
+                if (foe3HP > 0) {
+                  image(foe3, foe3CoordX - 10, foe3CoordY - 60, foe3SizeX * 1.1, foe3SizeY * 1.1);
+                  image(musicNote2, foe3CoordX + 5, foe3CoordY - 60, 100, 100);
+                  text("  " + 15, foe3CoordX + foe3SizeX/5, foe3CoordY - 60);
+                  foe3HP -= 15;
                 }
 
                 noFill();
@@ -1985,31 +2004,69 @@ void mousePressed () {
                 stroke(#FFCE46);
           
                 rect(13, height - 148, 235, 135, 8);
-                foeTattacked = true;
+                foe1attacked = true;
+                foe2attacked = true;
+                foe3attacked = true;
+                
                 monsterTrombone = true;
                 player2 = minim2.loadFile("firstTrumpet.mp3", 500);
                 player2.play();
                 player2.shiftGain(player2.getGain(), -30,FADE); 
-                if (foeTFlash == true && foeTattacked == true) {
-                  foeTAttack = false;
-                  foeTAlive = true;
-                  foeTInterupt = true; 
-                  foeTFlash = false;
-                  foeTinterval = int(millis()/1000) + 5;
+                //Need to add code to all foes
+                if (foe1Flash == true && foe1attacked == true) {
+                  foe1Attack = false;
+                  foe1Alive = true;
+                  foe1Interupt = true; 
+                  foe1Flash = false;
+                  foe1interval = int(millis()/1000) + 5;
                   
-                  foeTwhiteint = int(millis()/1000) + 3; 
-                  foeTflashint = int(millis()/1000) + 3;
-                  foeTredint = int(millis()/1000) + 3; 
-                  foeTflash2int = int(millis()/1000) + 3;              
+                  foe1whiteint = int(millis()/1000) + 3; 
+                  foe1flashint = int(millis()/1000) + 3;
+                  foe1redint = int(millis()/1000) + 3; 
+                  foe1flash2int = int(millis()/1000) + 3;              
              
                 }        
-
-                if (foeTInterupt == true) {
-                  foeTInterupt = false;
-                  foeTattacked = false;       
-                }                
+                if (foe1Interupt == true) {
+                  foe1Interupt = false;
+                  foe1attacked = false;       
+                }   
+                if (foe2Flash == true && foe2attacked == true) {
+                  foe2Attack = false;
+                  foe2Alive = true;
+                  foe2Interupt = true; 
+                  foe2Flash = false;
+                  foe2interval = int(millis()/1000) + 5;
+                  
+                  foe2whiteint = int(millis()/1000) + 3; 
+                  foe2flashint = int(millis()/1000) + 3;
+                  foe2redint = int(millis()/1000) + 3; 
+                  foe2flash2int = int(millis()/1000) + 3;              
+             
+                }        
+                if (foe2Interupt == true) {
+                  foe2Interupt = false;
+                  foe2attacked = false;       
+                } 
+                if (foe3Flash == true && foe3attacked == true) {
+                  foe3Attack = false;
+                  foe3Alive = true;
+                  foe3Interupt = true; 
+                  foe3Flash = false;
+                  foe3interval = int(millis()/1000) + 5;
+                  
+                  foe3whiteint = int(millis()/1000) + 3; 
+                  foe3flashint = int(millis()/1000) + 3;
+                  foe3redint = int(millis()/1000) + 3; 
+                  foe3flash2int = int(millis()/1000) + 3;              
+             
+                }        
+                if (foe3Interupt == true) {
+                  foe3Interupt = false;
+                  foe3attacked = false;       
+                }                 
               }              
             }
+            //need to add interupt code to other foes
             if (secondBlast == true) {
               if (mouseX <= foetutorialSizeX + foetutorialX + 140 && mouseX >= foetutorialX - 140
               && (mouseY <= foetutorialSizeY + foetutorialY + 140 && mouseY >= foetutorialY - 140) && foeTHP > 0) { 
