@@ -2283,7 +2283,98 @@ void mousePressed () {
               player2.play();              
             }            
           }
-          //stage1  
+          //stage1 
+          if (tutorialStage == true) {
+            if (mouseX <= foetutorialSizeX + foetutorialX && mouseX >= foetutorialX
+            && (mouseY <= foetutorialSizeY + foetutorialY && mouseY >= foetutorialY) && foeTHP > 0) { 
+
+              image(foetutorial, foetutorialX - 15, foetutorialY - 30, foetutorialSizeX * 1.2, foetutorialSizeY * 1.2);
+          
+              image(musicNote1, foetutorialX + foetutorialSizeX/5, foetutorialY - foetutorialY/10, 100, 100);
+      
+              noFill();
+              strokeWeight(5);
+              stroke(damageWave);
+              ellipse(cursorX, cursorY, 140, 140);
+              ellipse(cursorX, cursorY , 100, 100);
+              ellipse(cursorX, cursorY , 50, 50);
+              image(violin, cursorX, cursorY - 20, 46.5, 50);
+      
+              foeTHP -= damage;
+              text("  " + damage, foetutorialX + foetutorialSizeX/4, foetutorialY - foetutorialY/11);
+              fill(#E505FF);
+              foeTattacked = true;
+              monsterViolin = true;
+              
+              if (foeTFlash == true && foeTattacked == true) {
+                foeTAttack = false;
+                foeTAlive = true;
+                foeTInterupt = true; 
+                foeTFlash = false;
+                foeTinterval = int(millis()/1000) + 5;
+                foeTwhiteint = int(millis()/1000) + 3; 
+                foeTflashint = int(millis()/1000) + 3;
+                foeTredint = int(millis()/1000) + 3; 
+                foeTflash2int = int(millis()/1000) + 3;   
+                player2 = minim2.loadFile("violinFlinch.mp3", 500);
+                player2.play();            
+              }        
+              else if (foeTFlash == false) {
+                player2 = minim2.loadFile("violin.mp3", 400);
+                player2.play();
+              }
+              if (foeTInterupt == true) {
+                foeTInterupt = false;
+                foeTattacked = false;     
+              }              
+            }
+            if (mouseX <= foeT2SizeX + foeT2X && mouseX >= foeT2X
+            && (mouseY <= foeT2SizeY + foeT2Y && mouseY >= foeT2Y) && foeT2HP > 0) { 
+
+              image(foeT2, foeT2X - 15, foeT2Y - 30, foeT2SizeX * 1.2, foeT2SizeY * 1.2);
+          
+              image(musicNote1, foeT2X + foeT2SizeX/5, foeT2Y - foeT2Y/10, 100, 100);
+      
+              noFill();
+              strokeWeight(5);
+              stroke(damageWave);
+              ellipse(cursorX, cursorY, 140, 140);
+              ellipse(cursorX, cursorY , 100, 100);
+              ellipse(cursorX, cursorY , 50, 50);
+              
+              image(violin, cursorX, cursorY - 20, 46.5, 50);
+              
+              foeT2HP -= damage;
+              text("  " + damage, foeT2X + foeT2SizeX/4, foeT2Y - foeT2Y/11);
+              fill(#E505FF);
+              monsterViolin = true;
+              player2 = minim2.loadFile("violin.mp3", 400);
+              player2.play();              
+            } 
+            if (mouseX <= foeT3SizeX + foeT3X && mouseX >= foeT3X
+            && (mouseY <= foeT3SizeY + foeT3Y && mouseY >= foeT3Y) && foeT3HP > 0) { 
+
+              image(foeT3, foeT3X - 15, foeT3Y - 30, foeT3SizeX * 1.2, foeT3SizeY * 1.2);
+          
+              image(musicNote1, foeT3X + foeT3SizeX/5, foeT3Y - foeT3Y/10, 100, 100);
+      
+              noFill();
+              strokeWeight(5);
+              stroke(damageWave);
+              ellipse(cursorX, cursorY, 140, 140);
+              ellipse(cursorX, cursorY , 100, 100);
+              ellipse(cursorX, cursorY , 50, 50);
+              
+              image(violin, cursorX, cursorY - 20, 46.5, 50);
+      
+              foeT3HP -= damage;
+              text("  " + damage, foeT3X + foeT3SizeX/4, foeT3Y - foeT3Y/11);
+              fill(#E505FF);
+              monsterViolin = true;
+              player2 = minim2.loadFile("violin.mp3", 400);
+              player2.play();              
+            }            
+          }          
         }
       }
       if(foe1HP <= 0) {
