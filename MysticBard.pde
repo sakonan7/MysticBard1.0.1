@@ -517,7 +517,7 @@ void setup() {
   c2 = color(#A1FF00); 
   c3 = #ADFF00; 
   c4 = #7C0000; 
-  frameRate(30);
+  frameRate(40);
 }
 void draw() {
   image(background, 0, 0, width, height);
@@ -1506,6 +1506,8 @@ void draw() {
           foeTt = foeTinterval-int(millis()/1000);
             
           if(foeTt <= 0){
+            //try making all these ints + 1
+            //for first attack and not first attack
             if (firstAttack == true) {
                foeTwhiteint = int(millis()/1000) + 1;
                foeTflashint = int(millis()/1000) + 2;
