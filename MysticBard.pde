@@ -2113,12 +2113,12 @@ void mousePressed () {
                   foe1attacked = false;       
                 }                
               }
-              if (mouseX <= foeT2SizeX + foeT2X + 140 && mouseX >= foeT2X - 140
-              && (mouseY <= foeT2SizeY + foeT2Y + 140 && mouseY >= foeT2Y - 140) && foeT2HP > 0) { 
+              if (mouseX <= foe2SizeX + foe2CoordX + 140 && mouseX >= foe2CoordX - 140
+              && (mouseY <= foe2SizeY + foe2CoordY + 140 && mouseY >= foe2CoordY - 140) && foe2HP > 0) { 
                 
-                image(foeT2, foeT2X - 10, foeT2Y - 60, foeT2SizeX * 1.1, foeT2SizeY * 1.1);
+                image(foe2, foe2CoordX - 10, foe2CoordY - 60, foe2SizeX * 1.1, foe2SizeY * 1.1);
           
-                image(musicNote2, foeT2X + 5, foeT2Y - 60, 100, 100);
+                image(musicNote2, foe2CoordX + 5, foe2CoordY - 60, 100, 100);
 
                 noFill();
                 strokeWeight(7);
@@ -2129,8 +2129,8 @@ void mousePressed () {
                 ellipse(cursorX, cursorY , 60, 60);
                 image(trombone, cursorX - 40, cursorY - 15, 100, 40);
       
-                foeT2HP -= 10;
-                text("  " + 10, foeT2X + foeT2SizeX/5, foeT2Y - 60);
+                foe2HP -= 10;
+                text("  " + 10, foe2CoordX + foe2SizeX/5, foe2CoordY - 60);
                 
                 fill(#E505FF);
 
@@ -2139,12 +2139,12 @@ void mousePressed () {
                 player2.play();
                 player2.shiftGain(player2.getGain(), -30,FADE);                
               }
-              if (mouseX <= foeT3SizeX + foeT3X + 140 && mouseX >= foeT3X - 140
-              && (mouseY <= foeT3SizeY + foeT3Y + 140 && mouseY >= foeT3Y - 140) && foeT3HP > 0) { 
+              if (mouseX <= foe3SizeX + foe3CoordX + 140 && mouseX >= foe3CoordX - 140
+              && (mouseY <= foe3SizeY + foe3CoordY + 140 && mouseY >= foe3CoordY - 140) && foe3HP > 0) { 
 
-                image(foeT3, foeT3X - 10, foeT3Y - 60, foeT3SizeX * 1.1, foeT3SizeY * 1.1);
+                image(foe3, foe3CoordX - 10, foe3CoordY - 60, foe3SizeX * 1.1, foe3SizeY * 1.1);
           
-                image(musicNote2, foeT3X + 5, foeT3Y - 60, 100, 100);
+                image(musicNote2, foe3CoordX + 5, foe3CoordY - 60, 100, 100);
 
                 noFill();
                 strokeWeight(7);
@@ -2156,8 +2156,8 @@ void mousePressed () {
                 
                 image(trombone, cursorX - 40, cursorY - 15, 100, 40);
       
-                foeT3HP -= 10;
-                text("  " + 10, foeT3X + foeT3SizeX/5, foeT3Y - 60);
+                foe3HP -= 10;
+                text("  " + 10, foe3CoordX + foe3SizeX/5, foe3CoordY - 60);
                 
                 fill(#E505FF);
               
