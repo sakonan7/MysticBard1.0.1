@@ -2328,12 +2328,12 @@ void mousePressed () {
                 foe1attacked = false;     
               }              
             }
-            if (mouseX <= foeT2SizeX + foeT2X && mouseX >= foeT2X
-            && (mouseY <= foeT2SizeY + foeT2Y && mouseY >= foeT2Y) && foeT2HP > 0) { 
+            if (mouseX <= foe2SizeX + foe2CoordX && mouseX >= foe2CoordX
+            && (mouseY <= foe2SizeY + foe2CoordY && mouseY >= foe2CoordY) && foe2HP > 0) { 
 
-              image(foeT2, foeT2X - 15, foeT2Y - 30, foeT2SizeX * 1.2, foeT2SizeY * 1.2);
+              image(foe2, foe2CoordX - 15, foe2CoordY - 30, foe2SizeX * 1.2, foe2SizeY * 1.2);
           
-              image(musicNote1, foeT2X + foeT2SizeX/5, foeT2Y - foeT2Y/10, 100, 100);
+              image(musicNote1, foe2CoordX + foe2SizeX/5, foe2CoordY - foe2CoordY/10, 100, 100);
       
               noFill();
               strokeWeight(5);
@@ -2344,19 +2344,19 @@ void mousePressed () {
               
               image(violin, cursorX, cursorY - 20, 46.5, 50);
               
-              foeT2HP -= damage;
-              text("  " + damage, foeT2X + foeT2SizeX/4, foeT2Y - foeT2Y/11);
+              foe2HP -= damage;
+              text("  " + damage, foe2CoordX + foe2SizeX/4, foe2CoordY - foe2CoordY/11);
               fill(#E505FF);
               monsterViolin = true;
               player2 = minim2.loadFile("violin.mp3", 400);
               player2.play();              
             } 
-            if (mouseX <= foeT3SizeX + foeT3X && mouseX >= foeT3X
-            && (mouseY <= foeT3SizeY + foeT3Y && mouseY >= foeT3Y) && foeT3HP > 0) { 
+            if (mouseX <= foe3SizeX + foe3CoordX && mouseX >= foe3CoordX
+            && (mouseY <= foe3SizeY + foe3CoordY && mouseY >= foe3CoordY) && foe3HP > 0) { 
 
-              image(foeT3, foeT3X - 15, foeT3Y - 30, foeT3SizeX * 1.2, foeT3SizeY * 1.2);
+              image(foe3, foe3CoordX - 15, foe3CoordY - 30, foe3SizeX * 1.2, foe3SizeY * 1.2);
           
-              image(musicNote1, foeT3X + foeT3SizeX/5, foeT3Y - foeT3Y/10, 100, 100);
+              image(musicNote1, foe3CoordX + foe3SizeX/5, foe3CoordY - foe3CoordY/10, 100, 100);
       
               noFill();
               strokeWeight(5);
@@ -2367,8 +2367,8 @@ void mousePressed () {
               
               image(violin, cursorX, cursorY - 20, 46.5, 50);
       
-              foeT3HP -= damage;
-              text("  " + damage, foeT3X + foeT3SizeX/4, foeT3Y - foeT3Y/11);
+              foe3HP -= damage;
+              text("  " + damage, foe3CoordX + foe3SizeX/4, foe3CoordY - foe3CoordY/11);
               fill(#E505FF);
               monsterViolin = true;
               player2 = minim2.loadFile("violin.mp3", 400);
