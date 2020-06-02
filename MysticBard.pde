@@ -1186,7 +1186,13 @@ void draw() {
       tromboneDrained = true;
       violinReplenish = int(millis()/1000) + 5;
       tromboneReplenish = int(millis()/1000) + 10;
-      foeTinterval = int(millis()/1000) + int(random(5,8));
+      //split this for tutorial and stages
+      if (tutorialStage == true) {
+        foeTinterval = int(millis()/1000) + int(random(5,8));
+      }
+      if (stage1 == true) {
+        foe1interval = int(millis()/1000) + int(random(5,8));
+      }
       
       warmUp = false;
     }
