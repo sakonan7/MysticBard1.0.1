@@ -144,7 +144,7 @@ int foe8HP = 150;
 
 int playerHP = 100;
 
-int damage = 150;
+int damage = 100;
 float HPbar = 600;
 
 int currentHP = playerHP;
@@ -1245,6 +1245,19 @@ void draw() {
           image(foeT3, foeT3X, foeT3Y - 30, foeT3SizeX, foeT3SizeY);
         }
       }
+      if (stage1 == true) {
+        foe2disapp = true;
+        foe3disapp = true;
+        if (foe1HP > 0) {
+          image(foe1, foe1CoordX, foe1CoordY - 30, foe1SizeX, foe1SizeY);
+        }
+        if (foe2HP > 0) {
+          image(foe2, foe2CoordX, foe2CoordY - 30, foe2SizeX, foe2SizeY);
+        }
+        if (foe3HP > 0) {
+          image(foe3, foe3CoordX, foe3CoordY - 30, foe3SizeX, foe3SizeY);
+        }
+      }      
       fill(117,0,0,145);
       stroke(#FFFFFF);
 
@@ -1281,6 +1294,12 @@ void draw() {
       player4.shiftGain(player4.getGain(), 0,FADE); 
       if (foe1Attack == true) {
         foe1Attack = false;
+        foe1disapp = false;
+        foe2disapp = false;
+        foe3disapp = false;        
+        foe1Alive = true;
+        foe2Alive = true;
+        foe3Alive = true;        
       }
       if (foe2Attack == true) {
         foe2Attack = false;
@@ -1367,7 +1386,63 @@ void draw() {
       else if (foeTHP <= 0) {
         foeTAttack = false;
       }
-    }      
+    }    
+    if (foe1Attack == true) {  
+      foe1Alive = false;  
+      foe1whitet = foe1whiteint-int(millis()/1000); 
+      if (foe1HP > 0) {
+        if (foe1whitet > 0) {
+          image(foeWhite, foe1CoordX, foe1CoordY, foe1SizeX, foe1SizeY);
+        }
+        else if (foe1whitet <= 0) {
+          foe1flasht = foe1flashint - int(millis()/1000);
+          if (foe1flasht > 0) {
+            image(foe1, foe1CoordX, foe1CoordY, foe1SizeX, foe1SizeY);
+          }
+          else if (foe1flasht <= 0) {
+            foe1redt = foe1redint-int(millis()/1000);
+            if (foe1redt > 0) {
+              image(foeRed, foe1CoordX, foe1CoordY, foe1SizeX, foe1SizeY);
+            }
+            else if (foe1redt <= 0) {
+              foe1flash2t = foe1flash2int - int(millis()/1000);
+              if (foe1flash2t > 0) {
+                image(foe1, foe1CoordX, foe1CoordY, foe1SizeX, foe1SizeY);
+                foe1Flash = true;
+              }
+              else if (foe1flash2t <= 0 && foe1Interupt == false) {
+                if (shield == true) {
+                  foe1Attack = false;
+                  attackBlocked = true;
+                
+                  foe1interval = int(millis()/1000) + 5;
+                  foe1whiteint = int(millis()/1000) + 3; 
+                  foe1flashint = int(millis()/1000) + 3;
+                  foe1redint = int(millis()/1000) + 3; 
+                  foe1flash2int = int(millis()/1000) + 3;
+                }
+                else if (shield == false) {
+                
+                  playerAttacked = true;
+                  foe2Alive = false;
+                  foe3Alive = false;                 
+                    
+                  foe1interval = int(millis()/1000) + 5;
+                  foe1whiteint = int(millis()/1000) + 3;
+                  foe1flashint = int(millis()/1000) + 3;
+                  foe1redint = int(millis()/1000) + 3;
+                  foe1flash2int = int(millis()/1000) + 3;
+                } 
+                foe1Flash = false;
+              }
+            }                  
+          }
+        }        
+      }
+      else if (foe1HP <= 0) {
+        foe1Attack = false;
+      }
+    }    
 
     if (foe3Attack == true) {
       playerAttacked = true;
@@ -1551,6 +1626,33 @@ void draw() {
         if (foe1disapp == false) {
           image(foe1, foe1CoordX, foe1CoordY, foe1SizeX, foe1SizeY);
         }
+        if (foe1Attack == false && foe1HP > 0) {
+          foe1t = foe1interval-int(millis()/1000);
+            
+          if(foe1t <= 0){
+            //try making all these ints + 1
+            //for first attack and not first attack
+            if (firstAttack == true) {
+               foe1whiteint = int(millis()/1000) + 1;
+               foe1flashint = int(millis()/1000) + 2;
+               foe1redint = int(millis()/1000) + 3;
+               foe1flash2int = int(millis()/1000) + 4;              
+               
+            }
+            else if (firstAttack == false) {
+              //may have to change
+              foe1whiteint += 3;
+              foe1flashint += 4;
+              foe1redint += 5;
+              foe1flash2int += 6;              
+            }           
+              
+            foe1disapp = true;
+            foe1Attack = true;
+            foe1Alive = false;
+            firstAttack = false;
+          }
+        }        
       }  
       if (foe2Alive == true) {
         if (foe2disapp == false) {
@@ -2447,9 +2549,7 @@ void mousePressed () {
       currentHP = playerHP;
       HPbar = originalHPbar;
       currentHPX = originalHPX;
-      foeTHP = 150;
-      foeT2HP = 150;
-      foeT3HP = 150;
+
       violinBar = 0;
       tromboneBar = 0;
       currentViolinBarX = 465;
