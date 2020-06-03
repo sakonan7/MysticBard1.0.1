@@ -2543,7 +2543,7 @@ void mousePressed () {
       if (foeT3HP <= 0) {
         foeT3Alive = false;
       }      
-      if (foeTHP <= 0 && foeT2HP <= 0 && foeT3HP <= 0 && playerAlive == true) {
+      if (foeTHP <= 0 && foeT2HP <= 0 && foeT3HP <= 0 && tutorialStage == true && playerAlive == true) {
         tutorialVictory = true;
         tutorialVictoryPage = true;
         tutorialStage = false;
@@ -2556,11 +2556,13 @@ void mousePressed () {
         player3.loop();          
       }      
       
-      if (foe1HP <= 0 && foe2HP <= 0 && foe3HP <= 0 && playerAlive == true) {
+      if (foe1HP <= 0 && foe2HP <= 0 && foe3HP <= 0 && stage1 == true && playerAlive == true) {
         victory = true;
         victoryPage = true;
         stage1 = false;
         playerAlive = false; 
+        minim.stop();
+        
         player3 = minim3.loadFile("Victory.mp3", 800);
         player3.play();    
         player3.shiftGain(player3.getGain(),-15,FADE);
@@ -2682,6 +2684,52 @@ void mousePressed () {
       player.loop();      
     }
   }
+  else if (redDead == true) {
+    if (mouseButton == RIGHT && redDeadPage == true) {
+      redDeadPage = false;
+      tutorialDead = true;
+      player3 = minim3.loadFile("death.mp3", 800);
+      player3.play();    
+      player3.shiftGain(player3.getGain(),-15,FADE);
+      player3.loop();       
+    }
+    else if (mouseButton == RIGHT && tutorialDead == true) {
+      tutorialDead = false;
+      tutorialRestart = true;
+    }
+    //use this for starting another level
+    //stageOne = true;
+    else if (mouseButton == RIGHT && tutorialRestart == true) {
+      warmUp = true;
+      firstAttack = true;
+      playerHP = 100;
+      currentHP = playerHP;
+      HPbar = originalHPbar;
+      currentHPX = originalHPX;
+      foeTHP = 150;
+      foeT2HP = 150;
+      foeT3HP = 150;
+      violinBar = 0;
+      tromboneBar = 0;
+      currentViolinBarX = 465;
+      currentTromboneBarX = 225;
+      shieldBar = 190;
+      currentShieldBarX = originalShieldBarX;
+      shieldDrained = false;
+      foeTAlive = true;
+      foeT2Alive = true;
+      foeT3Alive = true;
+      playerAlive = true;
+      tutorialRestart = false;
+      redTDead = false;
+      minim3.stop();
+      
+      player = minim.loadFile("Battle.mp3", 800);
+      player.play();
+      player.shiftGain(player.getGain(),-15,FADE);
+      player.loop();      
+    }
+  }  
 }
 void setGradient(int x, int y, float w, float h, color c1, color c2, int axis ) {
 
