@@ -342,6 +342,8 @@ boolean messageLast = false;
 boolean messageOver = false;
 
 boolean victory = false;
+boolean victoryPage = false;
+boolean victoryConclude = false;
 
 boolean tutorialVictory = false;
 
@@ -351,6 +353,7 @@ boolean tutorialConclude = false;
 boolean stayTuned = false;
 boolean musicCredits = false;
 
+boolean redTDead = false;
 boolean redDead = false;
 boolean redDeadPage = false;
 
@@ -619,7 +622,7 @@ void draw() {
     textFont(Font1);
     text("\n" + "\n" + "Click Right to Go to Title Screen", width - 520, height - 165);
   }  
-  if (victory == true) {
+  if (victoryPage == true) {
     fill(#000096);
     rect(25, 25, width - 50, height - 50);
     textFont(Font2);
@@ -643,8 +646,32 @@ void draw() {
     fill(#FFF300);
     textFont(Font1);
     text("\n" + "\n" + clickRight, width - 385, height - 165);
-
   }
+  if (victoryConclude == true) {
+    fill(#000096);
+    rect(25, 25, width - 50, height - 50);
+    textFont(Font2);
+    fill(#FFFFFF);
+    
+    stroke(#98FFFC);
+    strokeWeight(3);
+    textFont(Font2);
+    
+    text("Victory" + "\n", 50, height - height + 90);     
+    textFont(Font3);
+    fill(#FFFFFF);
+    text("Congratulations!!" + "\n", 50, height - height + 150);
+    textFont(Font1);
+    fill(#FFF300);
+    fill(#FFFFFF);
+    text("You have successfully protected the village!", 50, 210);
+    
+    image(tutorialV, 230, 250, 625, 463);
+    
+    fill(#FFF300);
+    textFont(Font1);
+    text("\n" + "\n" + "Click Right to Start", width - 320, height - 165);     
+  }  
   if (redDeadPage == true) {
     
     setGradient(currentShieldBarX, height-105, shieldBar, 15, c3, c4, 2);
@@ -1323,13 +1350,20 @@ void draw() {
         foeT3Alive = true;
       }    
       playerAttacked = false;
-      if (playerHP <= 0 && (tutorialStage == true || stage1 == true)) {
+      if (playerHP <= 0 && tutorialStage == true) {
+        //may need to do if stage2, foe not alive to make them disappear
+        playerAlive = false;
+        redTDead = true;
+        redDeadPage = true;
+        minim.stop();
+      } 
+      if (playerHP <= 0 && stage1 == true) {
         //may need to do if stage2, foe not alive to make them disappear
         playerAlive = false;
         redDead = true;
         redDeadPage = true;
         minim.stop();
-      }    
+      }         
     }
     if (foeTAttack == true) {  
       foeTAlive = false;  
@@ -2522,10 +2556,11 @@ void mousePressed () {
         player3.loop();          
       }      
       
-      if (foe2Alive == false && foe1Alive == false && foe3Alive == false && 
-        foe4Alive == false && foe5Alive == false && playerAlive == true) {
+      if (foe1HP <= 0 && foe2HP <= 0 && foe3HP <= 0 && playerAlive == true) {
         victory = true;
-        playerAlive =false; 
+        victoryPage = true;
+        stage1 = false;
+        playerAlive = false; 
         player3 = minim3.loadFile("Victory.mp3", 800);
         player3.play();    
         player3.shiftGain(player3.getGain(),-15,FADE);
@@ -2567,7 +2602,41 @@ void mousePressed () {
     }
 
   }
-  else if (redDead == true) {
+  else if (victory == true) {
+    if (mouseButton == RIGHT && victoryPage == true) {
+      victoryPage = false;
+      victoryConclude = true;
+      //tutorialEnd = true;
+    }
+    //If I stop at this level, use musiccredits
+    else if (mouseButton == RIGHT && tutorialConclude == true) {
+      tutorialConclude = false;
+      stage1 = true;
+      warmUp = true;
+      firstAttack = true;
+      playerHP = 100;
+      currentHP = playerHP;
+      HPbar = originalHPbar;
+      currentHPX = originalHPX;
+
+      violinBar = 0;
+      tromboneBar = 0;
+      currentViolinBarX = 465;
+      currentTromboneBarX = 225;
+      shieldBar = 190;
+      currentShieldBarX = originalShieldBarX;
+      shieldDrained = false;
+      playerAlive = true;
+      minim3.stop();
+      
+      player = minim.loadFile("Battle.mp3", 800);
+      player.play();
+      player.shiftGain(player.getGain(),-15,FADE);
+      player.loop();      
+    }
+
+  }  
+  else if (redTDead == true) {
     if (mouseButton == RIGHT && redDeadPage == true) {
       redDeadPage = false;
       tutorialDead = true;
@@ -2604,7 +2673,7 @@ void mousePressed () {
       foeT3Alive = true;
       playerAlive = true;
       tutorialRestart = false;
-      redDead = false;
+      redTDead = false;
       minim3.stop();
       
       player = minim.loadFile("Battle.mp3", 800);
