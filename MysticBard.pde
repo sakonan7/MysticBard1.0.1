@@ -1324,9 +1324,15 @@ void draw() {
         foe1disapp = false;
         foe2disapp = false;
         foe3disapp = false;        
-        foe1Alive = true;
-        foe2Alive = true;
-        foe3Alive = true;        
+        if (foe1HP > 0) {
+          foe1Alive = true;
+        }
+        if (foe2HP > 0) {
+          foe2Alive = true;
+        }
+        if (foe3HP > 0) {
+          foe3Alive = true;
+        }         
       }
       if (foe2Attack == true) {
         foe2Attack = false;
@@ -1344,10 +1350,16 @@ void draw() {
         foeTAttack = false;
         foeTdisapp = false;
         foeT2disapp = false;
-        foeT3disapp = false;        
-        foeTAlive = true;
-        foeT2Alive = true;
-        foeT3Alive = true;
+        foeT3disapp = false;   
+        if (foeTHP > 0) {
+          foeTAlive = true;
+        }
+        if (foeT2HP > 0) {
+          foeT2Alive = true;
+        }
+        if (foeT3HP > 0) {
+          foeT3Alive = true;
+        }        
       }    
       playerAttacked = false;
       if (playerHP <= 0 && tutorialStage == true) {
@@ -1506,7 +1518,21 @@ void draw() {
             if (foeT3HP > 0) {
               image(foeT3, foeT3X, foeT3Y, foeT3SizeX, foeT3SizeY);
             }
-          }              
+          }   
+          if (stage1 == true) {
+            foe1disapp = true;
+            foe2disapp = true;
+            foe3disapp = true;
+            if (foe1HP > 0) {
+              image(foe1, foe1CoordX, foe1CoordY, foe1SizeX, foe1SizeY);
+            }
+            if (foe2HP > 0) {
+              image(foe2, foe2CoordX, foe2CoordY, foe2SizeX, foe2SizeY);
+            }
+            if (foe3HP > 0) {
+              image(foe3, foe3CoordX, foe3CoordY, foe3SizeX, foe3SizeY);
+            }
+          }          
           image(violinUI, 251, height - 156, 240, 156);
           image(tromboneD, 7, height - 157, 244, 156);
           image(shieldD, width - 253, height - 157, 244, 156);              
@@ -1550,6 +1576,20 @@ void draw() {
               image(foeT3, foeT3X, foeT3Y - 20, foeT3SizeX, foeT3SizeY);
             }
           } 
+          if (stage1 == true) {
+            foe1disapp = true;
+            foe2disapp = true;
+            foe3disapp = true;
+            if (foe1HP > 0) {
+              image(foe1, foe1CoordX, foe1CoordY - 20, foe1SizeX, foe1SizeY);
+            }
+            if (foe2HP > 0) {
+              image(foe2, foe2CoordX, foe2CoordY - 20, foe2SizeX, foe2SizeY);
+            }
+            if (foe3HP > 0) {
+              image(foe3, foe3CoordX, foe3CoordY - 20, foe3SizeX, foe3SizeY);
+            }
+          }           
           image(violinUI, 251, height - 156, 240, 156);
           image(tromboneD, 7, height - 157, 244, 156);
           image(shieldD, width - 253, height - 157, 244, 156);              
@@ -1602,7 +1642,10 @@ void draw() {
          shield = false;
          if (foeTHP > 0) {
            foeTAlive = true;
-         }            
+         }   
+         if (foe1HP > 0) {
+           foe1Alive = true;
+         }         
        }
     }
     else if (shield == false) {
@@ -1611,6 +1654,11 @@ void draw() {
         foeT2disapp = false;
         foeT3disapp = false;
       }
+      if (stage1 == true) {
+        foe1disapp = false;
+        foe2disapp = false;
+        foe3disapp = false;
+      }      
     }
     if (tutorialStage == true) {
       if(foeTAlive == true) {  
