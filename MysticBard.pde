@@ -197,6 +197,8 @@ boolean playerTDead = false;
 boolean tutorialStage = false;
 boolean stage1 = false;
 
+boolean stage1Dead = false;
+
 int foeTinterval = int(random(5, 8));
 int foeTt = 0;
 String foeTtime = "005";
@@ -1293,7 +1295,7 @@ void draw() {
       image(shieldD, width - 253, height - 157, 244, 156);          
       rect(0, 1, 1099, 898);        
 
-      playerHP -= 10;
+      playerHP -= 100;
       HPbar = HPbar - originalHPbar/10;
       currentHPX = currentHPX + originalHPX/10;
         
@@ -1371,6 +1373,7 @@ void draw() {
       } 
       if (playerHP <= 0 && stage1 == true) {
         //may need to do if stage2, foe not alive to make them disappear
+        stage1Dead = true;
         playerAlive = false;
         redDead = true;
         redDeadPage = true;
@@ -2735,28 +2738,26 @@ void mousePressed () {
   else if (redDead == true) {
     if (mouseButton == RIGHT && redDeadPage == true) {
       redDeadPage = false;
-      tutorialDead = true;
+      playerDead = true;
       player3 = minim3.loadFile("death.mp3", 800);
       player3.play();    
       player3.shiftGain(player3.getGain(),-15,FADE);
       player3.loop();       
     }
-    else if (mouseButton == RIGHT && tutorialDead == true) {
-      tutorialDead = false;
-      tutorialRestart = true;
+    else if (mouseButton == RIGHT && playerDead == true) {
+      playerDead = false;
+      tryAgain = true;
     }
     //use this for starting another level
     //stageOne = true;
-    else if (mouseButton == RIGHT && tutorialRestart == true) {
+    else if (mouseButton == RIGHT && tryAgain == true) {
       warmUp = true;
       firstAttack = true;
       playerHP = 100;
       currentHP = playerHP;
       HPbar = originalHPbar;
       currentHPX = originalHPX;
-      foeTHP = 150;
-      foeT2HP = 150;
-      foeT3HP = 150;
+
       violinBar = 0;
       tromboneBar = 0;
       currentViolinBarX = 465;
@@ -2764,12 +2765,23 @@ void mousePressed () {
       shieldBar = 190;
       currentShieldBarX = originalShieldBarX;
       shieldDrained = false;
-      foeTAlive = true;
-      foeT2Alive = true;
-      foeT3Alive = true;
+
       playerAlive = true;
-      tutorialRestart = false;
-      redTDead = false;
+      tryAgain = false;
+      redDead = false;
+      
+      //depending on stage, different stage will be restarted
+      if (stage1Dead == true) {
+        stage1Dead = false;
+        stage1 = true;
+        foe1HP = 150;
+        foe2HP = 150;
+        foe3HP = 150;  
+        foe1Alive = true;
+        foe2Alive = true;
+        foe3Alive = true;      
+      }
+      
       minim3.stop();
       
       player = minim.loadFile("Battle.mp3", 800);
