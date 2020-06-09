@@ -675,14 +675,13 @@ void draw() {
     text("\n" + "\n" + "Click Right to Start", width - 320, height - 165);     
   }  
   if (redDeadPage == true) {
+    image(violinUI, 251, height - 156, 240, 156);
+    image(tromboneD, 7, height - 157, 244, 156);
+    image(shieldD, width - 253, height - 157, 244, 156);    
     
     setGradient(currentShieldBarX, height-105, shieldBar, 15, c3, c4, 2);
     setGradient(currentViolinBarX, height-105, violinBar, 15, c3, c4, 2); //Violin
     setGradient(currentTromboneBarX, height-105, tromboneBar, 15, c3, c4, 2);
-        
-    image(violinUI, 251, height - 156, 240, 156);
-    image(tromboneD, 7, height - 157, 244, 156);
-    image(shieldD, width - 253, height - 157, 244, 156);
     
     if (weapon == "Violin") {
       stroke(#FFCE46);
@@ -703,12 +702,23 @@ void draw() {
           image(foeT3, foeT3X, foeT3Y, foeT3SizeX, foeT3SizeY);
         }      
     }
+    if (stage1 == true) {
+        if (foe1Alive == true) {
+          image(foe1, foe1CoordX, foe1CoordY, foe1SizeX, foe1SizeY);
+        }
+        if (foe2Alive == true) {
+          image(foe2, foe2CoordX, foe2CoordY, foe2SizeX, foe2SizeY);
+        }
+        if (foe3Alive == true) {
+          image(foe3, foe3CoordX, foe3CoordY, foe3SizeX, foe3SizeY);
+        }      
+    }    
     fill(117,0,0,175);   
     rect(0, 1, 1100, 900); 
     
     textFont(Font2);
     fill(#FFF300);
-    text("You Died", 440, 430);
+    text("You Died", 440, 460);
     textFont(Font1);
     text("\n" + "\n" + clickRight, width - 365, height - 135);    
     
@@ -1371,7 +1381,7 @@ void draw() {
         redDeadPage = true;
         minim.stop();
       } 
-      if (playerHP <= 0 && stage1 == true) {
+      else if (playerHP <= 0 && stage1 == true) {
         //may need to do if stage2, foe not alive to make them disappear
         stage1Dead = true;
         playerAlive = false;
@@ -2646,6 +2656,7 @@ void mousePressed () {
       currentShieldBarX = originalShieldBarX;
       shieldDrained = false;
       playerAlive = true;
+      weapon = "Violin";
       minim3.stop();
       
       player = minim.loadFile("Battle.mp3", 800);
@@ -2680,6 +2691,7 @@ void mousePressed () {
       currentShieldBarX = originalShieldBarX;
       shieldDrained = false;
       playerAlive = true;
+      weapon = "Violin";
       minim3.stop();
       
       player = minim.loadFile("Battle.mp3", 800);
@@ -2727,6 +2739,7 @@ void mousePressed () {
       playerAlive = true;
       tutorialRestart = false;
       redTDead = false;
+      weapon = "Violin";
       minim3.stop();
       
       player = minim.loadFile("Battle.mp3", 800);
@@ -2765,7 +2778,7 @@ void mousePressed () {
       shieldBar = 190;
       currentShieldBarX = originalShieldBarX;
       shieldDrained = false;
-
+      weapon = "Violin";
       playerAlive = true;
       tryAgain = false;
       redDead = false;
