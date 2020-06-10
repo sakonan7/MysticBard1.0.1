@@ -771,7 +771,7 @@ void draw() {
     fill(#FFFFFF);
     text("You were defeated and the village was overrun by monsters.", 50, 210);
 
-    image(dead, 180, 230, 1002, 563);
+    image(dead, 75, 245, 949, 533);
     fill(#FFF300);
     textFont(Font1);
     text("\n" + "\n" + "Click Right to Try Again", width - 390, height - 165);    
