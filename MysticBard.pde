@@ -1503,8 +1503,64 @@ void draw() {
       else if (foe1HP <= 0) {
         foe1Attack = false;
       }
-    }    
-
+    }  
+    //foe2 Attack
+    if (foe1Attack == true) {  
+      foe1Alive = false;  
+      foe1whitet = foe1whiteint-int(millis()/1000); 
+      if (foe1HP > 0) {
+        if (foe1whitet > 0) {
+          image(foeWhite, foe1CoordX, foe1CoordY, foe1SizeX, foe1SizeY);
+        }
+        else if (foe1whitet <= 0) {
+          foe1flasht = foe1flashint - int(millis()/1000);
+          if (foe1flasht > 0) {
+            image(foe1, foe1CoordX, foe1CoordY, foe1SizeX, foe1SizeY);
+          }
+          else if (foe1flasht <= 0) {
+            foe1redt = foe1redint-int(millis()/1000);
+            if (foe1redt > 0) {
+              image(foeRed, foe1CoordX, foe1CoordY, foe1SizeX, foe1SizeY);
+            }
+            else if (foe1redt <= 0) {
+              foe1flash2t = foe1flash2int - int(millis()/1000);
+              if (foe1flash2t > 0) {
+                image(foe1, foe1CoordX, foe1CoordY, foe1SizeX, foe1SizeY);
+                foe1Flash = true;
+              }
+              else if (foe1flash2t <= 0 && foe1Interupt == false) {
+                if (shield == true) {
+                  foe1Attack = false;
+                  attackBlocked = true;
+                
+                  foe1interval = int(millis()/1000) + 5;
+                  foe1whiteint = int(millis()/1000) + 3; 
+                  foe1flashint = int(millis()/1000) + 3;
+                  foe1redint = int(millis()/1000) + 3; 
+                  foe1flash2int = int(millis()/1000) + 3;
+                }
+                else if (shield == false) {
+                
+                  playerAttacked = true;
+                  foe2Alive = false;
+                  foe3Alive = false;                 
+                    
+                  foe1interval = int(millis()/1000) + 5;
+                  foe1whiteint = int(millis()/1000) + 3;
+                  foe1flashint = int(millis()/1000) + 3;
+                  foe1redint = int(millis()/1000) + 3;
+                  foe1flash2int = int(millis()/1000) + 3;
+                } 
+                foe1Flash = false;
+              }
+            }                  
+          }
+        }        
+      }
+      else if (foe1HP <= 0) {
+        foe1Attack = false;
+      }
+    }
     if (foe3Attack == true) {
       playerAttacked = true;
     }
