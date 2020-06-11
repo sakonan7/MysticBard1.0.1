@@ -744,10 +744,10 @@ void draw() {
     fill(#FFFFFF);
     text("You were defeated and the village was overrun by monsters.", 50, 210);
 
-    image(dead, 180, 230, 1002, 563);
+    image(dead, 75, 245, 949, 533);
     fill(#FFF300);
     textFont(Font1);
-    text("\n" + "\n" + "Click Right to Try Again", width - 390, height - 165);    
+    text("\n" + "\n" + "Click Right to Restart", width - 360, height - 165);    
   } 
   //try again
   if (tryAgain == true) {
@@ -823,7 +823,7 @@ void draw() {
     image(tutorialD, 180, 230, 478, 563);
     fill(#FFF300);
     textFont(Font1);
-    text("\n" + "\n" + "Click Right to Restart", width - 360, height - 165);
+    text("\n" + "\n" + "Click Right to Try Again", width - 390, height - 165);
   }  
   if (titlePage == true) {
     image(title, 0, 0, 1100, 900);
@@ -1285,6 +1285,7 @@ void draw() {
         }
       }
       if (stage1 == true) {
+        foe1disapp = true;
         foe2disapp = true;
         foe3disapp = true;
         if (foe1HP > 0) {
@@ -1388,6 +1389,7 @@ void draw() {
         redDead = true;
         redDeadPage = true;
         minim.stop();
+        println("Stage 1 Dead");
       }         
     }
     if (foeTAttack == true) {  
@@ -2632,7 +2634,7 @@ void mousePressed () {
       
     }
   }
-  else if (tutorialVictory == true) {
+  if (tutorialVictory == true) {
     if (mouseButton == RIGHT && tutorialVictoryPage == true) {
       tutorialVictoryPage = false;
       tutorialConclude = true;
@@ -2666,7 +2668,7 @@ void mousePressed () {
     }
 
   }
-  else if (victory == true) {
+  if (victory == true) {
     if (mouseButton == RIGHT && victoryPage == true) {
       victoryPage = false;
       victoryConclude = true;
@@ -2701,7 +2703,7 @@ void mousePressed () {
     }
 
   }  
-  else if (redTDead == true) {
+  if (redTDead == true) {
     if (mouseButton == RIGHT && redDeadPage == true) {
       redDeadPage = false;
       tutorialDead = true;
@@ -2748,14 +2750,15 @@ void mousePressed () {
       player.loop();      
     }
   }
-  else if (redDead == true) {
+  if (redDead == true) {
     if (mouseButton == RIGHT && redDeadPage == true) {
       redDeadPage = false;
       playerDead = true;
       player3 = minim3.loadFile("death.mp3", 800);
       player3.play();    
       player3.shiftGain(player3.getGain(),-15,FADE);
-      player3.loop();       
+      player3.loop();      
+      println("Here");
     }
     else if (mouseButton == RIGHT && playerDead == true) {
       playerDead = false;
