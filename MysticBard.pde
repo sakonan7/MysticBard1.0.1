@@ -1270,7 +1270,7 @@ void draw() {
       }
     
     }
-      
+    //foe2b  
     if (playerAttacked == true) {
       image(background, 0, -40, width, height);
       if (tutorialStage == true) {
@@ -1306,7 +1306,7 @@ void draw() {
       image(shieldD, width - 253, height - 157, 244, 156);          
       rect(0, 1, 1099, 898);        
 
-      playerHP -= 100;
+      playerHP -= 10;
       HPbar = HPbar - originalHPbar/10;
       currentHPX = currentHPX + originalHPX/10;
         
@@ -1334,6 +1334,7 @@ void draw() {
       player4.shiftGain(player4.getGain(), 0,FADE); 
       if (foe1Attack == true) {
         foe1Attack = false;
+        
         foe1disapp = false;
         foe2disapp = false;
         foe3disapp = false;        
@@ -1349,6 +1350,19 @@ void draw() {
       }
       if (foe2Attack == true) {
         foe2Attack = false;
+        
+        foe1disapp = false;
+        foe2disapp = false;
+        foe3disapp = false;        
+        if (foe1HP > 0) {
+          foe1Alive = true;
+        }
+        if (foe2HP > 0) {
+          foe2Alive = true;
+        }
+        if (foe3HP > 0) {
+          foe3Alive = true;
+        }        
       }
       if (foe3Attack == true) {
         foe3Attack = false;
@@ -1504,7 +1518,7 @@ void draw() {
         foe1Attack = false;
       }
     }  
-    //foe2 Attack
+    //foe2a
     if (foe2Attack == true) {  
       foe2Alive = false;  
       foe2whitet = foe2whiteint-int(millis()/1000); 
@@ -1810,6 +1824,34 @@ void draw() {
       if (foe2Alive == true) {
         if (foe2disapp == false) {
           image(foe2, foe2CoordX, foe2CoordY, foe2SizeX, foe2SizeY);
+        }    
+        //foe2c
+        if (foe2Attack == false && foe2HP > 0) {
+          foe2t = foe2interval-int(millis()/1000);
+            
+          if(foe2t <= 0){
+            //try making all these ints + 1
+            //for first attack and not first attack
+            if (firstAttack == true) {
+               foe2whiteint = int(millis()/1000) + 1;
+               foe2flashint = int(millis()/1000) + 2;
+               foe2redint = int(millis()/1000) + 3;
+               foe2flash2int = int(millis()/1000) + 4;              
+               
+            }
+            else if (firstAttack == false) {
+              //may have to change
+              foe2whiteint += 3;
+              foe2flashint += 4;
+              foe2redint += 5;
+              foe2flash2int += 6;              
+            }           
+              
+            foe2disapp = true;
+            foe2Attack = true;
+            foe2Alive = false;
+            firstAttack = false;
+          }
         }        
       }
       if(foe3Alive == true) {
