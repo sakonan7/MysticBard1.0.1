@@ -1336,6 +1336,8 @@ void draw() {
       player4 = minim4.loadFile("axepunch.mp3", 500);
       player4.play();
       player4.shiftGain(player4.getGain(), 0,FADE); 
+      //maybe put this code in playerAttacked == false
+      //depending on the stage, cancel disapp and make the foes alive
       if (foe1Attack == true) {
         foe1Attack = false;
         
