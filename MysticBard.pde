@@ -217,7 +217,11 @@ String foeTredtime = "003";
 boolean foeTFlash = false;
 
 boolean warmUp = true;
-boolean firstAttack = true;
+boolean firstTAttack = true;
+
+boolean first1Attack = true;
+boolean first2Attack = true;
+boolean first3Attack = true;
 
 int foe1interval = 5;
 int foe1t = 0;
@@ -1756,14 +1760,14 @@ void draw() {
           if(foeTt <= 0){
             //try making all these ints + 1
             //for first attack and not first attack
-            if (firstAttack == true) {
+            if (firstTAttack == true) {
                foeTwhiteint = int(millis()/1000) + 1;
                foeTflashint = int(millis()/1000) + 2;
                foeTredint = int(millis()/1000) + 3;
                foeTflash2int = int(millis()/1000) + 4;              
                
             }
-            else if (firstAttack == false) {
+            else if (firstTAttack == false) {
               foeTwhiteint += 3;
               foeTflashint += 4;
               foeTredint += 5;
@@ -1773,7 +1777,7 @@ void draw() {
             foeTdisapp = true;
             foeTAttack = true;
             foeTAlive = false;
-            firstAttack = false;
+            firstTAttack = false;
           }
         }
       }   
@@ -1799,14 +1803,14 @@ void draw() {
           if(foe1t <= 0){
             //try making all these ints + 1
             //for first attack and not first attack
-            if (firstAttack == true) {
+            if (first1Attack == true) {
                foe1whiteint = int(millis()/1000) + 1;
                foe1flashint = int(millis()/1000) + 2;
                foe1redint = int(millis()/1000) + 3;
                foe1flash2int = int(millis()/1000) + 4;              
                
             }
-            else if (firstAttack == false) {
+            else if (first1Attack == false) {
               //may have to change
               foe1whiteint += 3;
               foe1flashint += 4;
@@ -1817,7 +1821,7 @@ void draw() {
             foe1disapp = true;
             foe1Attack = true;
             foe1Alive = false;
-            firstAttack = false;
+            first1Attack = false;
           }
         }        
       }  
@@ -1832,14 +1836,14 @@ void draw() {
           if(foe2t <= 0){
             //try making all these ints + 1
             //for first attack and not first attack
-            if (firstAttack == true) {
+            if (first2Attack == true) {
                foe2whiteint = int(millis()/1000) + 1;
                foe2flashint = int(millis()/1000) + 2;
                foe2redint = int(millis()/1000) + 3;
                foe2flash2int = int(millis()/1000) + 4;              
                
             }
-            else if (firstAttack == false) {
+            else if (first2Attack == false) {
               //may have to change
               foe2whiteint += 3;
               foe2flashint += 4;
@@ -1850,7 +1854,7 @@ void draw() {
             foe2disapp = true;
             foe2Attack = true;
             foe2Alive = false;
-            firstAttack = false;
+            first2Attack = false;
           }
         }        
       }
@@ -2742,7 +2746,7 @@ void mousePressed () {
       tutorialConclude = false;
       stage1 = true;
       warmUp = true;
-      firstAttack = true;
+      
       playerHP = 100;
       currentHP = playerHP;
       HPbar = originalHPbar;
@@ -2777,7 +2781,7 @@ void mousePressed () {
       tutorialConclude = false;
       stage1 = true;
       warmUp = true;
-      firstAttack = true;
+      
       playerHP = 100;
       currentHP = playerHP;
       HPbar = originalHPbar;
@@ -2818,7 +2822,7 @@ void mousePressed () {
     //stageOne = true;
     else if (mouseButton == RIGHT && tutorialRestart == true) {
       warmUp = true;
-      firstAttack = true;
+      firstTAttack = true;
       playerHP = 100;
       currentHP = playerHP;
       HPbar = originalHPbar;
@@ -2866,7 +2870,8 @@ void mousePressed () {
     //stageOne = true;
     else if (mouseButton == RIGHT && tryAgain == true) {
       warmUp = true;
-      firstAttack = true;
+      first1Attack = true;
+      first2Attack = true;
       playerHP = 100;
       currentHP = playerHP;
       HPbar = originalHPbar;
