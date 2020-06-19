@@ -1235,6 +1235,7 @@ void draw() {
       }
       if (stage1 == true) {
         foe1interval = int(millis()/1000) + int(random(5,8));
+        foe2interval = int(millis()/1000) + int(random(5,8));
       }
       
       warmUp = false;
@@ -1309,10 +1310,6 @@ void draw() {
       image(tromboneD, 7, height - 157, 244, 156);
       image(shieldD, width - 253, height - 157, 244, 156);          
       rect(0, 1, 1099, 898);        
-
-      playerHP -= 10;
-      HPbar = HPbar - originalHPbar/10;
-      currentHPX = currentHPX + originalHPX/10;
         
       setGradient(currentHPX, 50, HPbar, 40, c2, c1, 3);
  
@@ -1432,6 +1429,11 @@ void draw() {
                   foeTflashint = int(millis()/1000) + 3;
                   foeTredint = int(millis()/1000) + 3;
                   foeTflash2int = int(millis()/1000) + 3;
+                  
+                  playerHP -= 10;
+                  HPbar = HPbar - originalHPbar/10;
+                  currentHPX = currentHPX + originalHPX/10;         
+                  println(10);
                 } 
                 foeTFlash = false;
                 foeTAttack = false;
@@ -1489,6 +1491,10 @@ void draw() {
                   foe1flashint = int(millis()/1000) + 3;
                   foe1redint = int(millis()/1000) + 3;
                   foe1flash2int = int(millis()/1000) + 3;
+                  playerHP -= 10;
+                  HPbar = HPbar - originalHPbar/10;
+                  currentHPX = currentHPX + originalHPX/10;
+                  println(10);
                 } 
                 foe1Flash = false;
                 foe1Attack = false;
@@ -1547,6 +1553,10 @@ void draw() {
                   foe2flashint = int(millis()/1000) + 3;
                   foe2redint = int(millis()/1000) + 3;
                   foe2flash2int = int(millis()/1000) + 3;
+                  playerHP -= 10;
+                  HPbar = HPbar - originalHPbar/10;
+                  currentHPX = currentHPX + originalHPX/10;
+                  println(10);                  
                 } 
                 foe2Flash = false;
                 foe2Attack = false;
