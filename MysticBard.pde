@@ -2436,7 +2436,24 @@ void mousePressed () {
                 monsterTrombone = true;
                 player2 = minim2.loadFile("secondTrumpet.mp3", 500);
                 player2.play();
-                player2.shiftGain(player2.getGain(), -30,FADE);                
+                player2.shiftGain(player2.getGain(), -30,FADE);  
+                if (foe2Flash == true && foe2attacked == true) {
+                  foe2Attack = false;
+                  foe2Alive = true;
+                  foe2Interupt = true; 
+                  foe2Flash = false;
+                  foe2interval = int(millis()/1000) + 5;
+                  
+                  foe2whiteint = int(millis()/1000) + 3; 
+                  foe2flashint = int(millis()/1000) + 3;
+                  foe2redint = int(millis()/1000) + 3; 
+                  foe2flash2int = int(millis()/1000) + 3;              
+             
+                }        
+                if (foe2Interupt == true) {
+                  foe2Interupt = false;
+                  foe2attacked = false;       
+                }                
               }
               if (mouseX <= foe3SizeX + foe3CoordX + 140 && mouseX >= foe3CoordX - 140
               && (mouseY <= foe3SizeY + foe3CoordY + 140 && mouseY >= foe3CoordY - 140) && foe3HP > 0) { 
@@ -2463,7 +2480,24 @@ void mousePressed () {
                 monsterTrombone = true;
                 player2 = minim2.loadFile("secondTrumpet.mp3", 500);
                 player2.play();
-                player2.shiftGain(player2.getGain(), -30,FADE);                
+                player2.shiftGain(player2.getGain(), -30,FADE);  
+                if (foe3Flash == true && foe3attacked == true) {
+                  foe3Attack = false;
+                  foe3Alive = true;
+                  foe3Interupt = true; 
+                  foe3Flash = false;
+                  foe3interval = int(millis()/1000) + 5;
+                  
+                  foe3whiteint = int(millis()/1000) + 3; 
+                  foe3flashint = int(millis()/1000) + 3;
+                  foe3redint = int(millis()/1000) + 3; 
+                  foe3flash2int = int(millis()/1000) + 3;              
+             
+                }        
+                if (foe3Interupt == true) {
+                  foe3Interupt = false;
+                  foe3attacked = false;       
+                }                
               }              
             }            
           }
@@ -2610,7 +2644,7 @@ void mousePressed () {
                 foe1Flash = false;
                 foe1interval = int(millis()/1000) + 5;
                 foe1whiteint = int(millis()/1000) + 3; 
-                foeTflashint = int(millis()/1000) + 3;
+                foe1flashint = int(millis()/1000) + 3;
                 foe1redint = int(millis()/1000) + 3; 
                 foe1flash2int = int(millis()/1000) + 3;   
                 player2 = minim2.loadFile("violinFlinch.mp3", 500);
@@ -2644,9 +2678,30 @@ void mousePressed () {
               foe2HP -= damage;
               text("  " + damage, foe2CoordX + foe2SizeX/4, foe2CoordY - foe2CoordY/11);
               fill(#E505FF);
+              foe2attacked = true;
               monsterViolin = true;
-              player2 = minim2.loadFile("violin.mp3", 400);
-              player2.play();              
+   
+              if (foe2Flash == true && foe2attacked == true) {
+                foe2Attack = false;
+                foe2Alive = true;
+                foe2Interupt = true; 
+                foe2Flash = false;
+                foe2interval = int(millis()/1000) + 5;
+                foe2whiteint = int(millis()/1000) + 3; 
+                foe2flashint = int(millis()/1000) + 3;
+                foe2redint = int(millis()/1000) + 3; 
+                foe2flash2int = int(millis()/1000) + 3;   
+                player2 = minim2.loadFile("violinFlinch.mp3", 500);
+                player2.play();            
+              }        
+              else if (foe2Flash == false) {
+                player2 = minim2.loadFile("violin.mp3", 400);
+                player2.play();
+              }
+              if (foe2Interupt == true) {
+                foe2Interupt = false;
+                foe2attacked = false;     
+              }              
             } 
             if (mouseX <= foe3SizeX + foe3CoordX && mouseX >= foe3CoordX
             && (mouseY <= foe3SizeY + foe3CoordY && mouseY >= foe3CoordY) && foe3HP > 0) { 
@@ -2667,9 +2722,30 @@ void mousePressed () {
               foe3HP -= damage;
               text("  " + damage, foe3CoordX + foe3SizeX/4, foe3CoordY - foe3CoordY/11);
               fill(#E505FF);
+              foe3attacked = true;
               monsterViolin = true;
-              player2 = minim2.loadFile("violin.mp3", 400);
-              player2.play();              
+              
+              if (foe3Flash == true && foe3attacked == true) {
+                foe3Attack = false;
+                foe3Alive = true;
+                foe3Interupt = true; 
+                foe3Flash = false;
+                foe3interval = int(millis()/1000) + 5;
+                foe3whiteint = int(millis()/1000) + 3; 
+                foe3flashint = int(millis()/1000) + 3;
+                foe3redint = int(millis()/1000) + 3; 
+                foe3flash2int = int(millis()/1000) + 3;   
+                player2 = minim2.loadFile("violinFlinch.mp3", 500);
+                player2.play();            
+              }        
+              else if (foe3Flash == false) {
+                player2 = minim2.loadFile("violin.mp3", 400);
+                player2.play();
+              }
+              if (foe3Interupt == true) {
+                foe3Interupt = false;
+                foe3attacked = false;     
+              }              
             }            
           }          
         }
