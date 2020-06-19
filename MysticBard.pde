@@ -1338,62 +1338,7 @@ void draw() {
       player4.shiftGain(player4.getGain(), 0,FADE); 
       //maybe put this code in playerAttacked == false
       //depending on the stage, cancel disapp and make the foes alive
-      if (foe1Attack == true) {
-        foe1Attack = false;
-        
-        foe1disapp = false;
-        foe2disapp = false;
-        foe3disapp = false;        
-        if (foe1HP > 0) {
-          foe1Alive = true;
-        }
-        if (foe2HP > 0) {
-          foe2Alive = true;
-        }
-        if (foe3HP > 0) {
-          foe3Alive = true;
-        }         
-      }
-      if (foe2Attack == true) {
-        foe2Attack = false;
-        
-        foe1disapp = false;
-        foe2disapp = false;
-        foe3disapp = false;        
-        if (foe1HP > 0) {
-          foe1Alive = true;
-        }
-        if (foe2HP > 0) {
-          foe2Alive = true;
-        }
-        if (foe3HP > 0) {
-          foe3Alive = true;
-        }        
-      }
-      if (foe3Attack == true) {
-        foe3Attack = false;
-      }
-      if (foe4Attack == true) {
-        foe4Attack = false;
-      }
-      if (foe5Attack == true) {
-        foe5Attack = false;
-      }
-      if (foeTAttack == true) {
-        foeTAttack = false;
-        foeTdisapp = false;
-        foeT2disapp = false;
-        foeT3disapp = false;   
-        if (foeTHP > 0) {
-          foeTAlive = true;
-        }
-        if (foeT2HP > 0) {
-          foeT2Alive = true;
-        }
-        if (foeT3HP > 0) {
-          foeT3Alive = true;
-        }        
-      }    
+    
       playerAttacked = false;
       if (playerHP <= 0 && tutorialStage == true) {
         //may need to do if stage2, foe not alive to make them disappear
@@ -1411,6 +1356,36 @@ void draw() {
         minim.stop();
         println("Stage 1 Dead");
       }         
+    }
+    else if (playerAttacked == false) {
+      if (tutorialStage == true) {
+        foeTdisapp = false;
+        foeT2disapp = false;
+        foeT3disapp = false;   
+        if (foeTHP > 0) {
+          foeTAlive = true;
+        }
+        if (foeT2HP > 0) {
+          foeT2Alive = true;
+        }
+        if (foeT3HP > 0) {
+          foeT3Alive = true;
+        }        
+      }
+      if (stage1 == true) {
+        foe1disapp = false;
+        foe2disapp = false;
+        foe3disapp = false;        
+        if (foe1HP > 0) {
+          foe1Alive = true;
+        }
+        if (foe2HP > 0) {
+          foe2Alive = true;
+        }
+        if (foe3HP > 0) {
+          foe3Alive = true;
+        }        
+      }
     }
     if (foeTAttack == true) {  
       foeTAlive = false;  
@@ -1459,6 +1434,7 @@ void draw() {
                   foeTflash2int = int(millis()/1000) + 3;
                 } 
                 foeTFlash = false;
+                foeTAttack = false;
               }
             }                  
           }
@@ -1515,6 +1491,7 @@ void draw() {
                   foe1flash2int = int(millis()/1000) + 3;
                 } 
                 foe1Flash = false;
+                foe1Attack = false;
               }
             }                  
           }
@@ -1572,6 +1549,7 @@ void draw() {
                   foe2flash2int = int(millis()/1000) + 3;
                 } 
                 foe2Flash = false;
+                foe2Attack = false;
               }
             }                  
           }
