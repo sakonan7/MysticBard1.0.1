@@ -1236,6 +1236,7 @@ void draw() {
       if (stage1 == true) {
         foe1interval = int(millis()/1000) + int(random(4,8));
         foe2interval = int(millis()/1000) + int(random(4,8));
+        foe3interval = int(millis()/1000) + int(random(4,8));
       }
       
       warmUp = false;
@@ -1905,8 +1906,34 @@ void draw() {
       if(foe3Alive == true) {
         if (foe3disapp == false) {
           image(foe3, foe3CoordX, foe3CoordY, foe3SizeX, foe3SizeY);
-        }                  
+        }    
+        if (foe3Attack == false && foe3HP > 0) {
+          foe3t = foe3interval-int(millis()/1000);
+            
+          if(foe3t <= 0){
+            if (first3Attack == true) {
+               foe3whiteint = int(millis()/1000) + 1;
+               foe3flashint = int(millis()/1000) + 2;
+               foe3redint = int(millis()/1000) + 3;
+               foe3flash2int = int(millis()/1000) + 4;              
+               
+            }
+            else if (first3Attack == false) {
+              //may have to change
+              foe3whiteint += 3;
+              foe3flashint += 4;
+              foe3redint += 5;
+              foe3flash2int += 6;              
+            }           
+              
+            foe3disapp = true;
+            foe3Attack = true;
+            foe3Alive = false;
+            first3Attack = false;
+          }
+        }
       }
+      
     }
   }
 }
@@ -2487,6 +2514,7 @@ void mousePressed () {
                 
                 fill(#E505FF);
 
+                foe2attacked = true;
                 monsterTrombone = true;
                 player2 = minim2.loadFile("secondTrumpet.mp3", 500);
                 player2.play();
@@ -2531,6 +2559,7 @@ void mousePressed () {
                 
                 fill(#E505FF);
               
+                foe3attacked = true;
                 monsterTrombone = true;
                 player2 = minim2.loadFile("secondTrumpet.mp3", 500);
                 player2.play();
