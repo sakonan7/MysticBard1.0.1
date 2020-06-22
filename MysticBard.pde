@@ -1231,11 +1231,11 @@ void draw() {
       tromboneReplenish = int(millis()/1000) + 10;
       //split this for tutorial and stages
       if (tutorialStage == true) {
-        foeTinterval = int(millis()/1000) + int(random(5,8));
+        foeTinterval = int(millis()/1000) + int(random(4,8));
       }
       if (stage1 == true) {
-        foe1interval = int(millis()/1000) + int(random(5,8));
-        foe2interval = int(millis()/1000) + int(random(5,8));
+        foe1interval = int(millis()/1000) + int(random(4,8));
+        foe2interval = int(millis()/1000) + int(random(4,8));
       }
       
       warmUp = false;
@@ -1569,15 +1569,69 @@ void draw() {
         foe2Attack = false;
       }
     }
-    if (foe3Attack == true) {
-      playerAttacked = true;
-    }
-    if (foe4Attack == true) {
-      playerAttacked = true;
-    }
-    if (foe5Attack == true) {
-      playerAttacked = true;
-    }
+    //foe3a
+    if (foe3Attack == true) {  
+      foe3Alive = false;  
+      foe3whitet = foe3whiteint-int(millis()/1000); 
+      if (foe3HP > 0) {
+        if (foe3whitet > 0) {
+          image(foeWhite, foe3CoordX, foe3CoordY, foe3SizeX, foe3SizeY);
+        }
+        else if (foe3whitet <= 0) {
+          foe3flasht = foe3flashint - int(millis()/1000);
+          if (foe3flasht > 0) {
+            image(foe3, foe3CoordX, foe3CoordY, foe3SizeX, foe3SizeY);
+          }
+          else if (foe3flasht <= 0) {
+            foe3redt = foe3redint-int(millis()/1000);
+            if (foe3redt > 0) {
+              image(foeRed, foe3CoordX, foe3CoordY, foe3SizeX, foe3SizeY);
+            }
+            else if (foe3redt <= 0) {
+              foe3flash2t = foe3flash2int - int(millis()/1000);
+              if (foe3flash2t > 0) {
+                image(foe3, foe3CoordX, foe3CoordY, foe3SizeX, foe3SizeY);
+                foe3Flash = true;
+              }
+              else if (foe3flash2t <= 0 && foe3Interupt == false) {
+                if (shield == true) {
+                  foe3Attack = false;
+                  attackBlocked = true;
+                
+                  foe3interval = int(millis()/1000) + 5;
+                  foe3whiteint = int(millis()/1000) + 3; 
+                  foe3flashint = int(millis()/1000) + 3;
+                  foe3redint = int(millis()/1000) + 3; 
+                  foe3flash2int = int(millis()/1000) + 3;
+                }
+                else if (shield == false) {
+                
+                  playerAttacked = true;
+                  foe2Alive = false;
+                  foe1Alive = false;                 
+                    
+                  foe3interval = int(millis()/1000) + 5;
+                  foe3whiteint = int(millis()/1000) + 3;
+                  foe3flashint = int(millis()/1000) + 3;
+                  foe3redint = int(millis()/1000) + 3;
+                  foe3flash2int = int(millis()/1000) + 3;
+                  playerHP -= 10;
+                  HPbar = HPbar - originalHPbar/10;
+                  currentHPX = currentHPX + originalHPX/10;
+                  println(10);                  
+                } 
+                foe3Flash = false;
+                foe3Attack = false;
+              }
+            }                  
+          }
+        }        
+      }
+      else if (foe3HP <= 0) {
+        foe3Attack = false;
+      }
+    }    
+
 
     if (shield == true) {
       shieldt = shieldInterval - int(millis()/1000);
