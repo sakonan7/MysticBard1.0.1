@@ -144,7 +144,7 @@ int foe8HP = 150;
 
 int playerHP = 100;
 
-int damage = 100;
+int damage = 150;
 float HPbar = 600;
 
 int currentHP = playerHP;
@@ -1431,7 +1431,7 @@ void draw() {
                   foeTredint = int(millis()/1000) + 3;
                   foeTflash2int = int(millis()/1000) + 3;
                   
-                  playerHP -= 10;
+                  playerHP -= 50;
                   HPbar = HPbar - originalHPbar/10;
                   currentHPX = currentHPX + originalHPX/10;         
                   println(10);
@@ -1492,7 +1492,7 @@ void draw() {
                   foe1flashint = int(millis()/1000) + 3;
                   foe1redint = int(millis()/1000) + 3;
                   foe1flash2int = int(millis()/1000) + 3;
-                  playerHP -= 10;
+                  playerHP -= 50;
                   HPbar = HPbar - originalHPbar/10;
                   currentHPX = currentHPX + originalHPX/10;
                   println(10);
@@ -1554,7 +1554,7 @@ void draw() {
                   foe2flashint = int(millis()/1000) + 3;
                   foe2redint = int(millis()/1000) + 3;
                   foe2flash2int = int(millis()/1000) + 3;
-                  playerHP -= 10;
+                  playerHP -= 50;
                   HPbar = HPbar - originalHPbar/10;
                   currentHPX = currentHPX + originalHPX/10;
                   println(10);                  
@@ -1616,7 +1616,7 @@ void draw() {
                   foe3flashint = int(millis()/1000) + 3;
                   foe3redint = int(millis()/1000) + 3;
                   foe3flash2int = int(millis()/1000) + 3;
-                  playerHP -= 10;
+                  playerHP -= 50;
                   HPbar = HPbar - originalHPbar/10;
                   currentHPX = currentHPX + originalHPX/10;
                   println(10);                  
@@ -3021,6 +3021,7 @@ void mousePressed () {
       warmUp = true;
       first1Attack = true;
       first2Attack = true;
+      first3Attack = true;
       playerHP = 100;
       currentHP = playerHP;
       HPbar = originalHPbar;
