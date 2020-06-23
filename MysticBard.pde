@@ -144,7 +144,7 @@ int foe8HP = 150;
 
 int playerHP = 100;
 
-int damage = 150;
+int damage = 10;
 float HPbar = 600;
 
 int currentHP = playerHP;
@@ -196,8 +196,10 @@ boolean playerTDead = false;
 
 boolean tutorialStage = false;
 boolean stage1 = false;
+boolean stage2 = false;
 
 boolean stage1Dead = false;
+boolean stage2Dead = false;
 
 int foeTinterval = int(random(5, 8));
 int foeTt = 0;
@@ -222,6 +224,12 @@ boolean firstTAttack = true;
 boolean first1Attack = true;
 boolean first2Attack = true;
 boolean first3Attack = true;
+
+boolean first4Attack = true;
+boolean first5Attack = true;
+boolean first6Attack = true;
+boolean first7Attack = true;
+boolean first8Attack = true;
 
 int foe1interval = 5;
 int foe1t = 0;
@@ -273,6 +281,23 @@ int foe3redint = 3;
 int foe3redt = 0;
 String foe3redtime = "003";
 boolean foe3Flash = false;
+
+int foe4interval = 10;
+int foe4t = 0;
+String foe4time = "005";
+int foe4whiteint = 3;
+int foe4whitet = 0;
+String foe4whitetime = "003";
+int foe4flashint = 3;
+int foe4flasht = 0;
+String foe4flashtime = "003";
+int foe4flash2int = 3;
+int foe4flash2t = 0;
+String foe4flash2time = "003";
+int foe4redint = 3;
+int foe4redt = 0;
+String foe4redtime = "003";
+boolean foe4Flash = false;
 
 boolean shield = false;
 int shieldInterval = 3;
@@ -506,7 +531,7 @@ void setup() {
   foe3SizeY = 200 * 1.1;
   foe3CoordX = width/2 + 30 + 50;
   foe3CoordY = height - 380 - 130 - 50;  
-  
+// 
   foe4SizeX = 125 * 1.1;
   foe4SizeY = 200 * 1.1;
   foe4CoordX = 800 - 60;
@@ -1431,7 +1456,7 @@ void draw() {
                   foeTredint = int(millis()/1000) + 3;
                   foeTflash2int = int(millis()/1000) + 3;
                   
-                  playerHP -= 50;
+                  playerHP -= 10;
                   HPbar = HPbar - originalHPbar/10;
                   currentHPX = currentHPX + originalHPX/10;         
                   println(10);
@@ -1492,10 +1517,9 @@ void draw() {
                   foe1flashint = int(millis()/1000) + 3;
                   foe1redint = int(millis()/1000) + 3;
                   foe1flash2int = int(millis()/1000) + 3;
-                  playerHP -= 50;
+                  playerHP -= 10;
                   HPbar = HPbar - originalHPbar/10;
                   currentHPX = currentHPX + originalHPX/10;
-                  println(10);
                 } 
                 foe1Flash = false;
                 foe1Attack = false;
@@ -1554,10 +1578,9 @@ void draw() {
                   foe2flashint = int(millis()/1000) + 3;
                   foe2redint = int(millis()/1000) + 3;
                   foe2flash2int = int(millis()/1000) + 3;
-                  playerHP -= 50;
+                  playerHP -= 10;
                   HPbar = HPbar - originalHPbar/10;
-                  currentHPX = currentHPX + originalHPX/10;
-                  println(10);                  
+                  currentHPX = currentHPX + originalHPX/10;              
                 } 
                 foe2Flash = false;
                 foe2Attack = false;
@@ -1616,10 +1639,9 @@ void draw() {
                   foe3flashint = int(millis()/1000) + 3;
                   foe3redint = int(millis()/1000) + 3;
                   foe3flash2int = int(millis()/1000) + 3;
-                  playerHP -= 50;
+                  playerHP -= 10;
                   HPbar = HPbar - originalHPbar/10;
-                  currentHPX = currentHPX + originalHPX/10;
-                  println(10);                  
+                  currentHPX = currentHPX + originalHPX/10;              
                 } 
                 foe3Flash = false;
                 foe3Attack = false;
@@ -1932,8 +1954,14 @@ void draw() {
             first3Attack = false;
           }
         }
+      }      
+    }
+    else if (stage2 == true) {
+      if (foe4Alive == true) {
+        if (foe4disapp == false) {
+          image(foe4, foe4CoordX, foe4CoordY, foe4SizeX, foe4SizeY);
+        }
       }
-      
     }
   }
 }
