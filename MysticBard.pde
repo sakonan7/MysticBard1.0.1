@@ -144,7 +144,7 @@ int foe8HP = 150;
 
 int playerHP = 100;
 
-int damage = 100;
+int damage = 150;
 float HPbar = 600;
 
 int currentHP = playerHP;
@@ -1341,12 +1341,12 @@ void draw() {
       tromboneReplenish = int(millis()/1000) + 10;
       //split this for tutorial and stages
       if (tutorialStage == true) {
-        foeTinterval = int(millis()/1000) + int(random(4,8));
+        foeTinterval = int(millis()/1000) + int(random(3,8));
       }
       if (stage1 == true) {
-        foe1interval = int(millis()/1000) + int(random(4,8));
-        foe2interval = int(millis()/1000) + int(random(4,8));
-        foe3interval = int(millis()/1000) + int(random(4,8));
+        foe1interval = int(millis()/1000) + int(random(3,8));
+        foe2interval = int(millis()/1000) + int(random(3,8));
+        foe3interval = int(millis()/1000) + int(random(3,8));
       }
       
       warmUp = false;
@@ -3005,6 +3005,7 @@ void mousePressed () {
       //tutorialEnd = true;
     }
     else if (mouseButton == RIGHT && tutorialConclude == true) {
+      tutorialVictory = false;
       tutorialConclude = false;
       stage1 = true;
       warmUp = true;
@@ -3040,6 +3041,7 @@ void mousePressed () {
     }
     //If I stop at this level, use musiccredits
     else if (mouseButton == RIGHT && victoryConclude == true) {
+      victory = false; //need this because there will be multiple victories
       victoryConclude = false;
       stage2 = true;
       warmUp = true;
@@ -3064,6 +3066,7 @@ void mousePressed () {
       player.play();
       player.shiftGain(player.getGain(),-15,FADE);
       player.loop();      
+      println("stage 2 start");
     }
 
   }  
