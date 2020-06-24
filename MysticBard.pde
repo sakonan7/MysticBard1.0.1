@@ -144,7 +144,7 @@ int foe8HP = 150;
 
 int playerHP = 100;
 
-int damage = 10;
+int damage = 100;
 float HPbar = 600;
 
 int currentHP = playerHP;
@@ -299,6 +299,74 @@ int foe4redt = 0;
 String foe4redtime = "003";
 boolean foe4Flash = false;
 
+int foe5interval = 10;
+int foe5t = 0;
+String foe5time = "005";
+int foe5whiteint = 3;
+int foe5whitet = 0;
+String foe5whitetime = "003";
+int foe5flashint = 3;
+int foe5flasht = 0;
+String foe5flashtime = "003";
+int foe5flash2int = 3;
+int foe5flash2t = 0;
+String foe5flash2time = "003";
+int foe5redint = 3;
+int foe5redt = 0;
+String foe5redtime = "003";
+boolean foe5Flash = false;
+
+int foe6interval = 10;
+int foe6t = 0;
+String foe6time = "005";
+int foe6whiteint = 3;
+int foe6whitet = 0;
+String foe6whitetime = "003";
+int foe6flashint = 3;
+int foe6flasht = 0;
+String foe6flashtime = "003";
+int foe6flash2int = 3;
+int foe6flash2t = 0;
+String foe6flash2time = "003";
+int foe6redint = 3;
+int foe6redt = 0;
+String foe6redtime = "003";
+boolean foe6Flash = false;
+
+int foe7interval = 10;
+int foe7t = 0;
+String foe7time = "005";
+int foe7whiteint = 3;
+int foe7whitet = 0;
+String foe7whitetime = "003";
+int foe7flashint = 3;
+int foe7flasht = 0;
+String foe7flashtime = "003";
+int foe7flash2int = 3;
+int foe7flash2t = 0;
+String foe7flash2time = "003";
+int foe7redint = 3;
+int foe7redt = 0;
+String foe7redtime = "00victory";
+boolean foe7Flash = false;
+
+int foe8interval = 10;
+int foe8t = 0;
+String foe8time = "005";
+int foe8whiteint = 3;
+int foe8whitet = 0;
+String foe8whitetime = "003";
+int foe8flashint = 3;
+int foe8flasht = 0;
+String foe8flashtime = "003";
+int foe8flash2int = 3;
+int foe8flash2t = 0;
+String foe8flash2time = "003";
+int foe8redint = 3;
+int foe8redt = 0;
+String foe8redtime = "00victory";
+boolean foe8Flash = false;
+
 boolean shield = false;
 int shieldInterval = 3;
 int shieldt = 0;
@@ -330,6 +398,10 @@ boolean foe5Attack = false;
 
 boolean foeTAttack = false;
 
+boolean foe6Attack = false;
+boolean foe7Attack = false;
+boolean foe8Attack = false;
+
 boolean foe1attacked = false;
 boolean foe1Interupt = false;
 boolean foe2attacked = false;
@@ -344,6 +416,13 @@ boolean foe5Interupt = false;
 boolean foeTattacked = false;
 boolean foeTInterupt = false;
 
+boolean foe6attacked = false;
+boolean foe6Interupt = false;
+boolean foe7attacked = false;
+boolean foe7Interupt = false;
+boolean foe8attacked = false;
+boolean foe8Interupt = false;
+
 boolean foeTdisapp = false;
 boolean foeT2disapp = false;
 boolean foeT3disapp = false;
@@ -351,6 +430,12 @@ boolean foeT3disapp = false;
 boolean foe1disapp = false;
 boolean foe2disapp = false;
 boolean foe3disapp = false;
+
+boolean foe4disapp = false;
+boolean foe5disapp = false;
+boolean foe6disapp = false;
+boolean foe7disapp = false;
+boolean foe8disapp = false;
 
 int cursorX;
 int cursorY;
@@ -2954,9 +3039,9 @@ void mousePressed () {
       //tutorialEnd = true;
     }
     //If I stop at this level, use musiccredits
-    else if (mouseButton == RIGHT && tutorialConclude == true) {
-      tutorialConclude = false;
-      stage1 = true;
+    else if (mouseButton == RIGHT && victoryConclude == true) {
+      victoryConclude = false;
+      stage2 = true;
       warmUp = true;
       
       playerHP = 100;
