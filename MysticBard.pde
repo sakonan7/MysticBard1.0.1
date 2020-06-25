@@ -1413,6 +1413,28 @@ void draw() {
           image(foe3, foe3CoordX, foe3CoordY - 30, foe3SizeX, foe3SizeY);
         }
       }      
+      if (stage2 == true) {
+        foe4disapp = true;
+        foe5disapp = true;
+        foe6disapp = true;
+        foe7disapp = true;
+        foe8disapp = true;
+        if (foe4HP > 0) {
+          image(foe4, foe4CoordX, foe4CoordY - 30, foe4SizeX, foe4SizeY);
+        }
+        if (foe5HP > 0) {
+          image(foe5, foe5CoordX, foe5CoordY - 30, foe5SizeX, foe5SizeY);
+        }
+        if (foe6HP > 0) {
+          image(foe6, foe6CoordX, foe6CoordY - 30, foe6SizeX, foe6SizeY);
+        }
+        if (foe7HP > 0) {
+          image(foe7, foe7CoordX, foe7CoordY - 30, foe7SizeX, foe7SizeY);
+        }        
+        if (foe8HP > 0) {
+          image(foe8, foe8CoordX, foe8CoordY - 30, foe8SizeX, foe8SizeY);
+        }        
+      }        
       fill(117,0,0,145);
       stroke(#FFFFFF);
 
@@ -1461,8 +1483,15 @@ void draw() {
         redDead = true;
         redDeadPage = true;
         minim.stop();
-        println("Stage 1 Dead");
-      }         
+      }        
+      else if (playerHP <= 0 && stage2 == true) {
+        //may need to do if stage2, foe not alive to make them disappear
+        stage2Dead = true;
+        playerAlive = false;
+        redDead = true;
+        redDeadPage = true;
+        minim.stop();
+      }       
     }
     else if (playerAttacked == false) {
       if (tutorialStage == true) {
@@ -1493,6 +1522,28 @@ void draw() {
           foe3Alive = true;
         }        
       }
+      if (stage2 == true) {
+        foe4disapp = false;
+        foe5disapp = false;
+        foe6disapp = false;
+        foe7disapp = false; 
+        foe8disapp = false; 
+        if (foe4HP > 0) {
+          foe4Alive = true;
+        }
+        if (foe5HP > 0) {
+          foe5Alive = true;
+        }
+        if (foe6HP > 0) {
+          foe6Alive = true;
+        }       
+        if (foe7HP > 0) {
+          foe7Alive = true;
+        }         
+        if (foe8HP > 0) {
+          foe8Alive = true;
+        }          
+      }      
     }
     if (foeTAttack == true) {  
       foeTAlive = false;  
@@ -3185,6 +3236,20 @@ void mousePressed () {
         foe2Alive = true;
         foe3Alive = true;      
       }
+      if (stage2Dead == true) {
+        stage2Dead = false;
+        stage2 = true;
+        foe4HP = 150;
+        foe5HP = 150;
+        foe6HP = 150; 
+        foe7HP = 150;
+        foe8HP = 150;
+        foe4Alive = true;
+        foe5Alive = true;
+        foe6Alive = true;  
+        foe7Alive = true;
+        foe8Alive = true;
+      }      
       
       minim3.stop();
       
