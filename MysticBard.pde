@@ -572,20 +572,7 @@ void setup() {
   
   minim2 = new Minim(this);
   minim3 = new Minim(this);
-  minim4 = new Minim(this);
-  
-  //foe1SizeX = 125 * 1.1;
-  //foe1SizeY = 200 * 1.1;
-  //foe1CoordX = 390 - 60;
-  //foe1CoordY = height - 380 - 25 - 20;
-  //foe2SizeX = 125 * 1.1;
-  //foe2SizeY = 200 * 1.1;
-  //foe2CoordX = 180 - 60;
-  //foe2CoordY = height - 400 - 75 - 20;
-  //foe3SizeX = 125 * 1.1;
-  //foe3SizeY = 200 * 1.1;
-  //foe3CoordX = 600 - 60;
-  //foe3CoordY = height - 430 - 20;
+  minim4 = new Minim(this);  
   
   foetutorialSizeX = 125 * 1.1;
   foetutorialSizeY = 200 * 1.1;
@@ -619,13 +606,25 @@ void setup() {
 // 
   foe4SizeX = 125 * 1.1;
   foe4SizeY = 200 * 1.1;
-  foe4CoordX = 800 - 60;
-  foe4CoordY = height - 370 - 75 - 20;
-
+  foe4CoordX = 390 - 60;
+  foe4CoordY = height - 380 - 25 - 20;
   foe5SizeX = 125 * 1.1;
   foe5SizeY = 200 * 1.1;
-  foe5CoordX = 950 - 60;
-  foe5CoordY = height - 450 - 75 - 20;
+  foe5CoordX = 180 - 60;
+  foe5CoordY = height - 400 - 75 - 20;
+  foe6SizeX = 125 * 1.1;
+  foe6SizeY = 200 * 1.1;
+  foe6CoordX = 600 - 60;
+  foe6CoordY = height - 430 - 20;
+  foe7SizeX = 125 * 1.1;
+  foe7SizeY = 200 * 1.1;
+  foe7CoordX = 800 - 60;
+  foe7CoordY = height - 370 - 75 - 20;
+
+  foe8SizeX = 125 * 1.1;
+  foe8SizeY = 200 * 1.1;
+  foe8CoordX = 950 - 60;
+  foe8CoordY = height - 450 - 75 - 20;
   
   weapon = "Violin";
 
@@ -1307,7 +1306,7 @@ void draw() {
     text("\n" + "\n" + clickSkip, width - 625, height - 165);
   }  
   
-  else if (playerAlive && (stage1 == true || tutorialStage == true)){
+  else if (playerAlive && (stage2 == true || stage1 == true || tutorialStage == true)){
     setGradient(currentHPX, 50, HPbar, 40, c2, c1, 3);
     if (currentHP == playerHP + damage) {
       currentHP = playerHP;
@@ -2047,6 +2046,26 @@ void draw() {
           image(foe4, foe4CoordX, foe4CoordY, foe4SizeX, foe4SizeY);
         }
       }
+      if (foe5Alive == true) {
+        if (foe4disapp == false) {
+          image(foe4, foe4CoordX, foe4CoordY, foe4SizeX, foe4SizeY);
+        }
+      }  
+      if (foe6Alive == true) {
+        if (foe6disapp == false) {
+          image(foe6, foe6CoordX, foe6CoordY, foe6SizeX, foe6SizeY);
+        }
+      }
+      if (foe7Alive == true) {
+        if (foe7disapp == false) {
+          image(foe7, foe7CoordX, foe7CoordY, foe7SizeX, foe7SizeY);
+        }
+      }  
+      if (foe8Alive == true) {
+        if (foe8disapp == false) {
+          image(foe8, foe8CoordX, foe8CoordY, foe8SizeX, foe8SizeY);
+        }
+      }      
     }
   }
 }
