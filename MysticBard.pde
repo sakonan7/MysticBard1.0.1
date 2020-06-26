@@ -1789,7 +1789,131 @@ void draw() {
         foe3Attack = false;
       }
     }    
-
+//stage2
+    if (foe4Attack == true) {  
+      foe4Alive = false;  
+      foe4whitet = foe4whiteint-int(millis()/1000); 
+      if (foe4HP > 0) {
+        if (foe4whitet > 0) {
+          image(foeWhite, foe4CoordX, foe4CoordY, foe4SizeX, foe4SizeY);
+        }
+        else if (foe4whitet <= 0) {
+          foe4flasht = foe4flashint - int(millis()/1000);
+          if (foe4flasht > 0) {
+            image(foe4, foe4CoordX, foe4CoordY, foe4SizeX, foe4SizeY);
+          }
+          else if (foe4flasht <= 0) {
+            foe4redt = foe4redint-int(millis()/1000);
+            if (foe4redt > 0) {
+              image(foeRed, foe4CoordX, foe4CoordY, foe4SizeX, foe4SizeY);
+            }
+            else if (foe4redt <= 0) {
+              foe4flash2t = foe4flash2int - int(millis()/1000);
+              if (foe4flash2t > 0) {
+                image(foe4, foe4CoordX, foe4CoordY, foe4SizeX, foe4SizeY);
+                foe4Flash = true;
+              }
+              else if (foe4flash2t <= 0 && foe4Interupt == false) {
+                if (shield == true) {
+                  foe4Attack = false;
+                  attackBlocked = true;
+                
+                  foe4interval = int(millis()/1000) + 5;
+                  foe4whiteint = int(millis()/1000) + 3; 
+                  foe4flashint = int(millis()/1000) + 3;
+                  foe4redint = int(millis()/1000) + 3; 
+                  foe4flash2int = int(millis()/1000) + 3;
+                }
+                else if (shield == false) {
+                
+                  playerAttacked = true;
+                  foe5Alive = false;
+                  foe6Alive = false;  
+                  foe7Alive = false;
+                  foe8Alive = false;
+                    
+                  foe4interval = int(millis()/1000) + 5;
+                  foe4whiteint = int(millis()/1000) + 3;
+                  foe4flashint = int(millis()/1000) + 3;
+                  foe4redint = int(millis()/1000) + 3;
+                  foe4flash2int = int(millis()/1000) + 3;
+                  playerHP -= 10;
+                  HPbar = HPbar - originalHPbar/10;
+                  currentHPX = currentHPX + originalHPX/10;              
+                } 
+                foe4Flash = false;
+                foe4Attack = false;
+              }
+            }                  
+          }
+        }        
+      }
+      else if (foe4HP <= 0) {
+        foe4Attack = false;
+      }
+    }
+    if (foe5Attack == true) {  
+      foe5Alive = false;  
+      foe5whitet = foe5whiteint-int(millis()/1000); 
+      if (foe5HP > 0) {
+        if (foe5whitet > 0) {
+          image(foeWhite, foe5CoordX, foe5CoordY, foe5SizeX, foe5SizeY);
+        }
+        else if (foe5whitet <= 0) {
+          foe5flasht = foe5flashint - int(millis()/1000);
+          if (foe5flasht > 0) {
+            image(foe5, foe5CoordX, foe5CoordY, foe5SizeX, foe5SizeY);
+          }
+          else if (foe5flasht <= 0) {
+            foe5redt = foe5redint-int(millis()/1000);
+            if (foe5redt > 0) {
+              image(foeRed, foe5CoordX, foe5CoordY, foe5SizeX, foe5SizeY);
+            }
+            else if (foe5redt <= 0) {
+              foe5flash2t = foe5flash2int - int(millis()/1000);
+              if (foe5flash2t > 0) {
+                image(foe5, foe5CoordX, foe5CoordY, foe5SizeX, foe5SizeY);
+                foe5Flash = true;
+              }
+              else if (foe5flash2t <= 0 && foe5Interupt == false) {
+                if (shield == true) {
+                  foe5Attack = false;
+                  attackBlocked = true;
+                
+                  foe5interval = int(millis()/1000) + 5;
+                  foe5whiteint = int(millis()/1000) + 3; 
+                  foe5flashint = int(millis()/1000) + 3;
+                  foe5redint = int(millis()/1000) + 3; 
+                  foe5flash2int = int(millis()/1000) + 3;
+                }
+                else if (shield == false) {
+                
+                  playerAttacked = true;
+                  foe4Alive = false;
+                  foe6Alive = false;  
+                  foe7Alive = false;
+                  foe8Alive = false;
+                    
+                  foe5interval = int(millis()/1000) + 5;
+                  foe5whiteint = int(millis()/1000) + 3;
+                  foe5flashint = int(millis()/1000) + 3;
+                  foe5redint = int(millis()/1000) + 3;
+                  foe5flash2int = int(millis()/1000) + 3;
+                  playerHP -= 10;
+                  HPbar = HPbar - originalHPbar/10;
+                  currentHPX = currentHPX + originalHPX/10;              
+                } 
+                foe5Flash = false;
+                foe5Attack = false;
+              }
+            }                  
+          }
+        }        
+      }
+      else if (foe5HP <= 0) {
+        foe5Attack = false;
+      }
+    }    
 
     if (shield == true) {
       shieldt = shieldInterval - int(millis()/1000);
