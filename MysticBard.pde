@@ -1947,7 +1947,23 @@ void draw() {
             if (foe3HP > 0) {
               image(foe3, foe3CoordX, foe3CoordY, foe3SizeX, foe3SizeY);
             }
-          }          
+          }   
+          if (stage2 == true) {
+            foe4disapp = true;
+            foe5disapp = true;
+            foe6disapp = true;
+            foe7disapp = true;
+            foe8disapp = true;
+            if (foe4HP > 0) {
+              image(foe4, foe4CoordX, foe4CoordY, foe4SizeX, foe4SizeY);
+            }
+            if (foe5HP > 0) {
+              image(foe5, foe5CoordX, foe5CoordY, foe5SizeX, foe5SizeY);
+            }
+            if (foe6HP > 0) {
+              image(foe6, foe6CoordX, foe6CoordY, foe6SizeX, foe6SizeY);
+            }
+          }           
           image(violinUI, 251, height - 156, 240, 156);
           image(tromboneD, 7, height - 157, 244, 156);
           image(shieldD, width - 253, height - 157, 244, 156);              
@@ -2004,7 +2020,8 @@ void draw() {
             if (foe3HP > 0) {
               image(foe3, foe3CoordX, foe3CoordY - 20, foe3SizeX, foe3SizeY);
             }
-          }           
+          }    
+          //fix
           image(violinUI, 251, height - 156, 240, 156);
           image(tromboneD, 7, height - 157, 244, 156);
           image(shieldD, width - 253, height - 157, 244, 156);              
@@ -2048,6 +2065,7 @@ void draw() {
         if (foe5Attack == true) {
           attackBlocked = true;
         }
+        //fix
         if (foeTFlash == true) {
           attackBlocked = true;
         }
@@ -2060,7 +2078,8 @@ void draw() {
          }   
          if (foe1HP > 0) {
            foe1Alive = true;
-         }         
+         }        
+         //fix
        }
     }
     else if (shield == false) {
@@ -2073,8 +2092,10 @@ void draw() {
         foe1disapp = false;
         foe2disapp = false;
         foe3disapp = false;
-      }      
+      }  
+      //fix
     }
+    
     if (tutorialStage == true) {
       if(foeTAlive == true) {  
         if (foeTdisapp == false) {
