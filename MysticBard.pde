@@ -3035,6 +3035,117 @@ void mousePressed () {
               }              
             }            
           }
+          if (stage2 == true) {
+            if (firstBlast == true) {
+              if ((mouseX <= width && mouseX >= 0) && (mouseY <= height && mouseY >= 0)) {
+                textSize(32);
+                image(background, 0, -15, width, height);
+                if (foe4HP > 0) {
+                  image(foe4, foe4CoordX - 10, foe4CoordY - 60, foe4SizeX * 1.1, foe4SizeY * 1.1);
+                  image(musicNote2, foe4CoordX + 5, foe4CoordY - 60, 100, 100);
+                  text("  " + 15, foe4CoordX + foe4SizeX/5, foe4CoordY - 60);
+                  foe4HP -= 15;
+                }
+                if (foe2HP > 0) {
+                  image(foe2, foe2CoordX - 10, foe2CoordY - 60, foe2SizeX * 1.1, foe2SizeY * 1.1);
+                  image(musicNote2, foe2CoordX + 5, foe2CoordY - 60, 100, 100);
+                  text("  " + 15, foe2CoordX + foe2SizeX/5, foe2CoordY - 60);
+                  foe2HP -= 15;
+                }
+                if (foe3HP > 0) {
+                  image(foe3, foe3CoordX - 10, foe3CoordY - 60, foe3SizeX * 1.1, foe3SizeY * 1.1);
+                  image(musicNote2, foe3CoordX + 5, foe3CoordY - 60, 100, 100);
+                  text("  " + 15, foe3CoordX + foe3SizeX/5, foe3CoordY - 60);
+                  foe3HP -= 15;
+                }
+
+                noFill();
+                strokeWeight(7);
+                stroke(#FFC246);
+                ellipse(cursorX, cursorY, width/2 + 250, width/2 + 240);
+                ellipse(cursorX, cursorY, width/2 + 120, width/2 + 110);
+                ellipse(cursorX, cursorY, width/2 - 10, width/2);
+                ellipse(cursorX, cursorY, width/2 - 140, width/2 - 150);
+                image(trombone, cursorX - 40, cursorY - 15, 100, 40);
+
+                fill(#E505FF);
+                image(violinUI, 251, height - 156, 240, 156);
+                image(tromboneD, 7, height - 157, 244, 156);
+                image(shieldD, width - 253, height - 157, 244, 156);                
+              
+                setGradient(currentHPX, 50, HPbar, 40, c2, c1, 3);
+          
+                setGradient(currentShieldBarX, height-105, shieldBar, 15, c3, c4, 2);
+                setGradient(currentViolinBarX, height-105, violinBar, 15, c3, c4, 2); //Violin
+                setGradient(currentTromboneBarX, height-105, tromboneBar, 15, c3, c4, 2);
+
+                strokeWeight(3);
+                stroke(#FFCE46);
+          
+                rect(13, height - 148, 235, 135, 8);
+                foe1attacked = true;
+                foe2attacked = true;
+                foe3attacked = true;
+                
+                monsterTrombone = true;
+                player2 = minim2.loadFile("firstTrumpet.mp3", 500);
+                player2.play();
+                player2.shiftGain(player2.getGain(), -30,FADE); 
+                //Need to add code to all foes
+                if (foe1Flash == true && foe1attacked == true) {
+                  foe1Attack = false;
+                  foe1Alive = true;
+                  foe1Interupt = true; 
+                  foe1Flash = false;
+                  foe1interval = int(millis()/1000) + 5;
+                  
+                  foe1whiteint = int(millis()/1000) + 3; 
+                  foe1flashint = int(millis()/1000) + 3;
+                  foe1redint = int(millis()/1000) + 3; 
+                  foe1flash2int = int(millis()/1000) + 3;              
+             
+                }        
+                if (foe1Interupt == true) {
+                  foe1Interupt = false;
+                  foe1attacked = false;       
+                }   
+                if (foe2Flash == true && foe2attacked == true) {
+                  foe2Attack = false;
+                  foe2Alive = true;
+                  foe2Interupt = true; 
+                  foe2Flash = false;
+                  foe2interval = int(millis()/1000) + 5;
+                  
+                  foe2whiteint = int(millis()/1000) + 3; 
+                  foe2flashint = int(millis()/1000) + 3;
+                  foe2redint = int(millis()/1000) + 3; 
+                  foe2flash2int = int(millis()/1000) + 3;              
+             
+                }        
+                if (foe2Interupt == true) {
+                  foe2Interupt = false;
+                  foe2attacked = false;       
+                } 
+                if (foe3Flash == true && foe3attacked == true) {
+                  foe3Attack = false;
+                  foe3Alive = true;
+                  foe3Interupt = true; 
+                  foe3Flash = false;
+                  foe3interval = int(millis()/1000) + 5;
+                  
+                  foe3whiteint = int(millis()/1000) + 3; 
+                  foe3flashint = int(millis()/1000) + 3;
+                  foe3redint = int(millis()/1000) + 3; 
+                  foe3flash2int = int(millis()/1000) + 3;              
+             
+                }        
+                if (foe3Interupt == true) {
+                  foe3Interupt = false;
+                  foe3attacked = false;       
+                }                 
+              }              
+            }            
+          }
         }
 
       }
