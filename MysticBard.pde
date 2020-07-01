@@ -2037,6 +2037,68 @@ void draw() {
       else if (foe7HP <= 0) {
         foe7Attack = false;
       }
+    }   
+    if (foe8Attack == true) {  
+      foe8Alive = false;  
+      foe8whitet = foe7whiteint-int(millis()/1000); 
+      if (foe8HP > 0) {
+        if (foe8whitet > 0) {
+          image(foeWhite, foe8CoordX, foe8CoordY, foe8SizeX, foe8SizeY);
+        }
+        else if (foe8whitet <= 0) {
+          foe8flasht = foe8flashint - int(millis()/1000);
+          if (foe8flasht > 0) {
+            image(foe8, foe8CoordX, foe8CoordY, foe8SizeX, foe8SizeY);
+          }
+          else if (foe8flasht <= 0) {
+            foe8redt = foe8redint-int(millis()/1000);
+            if (foe8redt > 0) {
+              image(foeRed, foe8CoordX, foe8CoordY, foe8SizeX, foe8SizeY);
+            }
+            else if (foe8redt <= 0) {
+              foe8flash2t = foe8flash2int - int(millis()/1000);
+              if (foe8flash2t > 0) {
+                image(foe8, foe8CoordX, foe8CoordY, foe8SizeX, foe8SizeY);
+                foe8Flash = true;
+              }
+              else if (foe8flash2t <= 0 && foe8Interupt == false) {
+                if (shield == true) {
+                  foe8Attack = false;
+                  attackBlocked = true;
+                
+                  foe8interval = int(millis()/1000) + 5;
+                  foe8whiteint = int(millis()/1000) + 3; 
+                  foe8flashint = int(millis()/1000) + 3;
+                  foe8redint = int(millis()/1000) + 3; 
+                  foe8flash2int = int(millis()/1000) + 3;
+                }
+                else if (shield == false) {
+                
+                  playerAttacked = true;
+                  foe4Alive = false;
+                  foe5Alive = false;  
+                  foe6Alive = false;
+                  foe7Alive = false;
+                    
+                  foe8interval = int(millis()/1000) + 5;
+                  foe8whiteint = int(millis()/1000) + 3;
+                  foe8flashint = int(millis()/1000) + 3;
+                  foe8redint = int(millis()/1000) + 3;
+                  foe8flash2int = int(millis()/1000) + 3;
+                  playerHP -= 10;
+                  HPbar = HPbar - originalHPbar/10;
+                  currentHPX = currentHPX + originalHPX/10;              
+                } 
+                foe8Flash = false;
+                foe8Attack = false;
+              }
+            }                  
+          }
+        }        
+      }
+      else if (foe8HP <= 0) {
+        foe8Attack = false;
+      }
     }    
     if (shield == true) {
       shieldt = shieldInterval - int(millis()/1000);
@@ -2364,26 +2426,151 @@ void draw() {
         if (foe4disapp == false) {
           image(foe4, foe4CoordX, foe4CoordY, foe4SizeX, foe4SizeY);
         }
+        if (foe4Attack == false && foe4HP > 0) {
+          foe4t = foe4interval-int(millis()/1000);
+            
+          if(foe4t <= 0){
+            if (first4Attack == true) {
+               foe4whiteint = int(millis()/1000) + 1;
+               foe4flashint = int(millis()/1000) + 2;
+               foe4redint = int(millis()/1000) + 3;
+               foe4flash2int = int(millis()/1000) + 4;              
+               
+            }
+            else if (first4Attack == false) {
+              //may have to change
+              foe4whiteint += 3;
+              foe4flashint += 4;
+              foe4redint += 5;
+              foe4flash2int += 6;              
+            }           
+              
+            foe4disapp = true;
+            foe4Attack = true;
+            foe4Alive = false;
+            first4Attack = false;
+          }
+        }        
       }
       if (foe5Alive == true) {
-        if (foe4disapp == false) {
-          image(foe4, foe4CoordX, foe4CoordY, foe4SizeX, foe4SizeY);
+        if (foe5disapp == false) {
+          image(foe5, foe5CoordX, foe5CoordY, foe5SizeX, foe5SizeY);
         }
+        if (foe5Attack == false && foe5HP > 0) {
+          foe5t = foe4interval-int(millis()/1000);
+            
+          if(foe5t <= 0){
+            if (first5Attack == true) {
+               foe5whiteint = int(millis()/1000) + 1;
+               foe5flashint = int(millis()/1000) + 2;
+               foe5redint = int(millis()/1000) + 3;
+               foe5flash2int = int(millis()/1000) + 4;              
+               
+            }
+            else if (first5Attack == false) {
+              //may have to change
+              foe5whiteint += 3;
+              foe5flashint += 4;
+              foe5redint += 5;
+              foe5flash2int += 6;              
+            }           
+              
+            foe5disapp = true;
+            foe5Attack = true;
+            foe5Alive = false;
+            first5Attack = false;
+          }
+        }        
       }  
       if (foe6Alive == true) {
         if (foe6disapp == false) {
           image(foe6, foe6CoordX, foe6CoordY, foe6SizeX, foe6SizeY);
         }
+        if (foe6Attack == false && foe6HP > 0) {
+          foe6t = foe6interval-int(millis()/1000);
+            
+          if(foe6t <= 0){
+            if (first6Attack == true) {
+               foe6whiteint = int(millis()/1000) + 1;
+               foe6flashint = int(millis()/1000) + 2;
+               foe6redint = int(millis()/1000) + 3;
+               foe6flash2int = int(millis()/1000) + 4;              
+               
+            }
+            else if (first6Attack == false) {
+              //may have to change
+              foe6whiteint += 3;
+              foe6flashint += 4;
+              foe6redint += 5;
+              foe6flash2int += 6;              
+            }           
+              
+            foe6disapp = true;
+            foe6Attack = true;
+            foe6Alive = false;
+            first6Attack = false;
+          }
+        }        
       }
       if (foe7Alive == true) {
         if (foe7disapp == false) {
           image(foe7, foe7CoordX, foe7CoordY, foe7SizeX, foe7SizeY);
         }
+        if (foe7Attack == false && foe7HP > 0) {
+          foe7t = foe7interval-int(millis()/1000);
+            
+          if(foe7t <= 0){
+            if (first7Attack == true) {
+               foe7whiteint = int(millis()/1000) + 1;
+               foe7flashint = int(millis()/1000) + 2;
+               foe7redint = int(millis()/1000) + 3;
+               foe7flash2int = int(millis()/1000) + 4;              
+               
+            }
+            else if (first7Attack == false) {
+              //may have to change
+              foe7whiteint += 3;
+              foe7flashint += 4;
+              foe7redint += 5;
+              foe7flash2int += 6;              
+            }           
+              
+            foe7disapp = true;
+            foe7Attack = true;
+            foe7Alive = false;
+            first7Attack = false;
+          }
+        }        
       }  
       if (foe8Alive == true) {
         if (foe8disapp == false) {
           image(foe8, foe8CoordX, foe8CoordY, foe8SizeX, foe8SizeY);
         }
+        if (foe8Attack == false && foe8HP > 0) {
+          foe8t = foe8interval-int(millis()/1000);
+            
+          if(foe8t <= 0){
+            if (first8Attack == true) {
+               foe8whiteint = int(millis()/1000) + 1;
+               foe8flashint = int(millis()/1000) + 2;
+               foe8redint = int(millis()/1000) + 3;
+               foe8flash2int = int(millis()/1000) + 4;              
+               
+            }
+            else if (first8Attack == false) {
+              //may have to change
+              foe8whiteint += 3;
+              foe8flashint += 4;
+              foe8redint += 5;
+              foe8flash2int += 6;              
+            }           
+              
+            foe8disapp = true;
+            foe8Attack = true;
+            foe8Alive = false;
+            first8Attack = false;
+          }
+        }        
       }      
     }
   }
