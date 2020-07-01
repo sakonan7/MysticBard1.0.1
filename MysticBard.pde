@@ -2148,6 +2148,12 @@ void draw() {
             if (foe6HP > 0) {
               image(foe6, foe6CoordX, foe6CoordY, foe6SizeX, foe6SizeY);
             }
+            if (foe7HP > 0) {
+              image(foe7, foe7CoordX, foe7CoordY, foe7SizeX, foe7SizeY);
+            }
+            if (foe8HP > 0) {
+              image(foe8, foe8CoordX, foe8CoordY, foe8SizeX, foe8SizeY);
+            }            
           }           
           image(violinUI, 251, height - 156, 240, 156);
           image(tromboneD, 7, height - 157, 244, 156);
@@ -2205,8 +2211,29 @@ void draw() {
             if (foe3HP > 0) {
               image(foe3, foe3CoordX, foe3CoordY - 20, foe3SizeX, foe3SizeY);
             }
-          }    
-          //fix
+          }  
+          if (stage2 == true) {
+            foe4disapp = true;
+            foe5disapp = true;
+            foe6disapp = true;
+            foe7disapp = true;
+            foe8disapp = true;
+            if (foe4HP > 0) {
+              image(foe4, foe4CoordX, foe4CoordY - 20, foe4SizeX, foe4SizeY);
+            }
+            if (foe5HP > 0) {
+              image(foe5, foe5CoordX, foe5CoordY - 20, foe5SizeX, foe5SizeY);
+            }
+            if (foe6HP > 0) {
+              image(foe6, foe6CoordX, foe6CoordY - 20, foe6SizeX, foe6SizeY);
+            }
+            if (foe7HP > 0) {
+              image(foe7, foe7CoordX, foe7CoordY - 20, foe7SizeX, foe7SizeY);
+            }
+            if (foe8HP > 0) {
+              image(foe8, foe8CoordX, foe8CoordY - 20, foe8SizeX, foe8SizeY);
+            }            
+          }   
           image(violinUI, 251, height - 156, 240, 156);
           image(tromboneD, 7, height - 157, 244, 156);
           image(shieldD, width - 253, height - 157, 244, 156);              
@@ -2250,10 +2277,19 @@ void draw() {
         if (foe5Attack == true) {
           attackBlocked = true;
         }
-        //fix
         if (foeTFlash == true) {
           attackBlocked = true;
         }
+        
+        if (foe6Attack == true) {
+          attackBlocked = true;
+        }     
+        if (foe7Attack == true) {
+          attackBlocked = true;
+        }  
+        if (foe8Attack == true) {
+          attackBlocked = true;
+        }        
    
        } 
        if (shieldt == 0) {
@@ -2264,7 +2300,27 @@ void draw() {
          if (foe1HP > 0) {
            foe1Alive = true;
          }        
-         //fix
+         if (foe2HP > 0) {
+           foe2Alive = true;
+         }
+         if (foe3HP > 0) {
+           foe3Alive = true;
+         }     
+         if (foe4HP > 0) {
+           foe4Alive = true;
+         }   
+         if (foe5HP > 0) {
+           foe5Alive = true;
+         }   
+         if (foe6HP > 0) {
+           foe6Alive = true;
+         }  
+         if (foe7HP > 0) {
+           foe7Alive = true;
+         }  
+         if (foe8HP > 0) {
+           foe8Alive = true;
+         }         
        }
     }
     else if (shield == false) {
@@ -2277,8 +2333,14 @@ void draw() {
         foe1disapp = false;
         foe2disapp = false;
         foe3disapp = false;
-      }  
-      //fix
+      } 
+      if (stage2 == true) {
+        foe4disapp = false;
+        foe5disapp = false;
+        foe6disapp = false;
+        foe7disapp = false;
+        foe8disapp = false;
+      }      
     }
     
     if (tutorialStage == true) {
