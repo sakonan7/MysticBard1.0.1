@@ -3295,19 +3295,31 @@ void mousePressed () {
                   text("  " + 15, foe4CoordX + foe4SizeX/5, foe4CoordY - 60);
                   foe4HP -= 15;
                 }
-                if (foe2HP > 0) {
-                  image(foe2, foe2CoordX - 10, foe2CoordY - 60, foe2SizeX * 1.1, foe2SizeY * 1.1);
-                  image(musicNote2, foe2CoordX + 5, foe2CoordY - 60, 100, 100);
-                  text("  " + 15, foe2CoordX + foe2SizeX/5, foe2CoordY - 60);
-                  foe2HP -= 15;
+                if (foe5HP > 0) {
+                  image(foe5, foe5CoordX - 10, foe5CoordY - 60, foe5SizeX * 1.1, foe5SizeY * 1.1);
+                  image(musicNote2, foe5CoordX + 5, foe5CoordY - 60, 100, 100);
+                  text("  " + 15, foe5CoordX + foe5SizeX/5, foe5CoordY - 60);
+                  foe5HP -= 15;
                 }
-                if (foe3HP > 0) {
-                  image(foe3, foe3CoordX - 10, foe3CoordY - 60, foe3SizeX * 1.1, foe3SizeY * 1.1);
-                  image(musicNote2, foe3CoordX + 5, foe3CoordY - 60, 100, 100);
-                  text("  " + 15, foe3CoordX + foe3SizeX/5, foe3CoordY - 60);
-                  foe3HP -= 15;
+                if (foe6HP > 0) {
+                  image(foe6, foe6CoordX - 10, foe6CoordY - 60, foe6SizeX * 1.1, foe6SizeY * 1.1);
+                  image(musicNote2, foe6CoordX + 5, foe6CoordY - 60, 100, 100);
+                  text("  " + 15, foe6CoordX + foe6SizeX/5, foe6CoordY - 60);
+                  foe6HP -= 15;
                 }
-
+                if (foe7HP > 0) {
+                  image(foe7, foe7CoordX - 10, foe7CoordY - 60, foe7SizeX * 1.1, foe7SizeY * 1.1);
+                  image(musicNote2, foe7CoordX + 5, foe7CoordY - 60, 100, 100);
+                  text("  " + 15, foe7CoordX + foe7SizeX/5, foe7CoordY - 60);
+                  foe7HP -= 15;
+                }
+                if (foe8HP > 0) {
+                  image(foe8, foe8CoordX - 10, foe8CoordY - 60, foe8SizeX * 1.1, foe8SizeY * 1.1);
+                  image(musicNote2, foe8CoordX + 5, foe8CoordY - 60, 100, 100);
+                  text("  " + 15, foe8CoordX + foe8SizeX/5, foe8CoordY - 60);
+                  foe8HP -= 15;
+                }             
+                
                 noFill();
                 strokeWeight(7);
                 stroke(#FFC246);
@@ -3332,71 +3344,333 @@ void mousePressed () {
                 stroke(#FFCE46);
           
                 rect(13, height - 148, 235, 135, 8);
-                foe1attacked = true;
-                foe2attacked = true;
-                foe3attacked = true;
+                foe4attacked = true;
+                foe5attacked = true;
+                foe6attacked = true;
+                foe7attacked = true;
+                foe8attacked = true;
                 
                 monsterTrombone = true;
                 player2 = minim2.loadFile("firstTrumpet.mp3", 500);
                 player2.play();
                 player2.shiftGain(player2.getGain(), -30,FADE); 
                 //Need to add code to all foes
-                if (foe1Flash == true && foe1attacked == true) {
-                  foe1Attack = false;
-                  foe1Alive = true;
-                  foe1Interupt = true; 
-                  foe1Flash = false;
-                  foe1interval = int(millis()/1000) + 5;
+                if (foe4Flash == true && foe4attacked == true) {
+                  foe4Attack = false;
+                  foe4Alive = true;
+                  foe4Interupt = true; 
+                  foe4Flash = false;
+                  foe4interval = int(millis()/1000) + 5;
                   
-                  foe1whiteint = int(millis()/1000) + 3; 
-                  foe1flashint = int(millis()/1000) + 3;
-                  foe1redint = int(millis()/1000) + 3; 
-                  foe1flash2int = int(millis()/1000) + 3;              
+                  foe4whiteint = int(millis()/1000) + 3; 
+                  foe4flashint = int(millis()/1000) + 3;
+                  foe4redint = int(millis()/1000) + 3; 
+                  foe4flash2int = int(millis()/1000) + 3;              
              
                 }        
-                if (foe1Interupt == true) {
-                  foe1Interupt = false;
-                  foe1attacked = false;       
+                if (foe4Interupt == true) {
+                  foe4Interupt = false;
+                  foe4attacked = false;       
                 }   
-                if (foe2Flash == true && foe2attacked == true) {
-                  foe2Attack = false;
-                  foe2Alive = true;
-                  foe2Interupt = true; 
-                  foe2Flash = false;
-                  foe2interval = int(millis()/1000) + 5;
+                if (foe5Flash == true && foe5attacked == true) {
+                  foe5Attack = false;
+                  foe5Alive = true;
+                  foe5Interupt = true; 
+                  foe5Flash = false;
+                  foe5interval = int(millis()/1000) + 5;
                   
-                  foe2whiteint = int(millis()/1000) + 3; 
-                  foe2flashint = int(millis()/1000) + 3;
-                  foe2redint = int(millis()/1000) + 3; 
-                  foe2flash2int = int(millis()/1000) + 3;              
+                  foe5whiteint = int(millis()/1000) + 3; 
+                  foe5flashint = int(millis()/1000) + 3;
+                  foe5redint = int(millis()/1000) + 3; 
+                  foe5flash2int = int(millis()/1000) + 3;              
              
                 }        
-                if (foe2Interupt == true) {
-                  foe2Interupt = false;
-                  foe2attacked = false;       
+                if (foe5Interupt == true) {
+                  foe5Interupt = false;
+                  foe5attacked = false;       
                 } 
-                if (foe3Flash == true && foe3attacked == true) {
-                  foe3Attack = false;
-                  foe3Alive = true;
-                  foe3Interupt = true; 
-                  foe3Flash = false;
-                  foe3interval = int(millis()/1000) + 5;
+                if (foe6Flash == true && foe6attacked == true) {
+                  foe6Attack = false;
+                  foe6Alive = true;
+                  foe6Interupt = true; 
+                  foe6Flash = false;
+                  foe6interval = int(millis()/1000) + 5;
                   
-                  foe3whiteint = int(millis()/1000) + 3; 
-                  foe3flashint = int(millis()/1000) + 3;
-                  foe3redint = int(millis()/1000) + 3; 
-                  foe3flash2int = int(millis()/1000) + 3;              
+                  foe6whiteint = int(millis()/1000) + 3; 
+                  foe6flashint = int(millis()/1000) + 3;
+                  foe6redint = int(millis()/1000) + 3; 
+                  foe6flash2int = int(millis()/1000) + 3;              
              
                 }        
-                if (foe3Interupt == true) {
-                  foe3Interupt = false;
-                  foe3attacked = false;       
-                }                 
+                if (foe6Interupt == true) {
+                  foe6Interupt = false;
+                  foe6attacked = false;       
+                }   
+                if (foe7Flash == true && foe7attacked == true) {
+                  foe7Attack = false;
+                  foe7Alive = true;
+                  foe7Interupt = true; 
+                  foe7Flash = false;
+                  foe7interval = int(millis()/1000) + 5;
+                  
+                  foe7whiteint = int(millis()/1000) + 3; 
+                  foe7flashint = int(millis()/1000) + 3;
+                  foe7redint = int(millis()/1000) + 3; 
+                  foe7flash2int = int(millis()/1000) + 3;              
+             
+                }        
+                if (foe7Interupt == true) {
+                  foe7Interupt = false;
+                  foe7attacked = false;       
+                } 
+                if (foe8Flash == true && foe8attacked == true) {
+                  foe8Attack = false;
+                  foe8Alive = true;
+                  foe8Interupt = true; 
+                  foe8Flash = false;
+                  foe8interval = int(millis()/1000) + 5;
+                  
+                  foe8whiteint = int(millis()/1000) + 3; 
+                  foe8flashint = int(millis()/1000) + 3;
+                  foe8redint = int(millis()/1000) + 3; 
+                  foe8flash2int = int(millis()/1000) + 3;              
+             
+                }        
+                if (foe8Interupt == true) {
+                  foe8Interupt = false;
+                  foe8attacked = false;       
+                }                
+              }              
+            }
+            if (secondBlast == true) {
+              if (mouseX <= foe4SizeX + foe4CoordX + 140 && mouseX >= foe4CoordX - 140
+              && (mouseY <= foe4SizeY + foe4CoordY + 140 && mouseY >= foe4CoordY - 140) && foe4HP > 0) { 
+
+                image(foe4, foe4CoordX - 10, foe4CoordY - 60, foe4SizeX * 1.1, foe4SizeY * 1.1);
+
+                image(musicNote2, foe4CoordX + 5, foe4CoordY - 60, 100, 100);
+
+                noFill();
+                strokeWeight(7);
+                stroke(#FFC246);
+                ellipse(cursorX, cursorY, 280, 280);
+                ellipse(cursorX, cursorY , 200, 200);
+                ellipse(cursorX, cursorY , 120, 120);
+                ellipse(cursorX, cursorY , 60, 60);
+                
+                image(trombone, cursorX - 40, cursorY - 15, 100, 40);
+      
+                foe4HP -= 10;
+                text("  " + 10, foe4CoordX + foe4SizeX/5, foe4CoordY - 60);
+                
+                fill(#E505FF);
+
+                foe4attacked = true;
+                monsterTrombone = true;
+                player2 = minim2.loadFile("secondTrumpet.mp3", 500);
+                player2.play();
+                player2.shiftGain(player2.getGain(), -30,FADE); 
+                if (foe4Flash == true && foe4attacked == true) {
+                  foe4Attack = false;
+                  foe4Alive = true;
+                  foe4Interupt = true; 
+                  foe4Flash = false;
+                  foe4interval = int(millis()/1000) + 5;
+                  
+                  foe4whiteint = int(millis()/1000) + 3; 
+                  foe4flashint = int(millis()/1000) + 3;
+                  foe4redint = int(millis()/1000) + 3; 
+                  foe4flash2int = int(millis()/1000) + 3;              
+             
+                }        
+                if (foe4Interupt == true) {
+                  foe4Interupt = false;
+                  foe4attacked = false;       
+                }                
+              }
+              if (mouseX <= foe5SizeX + foe5CoordX + 140 && mouseX >= foe5CoordX - 140
+              && (mouseY <= foe5SizeY + foe5CoordY + 140 && mouseY >= foe5CoordY - 140) && foe5HP > 0) { 
+                
+                image(foe5, foe5CoordX - 10, foe5CoordY - 60, foe5SizeX * 1.1, foe5SizeY * 1.1);
+          
+                image(musicNote2, foe5CoordX + 5, foe5CoordY - 60, 100, 100);
+
+                noFill();
+                strokeWeight(7);
+                stroke(#FFC246);
+                ellipse(cursorX, cursorY, 280, 280);
+                ellipse(cursorX, cursorY , 200, 200);
+                ellipse(cursorX, cursorY , 120, 120);
+                ellipse(cursorX, cursorY , 60, 60);
+                image(trombone, cursorX - 40, cursorY - 15, 100, 40);
+      
+                foe5HP -= 10;
+                text("  " + 10, foe5CoordX + foe5SizeX/5, foe5CoordY - 60);
+                
+                fill(#E505FF);
+
+                foe5attacked = true;
+                monsterTrombone = true;
+                player2 = minim2.loadFile("secondTrumpet.mp3", 500);
+                player2.play();
+                player2.shiftGain(player2.getGain(), -30,FADE);  
+                if (foe5Flash == true && foe5attacked == true) {
+                  foe5Attack = false;
+                  foe5Alive = true;
+                  foe5Interupt = true; 
+                  foe5Flash = false;
+                  foe5interval = int(millis()/1000) + 5;
+                  
+                  foe5whiteint = int(millis()/1000) + 3; 
+                  foe5flashint = int(millis()/1000) + 3;
+                  foe5redint = int(millis()/1000) + 3; 
+                  foe5flash2int = int(millis()/1000) + 3;              
+             
+                }        
+                if (foe5Interupt == true) {
+                  foe5Interupt = false;
+                  foe5attacked = false;       
+                }                
+              }
+              if (mouseX <= foe6SizeX + foe6CoordX + 140 && mouseX >= foe6CoordX - 140
+              && (mouseY <= foe6SizeY + foe6CoordY + 140 && mouseY >= foe6CoordY - 140) && foe6HP > 0) { 
+
+                image(foe6, foe6CoordX - 10, foe6CoordY - 60, foe6SizeX * 1.1, foe6SizeY * 1.1);
+          
+                image(musicNote2, foe6CoordX + 5, foe6CoordY - 60, 100, 100);
+
+                noFill();
+                strokeWeight(7);
+                stroke(#FFC246);
+                ellipse(cursorX, cursorY, 280, 280);
+                ellipse(cursorX, cursorY , 200, 200);
+                ellipse(cursorX, cursorY , 120, 120);
+                ellipse(cursorX, cursorY , 60, 60);
+                
+                image(trombone, cursorX - 40, cursorY - 15, 100, 40);
+      
+                foe6HP -= 10;
+                text("  " + 10, foe6CoordX + foe6SizeX/5, foe6CoordY - 60);
+                
+                fill(#E505FF);
+              
+                foe6attacked = true;
+                monsterTrombone = true;
+                player2 = minim2.loadFile("secondTrumpet.mp3", 500);
+                player2.play();
+                player2.shiftGain(player2.getGain(), -30,FADE);  
+                if (foe6Flash == true && foe6attacked == true) {
+                  foe6Attack = false;
+                  foe6Alive = true;
+                  foe6Interupt = true; 
+                  foe6Flash = false;
+                  foe6interval = int(millis()/1000) + 5;
+                  
+                  foe6whiteint = int(millis()/1000) + 3; 
+                  foe6flashint = int(millis()/1000) + 3;
+                  foe6redint = int(millis()/1000) + 3; 
+                  foe6flash2int = int(millis()/1000) + 3;              
+             
+                }        
+                if (foe6Interupt == true) {
+                  foe6Interupt = false;
+                  foe6attacked = false;       
+                }                
+              }
+              if (mouseX <= foe7SizeX + foe7CoordX + 140 && mouseX >= foe7CoordX - 140
+              && (mouseY <= foe7SizeY + foe7CoordY + 140 && mouseY >= foe7CoordY - 140) && foe7HP > 0) { 
+
+                image(foe7, foe7CoordX - 10, foe7CoordY - 60, foe7SizeX * 1.1, foe7SizeY * 1.1);
+          
+                image(musicNote2, foe7CoordX + 5, foe7CoordY - 60, 100, 100);
+
+                noFill();
+                strokeWeight(7);
+                stroke(#FFC246);
+                ellipse(cursorX, cursorY, 280, 280);
+                ellipse(cursorX, cursorY , 200, 200);
+                ellipse(cursorX, cursorY , 120, 120);
+                ellipse(cursorX, cursorY , 60, 60);
+                
+                image(trombone, cursorX - 40, cursorY - 15, 100, 40);
+      
+                foe7HP -= 10;
+                text("  " + 10, foe7CoordX + foe7SizeX/5, foe7CoordY - 60);
+                
+                fill(#E505FF);
+              
+                foe7attacked = true;
+                monsterTrombone = true;
+                player2 = minim2.loadFile("secondTrumpet.mp3", 500);
+                player2.play();
+                player2.shiftGain(player2.getGain(), -30,FADE);  
+                if (foe7Flash == true && foe7attacked == true) {
+                  foe7Attack = false;
+                  foe7Alive = true;
+                  foe7Interupt = true; 
+                  foe7Flash = false;
+                  foe7interval = int(millis()/1000) + 5;
+                  
+                  foe7whiteint = int(millis()/1000) + 3; 
+                  foe7flashint = int(millis()/1000) + 3;
+                  foe7redint = int(millis()/1000) + 3; 
+                  foe7flash2int = int(millis()/1000) + 3;              
+             
+                }        
+                if (foe7Interupt == true) {
+                  foe7Interupt = false;
+                  foe7attacked = false;       
+                }                
+              }  
+              if (mouseX <= foe8SizeX + foe8CoordX + 140 && mouseX >= foe8CoordX - 140
+              && (mouseY <= foe8SizeY + foe8CoordY + 140 && mouseY >= foe8CoordY - 140) && foe8HP > 0) { 
+
+                image(foe8, foe8CoordX - 10, foe8CoordY - 60, foe8SizeX * 1.1, foe8SizeY * 1.1);
+          
+                image(musicNote2, foe8CoordX + 5, foe8CoordY - 60, 100, 100);
+
+                noFill();
+                strokeWeight(7);
+                stroke(#FFC246);
+                ellipse(cursorX, cursorY, 280, 280);
+                ellipse(cursorX, cursorY , 200, 200);
+                ellipse(cursorX, cursorY , 120, 120);
+                ellipse(cursorX, cursorY , 60, 60);
+                
+                image(trombone, cursorX - 40, cursorY - 15, 100, 40);
+      
+                foe8HP -= 10;
+                text("  " + 10, foe8CoordX + foe8SizeX/5, foe8CoordY - 60);
+                
+                fill(#E505FF);
+              
+                foe8attacked = true;
+                monsterTrombone = true;
+                player2 = minim2.loadFile("secondTrumpet.mp3", 500);
+                player2.play();
+                player2.shiftGain(player2.getGain(), -30,FADE);  
+                if (foe8Flash == true && foe8attacked == true) {
+                  foe8Attack = false;
+                  foe8Alive = true;
+                  foe8Interupt = true; 
+                  foe8Flash = false;
+                  foe8interval = int(millis()/1000) + 5;
+                  
+                  foe8whiteint = int(millis()/1000) + 3; 
+                  foe8flashint = int(millis()/1000) + 3;
+                  foe8redint = int(millis()/1000) + 3; 
+                  foe8flash2int = int(millis()/1000) + 3;              
+             
+                }        
+                if (foe8Interupt == true) {
+                  foe8Interupt = false;
+                  foe8attacked = false;       
+                }                
               }              
             }            
-          }
+          } //stage2 end
+          
         }
-
       }
       if (weapon == "Violin") {
         if (violinBar > 0 && violinDrained == false) {
