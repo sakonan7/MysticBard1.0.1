@@ -3915,7 +3915,55 @@ void mousePressed () {
                 foe3attacked = false;     
               }              
             }            
-          }          
+          }
+          if (stage2 == true) {
+            if (mouseX <= foe4SizeX + foe4CoordX && mouseX >= foe4CoordX
+            && (mouseY <= foe4SizeY + foe4CoordY && mouseY >= foe4CoordY) && foe4HP > 0) { 
+
+              image(foe4, foe4CoordX - 15, foe4CoordY - 30, foe4SizeX * 1.2, foe4SizeY * 1.2);
+          
+              image(musicNote1, foe4CoordX + foe4SizeX/5, foe4CoordY - foe4CoordY/10, 100, 100);
+      
+              noFill();
+              strokeWeight(5);
+              stroke(damageWave);
+              ellipse(cursorX, cursorY, 140, 140);
+              ellipse(cursorX, cursorY , 100, 100);
+              ellipse(cursorX, cursorY , 50, 50);
+              
+              image(violin, cursorX, cursorY - 20, 46.5, 50);
+      
+              foe4HP -= damage;
+              text("  " + damage, foe4CoordX + foe4SizeX/4, foe4CoordY - foe4CoordY/11);
+              fill(#E505FF);
+              foe4attacked = true;
+              monsterViolin = true;
+              
+              if (foe4Flash == true && foe4attacked == true) {
+                foe4Attack = false;
+                foe4Alive = true;
+                foe4Interupt = true; 
+                foe4Flash = false;
+                foe4interval = int(millis()/1000) + 5;
+                foe4whiteint = int(millis()/1000) + 3; 
+                foe4flashint = int(millis()/1000) + 3;
+                foe4redint = int(millis()/1000) + 3; 
+                foe4flash2int = int(millis()/1000) + 3;   
+                player2 = minim2.loadFile("violinFlinch.mp3", 500);
+                player2.play();            
+              }        
+              else if (foe4Flash == false) {
+                player2 = minim2.loadFile("violin.mp3", 400);
+                player2.play();
+              }
+              if (foe4Interupt == true) {
+                foe4Interupt = false;
+                foe4attacked = false;     
+              }              
+            }
+            
+          }
+          
         }
       }
       if(foe1HP <= 0) {
