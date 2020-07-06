@@ -476,6 +476,10 @@ boolean redDeadPage = false;
 boolean tutorialDead = false;
 boolean tutorialRestart = false;
 
+boolean stage1V = false;
+boolean stage2V = false;
+boolean lastStageV = false;
+
 PFont Font1;
 PFont Font2;
 PFont Font3;
@@ -4232,14 +4236,22 @@ void mousePressed () {
   if (victory == true) {
     if (mouseButton == RIGHT && victoryPage == true) {
       victoryPage = false;
-      victoryConclude = true;
+      if (lastStageV == true) {
+        stayTuned = true;
+      }
+      else {
+        victoryConclude = true;
+      }
       //tutorialEnd = true;
     }
     //If I stop at this level, use musiccredits
     else if (mouseButton == RIGHT && victoryConclude == true) {
       victory = false; //need this because there will be multiple victories
       victoryConclude = false;
-      stage2 = true;
+      //use boolean stagexvictory to determine victory
+      if (stage1V == true) {
+        stage2 = true;
+      }
       warmUp = true;
       
       playerHP = 100;
