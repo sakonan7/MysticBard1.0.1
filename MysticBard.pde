@@ -796,6 +796,10 @@ void draw() {
     image(tromboneD, 7, height - 157, 244, 156);
     image(shieldD, width - 253, height - 157, 244, 156);    
     
+    noFill();
+    stroke(#9B9B9B);
+    rect(originalHPX - 3, 50 - 2.5, originalHPbar + 5, 40 + 6);    
+    
     setGradient(currentShieldBarX, height-105, shieldBar, 15, c3, c4, 2);
     setGradient(currentViolinBarX, height-105, violinBar, 15, c3, c4, 2); //Violin
     setGradient(currentTromboneBarX, height-105, tromboneBar, 15, c3, c4, 2);
@@ -1310,8 +1314,12 @@ void draw() {
     text("\n" + "\n" + clickSkip, width - 625, height - 165);
   }  
   
-  else if (playerAlive && (stage2 == true || stage1 == true || tutorialStage == true)){
+  else if (playerAlive == true && (stage2 == true || stage1 == true || tutorialStage == true)){
     setGradient(currentHPX, 50, HPbar, 40, c2, c1, 3);
+    noFill();
+    stroke(#9B9B9B);
+    rect(originalHPX - 3, 50 - 2.5, originalHPbar + 5, 40 + 6);
+    
     if (currentHP == playerHP + damage) {
       currentHP = playerHP;
       setGradient(currentHPX, 50, HPbar, 40, c2, c1, 3);
@@ -1448,6 +1456,9 @@ void draw() {
       rect(0, 1, 1099, 898);        
         
       setGradient(currentHPX, 50, HPbar, 40, c2, c1, 3);
+      noFill();
+      stroke(#9B9B9B);
+      rect(originalHPX - 3, 50 - 2.5, originalHPbar + 5, 40 + 6);      
  
       setGradient(currentShieldBarX, height-105, shieldBar, 15, c3, c4, 2);
       setGradient(currentViolinBarX, height-105, violinBar, 15, c3, c4, 2); 
@@ -1595,7 +1606,7 @@ void draw() {
                   foeTredint = int(millis()/1000) + 3;
                   foeTflash2int = int(millis()/1000) + 3;
                   
-                  playerHP -= 10;
+                  playerHP -= 100;
                   HPbar = HPbar - originalHPbar/10;
                   currentHPX = currentHPX + originalHPX/10;         
                   println(10);
@@ -2165,7 +2176,9 @@ void draw() {
               
           rect(0, 0, 1100, 900);              
           setGradient(currentHPX, 50, HPbar, 40, c2, c1, 3);
-                   
+          noFill();
+          stroke(#9B9B9B);
+          rect(originalHPX - 3, 50 - 2.5, originalHPbar + 5, 40 + 6);                   
        
           setGradient(currentShieldBarX, height-105, shieldBar, 15, c3, c4, 2);
           setGradient(currentViolinBarX, height-105, violinBar, 15, c3, c4, 2); 
@@ -2244,7 +2257,9 @@ void draw() {
               
           rect(0, 0, 1100, 900);
           setGradient(currentHPX, 50, HPbar, 40, c2, c1, 3);
-    
+          noFill();
+          stroke(#9B9B9B);
+          rect(originalHPX - 3, 50 - 2.5, originalHPbar + 5, 40 + 6);    
           
           setGradient(currentShieldBarX, height-105, shieldBar, 15, c3, c4, 2);
           setGradient(currentViolinBarX, height-105, violinBar, 15, c3, c4, 2);
@@ -2904,6 +2919,9 @@ void mousePressed () {
                 image(shieldD, width - 253, height - 157, 244, 156);                
               
                 setGradient(currentHPX, 50, HPbar, 40, c2, c1, 3);
+                noFill();
+                stroke(#9B9B9B);
+                rect(originalHPX - 3, 50 - 2.5, originalHPbar + 5, 40 + 6);                
           
                 setGradient(currentShieldBarX, height-105, shieldBar, 15, c3, c4, 2);
                 setGradient(currentViolinBarX, height-105, violinBar, 15, c3, c4, 2); //Violin
@@ -3079,6 +3097,9 @@ void mousePressed () {
                 image(shieldD, width - 253, height - 157, 244, 156);                
               
                 setGradient(currentHPX, 50, HPbar, 40, c2, c1, 3);
+                noFill();
+                stroke(#9B9B9B);
+                rect(originalHPX - 3, 50 - 2.5, originalHPbar + 5, 40 + 6);                
           
                 setGradient(currentShieldBarX, height-105, shieldBar, 15, c3, c4, 2);
                 setGradient(currentViolinBarX, height-105, violinBar, 15, c3, c4, 2); //Violin
@@ -3339,6 +3360,9 @@ void mousePressed () {
                 image(shieldD, width - 253, height - 157, 244, 156);                
               
                 setGradient(currentHPX, 50, HPbar, 40, c2, c1, 3);
+                noFill();
+                stroke(#9B9B9B);
+                rect(originalHPX - 3, 50 - 2.5, originalHPbar + 5, 40 + 6);                
           
                 setGradient(currentShieldBarX, height-105, shieldBar, 15, c3, c4, 2);
                 setGradient(currentViolinBarX, height-105, violinBar, 15, c3, c4, 2); //Violin
