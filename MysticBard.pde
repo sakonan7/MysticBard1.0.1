@@ -144,7 +144,7 @@ int foe8HP = 150;
 
 int playerHP = 100;
 
-int damage = 150;
+int damage = 50;
 float HPbar = 600;
 
 int currentHP = playerHP;
@@ -4187,6 +4187,7 @@ void mousePressed () {
         victory = true;
         victoryPage = true;
         stage1 = false;
+        stage1V = true;
         playerAlive = false; 
         minim.stop();
         
@@ -4195,6 +4196,23 @@ void mousePressed () {
         player3.shiftGain(player3.getGain(),-15,FADE);
         player3.loop();      
       }
+      if (foe4HP <= 0 && foe5HP <= 0 && foe6HP <= 0 && foe7HP <= 0 && foe8HP <= 0
+      && stage2 == true && playerAlive == true) {
+        victory = true;
+        victoryPage = true;
+        stage2 = false;
+        stage2V = true;
+        
+        lastStageV = true;
+        
+        playerAlive = false; 
+        minim.stop();
+        
+        player3 = minim3.loadFile("Victory.mp3", 800);
+        player3.play();    
+        player3.shiftGain(player3.getGain(),-15,FADE);
+        player3.loop();      
+      }      
       
     }
   }
@@ -4274,8 +4292,79 @@ void mousePressed () {
       player.play();
       player.shiftGain(player.getGain(),-15,FADE);
       player.loop();      
-      println("stage 2 start");
     }
+    else if (mouseButton == RIGHT && stayTuned == true) {
+      stayTuned = false;
+      musicCredits = true;
+    }
+    else if (mouseButton == RIGHT && musicCredits == true) {
+      musicCredits = false;
+      victory = false;
+      
+      warmUp = true;
+  //reset first attacks
+      firstTAttack = true; 
+      first1Attack = true;
+      first2Attack = true;
+      first3Attack = true;
+      first4Attack = true;
+      first5Attack = true;
+      first6Attack = true;
+      first7Attack = true;
+      first8Attack = true;
+      
+      playerHP = 100;
+      currentHP = playerHP;
+      HPbar = originalHPbar;
+      currentHPX = originalHPX;
+//reset all enemies
+      foeTHP = 150;
+      foeT2HP = 150;
+      foeT3HP = 150;
+      foe1HP = 150;
+      foe2HP = 150;
+      foe3HP = 150;
+      foe4HP = 150;
+      foe5HP = 150;
+      foe6HP = 150;
+      foe7HP = 150;
+      foe8HP = 150;
+      
+      violinBar = 0;
+      tromboneBar = 0;
+      currentViolinBarX = 465;
+      currentTromboneBarX = 225;
+      shieldBar = 190;
+      currentShieldBarX = originalShieldBarX;
+      shieldDrained = false;
+//reset all enemies
+      foeTAlive = true;
+      foeT2Alive = true;
+      foeT3Alive = true;
+      foe1Alive = true;
+      foe2Alive = true;
+      foe3Alive = true;
+      foe4Alive = true;
+      foe5Alive = true;
+      foe6Alive = true;
+      foe7Alive = true;
+      foe8Alive = true;
+      
+      playerAlive = true;
+      weapon = "Violin";
+      
+      titlePage = true;
+      minim3.stop(); 
+      messageOver = false;
+      player = minim.loadFile("Title Theme.mp3", 800);
+      player.play();
+      player.shiftGain(player.getGain(),-15,FADE);
+      player.loop();      
+    }    
+    else if (mouseButton == LEFT && musicCredits == true) {
+      musicCredits = false;
+      stayTuned = true;
+    }    
 
   }  
   if (redTDead == true) {
@@ -4343,9 +4432,7 @@ void mousePressed () {
     //stageOne = true;
     else if (mouseButton == RIGHT && tryAgain == true) {
       warmUp = true;
-      first1Attack = true;
-      first2Attack = true;
-      first3Attack = true;
+
       playerHP = 100;
       currentHP = playerHP;
       HPbar = originalHPbar;
@@ -4367,6 +4454,9 @@ void mousePressed () {
       if (stage1Dead == true) {
         stage1Dead = false;
         stage1 = true;
+        first1Attack = true;
+        first2Attack = true;
+        first3Attack = true;        
         foe1HP = 150;
         foe2HP = 150;
         foe3HP = 150;  
@@ -4377,6 +4467,11 @@ void mousePressed () {
       if (stage2Dead == true) {
         stage2Dead = false;
         stage2 = true;
+        first4Attack = true;
+        first5Attack = true;
+        first6Attack = true;
+        first7Attack = true;
+        first8Attack = true;
         foe4HP = 150;
         foe5HP = 150;
         foe6HP = 150; 
