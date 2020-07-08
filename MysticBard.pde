@@ -79,6 +79,8 @@ PImage violinUI;
 
 PImage dead;
 
+PImage victoryS;
+
 float foe1SizeX;
 float foe1SizeY;
 float foe2SizeX;
@@ -144,7 +146,7 @@ int foe8HP = 150;
 
 int playerHP = 100;
 
-int damage = 50;
+int damage = 150;
 float HPbar = 600;
 
 int currentHP = playerHP;
@@ -567,6 +569,8 @@ void setup() {
   violinUI = loadImage("violinUI.png");
   dead = loadImage("Loss.png");
   
+  victoryS = loadImage("victoryS.jpg");
+  
   minim = new Minim(this);
   player = minim.loadFile("Title Theme.mp3", 800);
   player.play();
@@ -610,24 +614,24 @@ void setup() {
 // 
   foe4SizeX = 125 * 1.1;
   foe4SizeY = 200 * 1.1;
-  foe4CoordX = 390 - 60;
+  foe4CoordX = 390 - 60 - 15;
   foe4CoordY = height - 380 - 25 - 20;
   foe5SizeX = 125 * 1.1;
   foe5SizeY = 200 * 1.1;
-  foe5CoordX = 180 - 60;
+  foe5CoordX = 180 - 60 - 15;
   foe5CoordY = height - 400 - 75 - 20;
   foe6SizeX = 125 * 1.1;
   foe6SizeY = 200 * 1.1;
-  foe6CoordX = 600 - 60;
+  foe6CoordX = 600 - 60 - 15;
   foe6CoordY = height - 430 - 20;
   foe7SizeX = 125 * 1.1;
   foe7SizeY = 200 * 1.1;
-  foe7CoordX = 800 - 60;
+  foe7CoordX = 800 - 60 - 15;
   foe7CoordY = height - 370 - 75 - 20;
 
   foe8SizeX = 125 * 1.1;
   foe8SizeY = 200 * 1.1;
-  foe8CoordX = 950 - 60;
+  foe8CoordX = 950 - 60 - 15;
   foe8CoordY = height - 450 - 75 - 20;
   
   weapon = "Violin";
@@ -692,7 +696,7 @@ void draw() {
     text("You have defeated your first enemy! But the battle has just begun", 50, 210);
     
     image(tutorialV, 230, 250, 625, 463);
-    text("The true challenge is yet to come", 50, 772); 
+    text("The true challenge has yet to come", 50, 772); 
     fill(#FFF300);
     textFont(Font1);
     text("\n" + "\n" + "Click Right to Start", width - 320, height - 165);     
@@ -705,13 +709,15 @@ void draw() {
     text("Thank You For Playing" + "\n", 50, height - height + 90);     
     textFont(Font1);
     fill(#FFFFFF);
-    text("Stay Tuned For More Updates" + "\n", 50, height - height + 150);
+    text("This Is The Last Level For Now" + "\n", 50, height - height + 150);
     
     textFont(Font1);
     fill(#FFF300);
     fill(#FFFFFF);
     
-    image(bardEnd, 180, 190, 742, 590);
+    //image(bardEnd, 180, 190, 742, 590);
+    image(bardEnd, 230, 190, 692, 550);
+    text("Stay Tuned For More Updates" + "\n", 50, 772);
     fill(#FFF300);
     textFont(Font1);
     text("\n" + "\n" + "Click Right for Music Credits", width - 465, height - 165);     
@@ -722,16 +728,16 @@ void draw() {
     
     textFont(Font2);
     fill(#FFFFFF);
-    text("Music" + "\n", 470, 285);     
+    text("Music" + "\n", 470, 295);     
     textFont(Font1);
     fill(#FFFFFF);
     ///Title Theme
-    text("Title Theme (Final Fantasy I) by Nobuo Uematsu", 200, 345);
-    text("Reclamation (Fire Emblem: Shadow Dragon)", 225, 395);
-    text("by Yuka Tsujiyoko", 410, 445);
-    text("Battle 1 (Final Fantasy IV) by Nobuo Uematsu", 220, 495);
-    text("Victory (Final Fantasy VII) by Nobuo Uematsu", 220, 545);
-    text("Dead Music (Final Fantasy I) by Nobuo Uematsu", 200, 595);
+    text("Title Theme (Final Fantasy I) by Nobuo Uematsu", 200, 355);
+    text("Reclamation (Fire Emblem: Shadow Dragon)", 225, 405);
+    text("by Yuka Tsujiyoko", 410, 455);
+    text("Battle 1 (Final Fantasy IV) by Nobuo Uematsu", 220, 505);
+    text("Victory (Final Fantasy VII) by Nobuo Uematsu", 220, 555);
+    text("Dead Music (Final Fantasy I) by Nobuo Uematsu", 200, 605);
 
     textFont(Font1);
     fill(#FFF300);
@@ -760,7 +766,9 @@ void draw() {
     fill(#FFFFFF);
     text("You have successfully protected the village!", 50, 210);
     
-    image(tutorialV, 230, 250, 625, 463);
+    //image(tutorialV, 230, 250, 625, 463);
+    //image(dead, 75, 245, 949, 533);
+    image(victoryS, 193, 245, 711, 533);
     
     fill(#FFF300);
     textFont(Font1);
@@ -785,7 +793,9 @@ void draw() {
     fill(#FFFFFF);
     text("You have successfully protected the village!", 50, 210);
     
-    image(tutorialV, 230, 250, 625, 463);
+    //image(tutorialV, 230, 250, 625, 463);
+    //image(dead, 75, 245, 949, 533);
+    image(victoryS, 193, 245, 711, 533);
     
     fill(#FFF300);
     textFont(Font1);
@@ -1359,6 +1369,13 @@ void draw() {
         foe2interval = int(millis()/1000) + int(random(3,8));
         foe3interval = int(millis()/1000) + int(random(3,8));
       }
+      if (stage2 == true) {
+        foe4interval = int(millis()/1000) + int(random(3,8));
+        foe5interval = int(millis()/1000) + int(random(3,8));
+        foe6interval = int(millis()/1000) + int(random(3,8));
+        foe7interval = int(millis()/1000) + int(random(3,8));
+        foe8interval = int(millis()/1000) + int(random(3,8));
+      }      
       
       warmUp = false;
     }
@@ -1606,7 +1623,7 @@ void draw() {
                   foeTredint = int(millis()/1000) + 3;
                   foeTflash2int = int(millis()/1000) + 3;
                   
-                  playerHP -= 100;
+                  playerHP -= 10;
                   HPbar = HPbar - originalHPbar/10;
                   currentHPX = currentHPX + originalHPX/10;         
                   println(10);
@@ -4377,6 +4394,12 @@ void mousePressed () {
       playerAlive = true;
       weapon = "Violin";
       
+      stage1 = false;
+      stage2 = false;
+      stage1V = false;
+      stage2V = false;
+      lastStageV = false;
+      
       titlePage = true;
       minim3.stop(); 
       messageOver = false;
@@ -4445,8 +4468,7 @@ void mousePressed () {
       player3 = minim3.loadFile("death.mp3", 800);
       player3.play();    
       player3.shiftGain(player3.getGain(),-15,FADE);
-      player3.loop();      
-      println("Here");
+      player3.loop();  
     }
     else if (mouseButton == RIGHT && playerDead == true) {
       playerDead = false;
