@@ -714,8 +714,7 @@ void draw() {
     textFont(Font1);
     fill(#FFF300);
     fill(#FFFFFF);
-    
-    //image(bardEnd, 180, 190, 742, 590);
+   
     image(bardEnd, 230, 190, 692, 550);
     text("Stay Tuned For More Updates" + "\n", 50, 772);
     fill(#FFF300);
@@ -731,7 +730,7 @@ void draw() {
     text("Music" + "\n", 470, 295);     
     textFont(Font1);
     fill(#FFFFFF);
-    ///Title Theme
+    
     text("Title Theme (Final Fantasy I) by Nobuo Uematsu", 200, 355);
     text("Reclamation (Fire Emblem: Shadow Dragon)", 225, 405);
     text("by Yuka Tsujiyoko", 410, 455);
@@ -766,8 +765,6 @@ void draw() {
     fill(#FFFFFF);
     text("You have successfully protected the village!", 50, 210);
     
-    //image(tutorialV, 230, 250, 625, 463);
-    //image(dead, 75, 245, 949, 533);
     image(victoryS, 193, 245, 711, 533);
     
     fill(#FFF300);
@@ -793,8 +790,6 @@ void draw() {
     fill(#FFFFFF);
     text("You have successfully protected the village!", 50, 210);
     
-    //image(tutorialV, 230, 250, 625, 463);
-    //image(dead, 75, 245, 949, 533);
     image(victoryS, 193, 245, 711, 533);
     
     fill(#FFF300);
@@ -880,7 +875,6 @@ void draw() {
     textFont(Font1);
     text("\n" + "\n" + "Click Right to Restart", width - 360, height - 165);    
   } 
-  //try again
   if (tryAgain == true) {
 
     fill(#000096);
@@ -1026,8 +1020,7 @@ void draw() {
     fill(#FFFFFF);
     text("Weapons" + "\n", 50, height - height + 150);
     textFont(Font1);
-    fill(#FFF300);
-    //text(leftClick, 50, height - height + 70); 
+    fill(#FFF300); 
     fill(#FFFFFF);
     text("As the Mystic Bard, you have an array of weapons" +
     ", starting with the " + "\n" + "Violin, Trombone and Shield", 50, height - height + 210);
@@ -1626,7 +1619,7 @@ void draw() {
                   playerHP -= 10;
                   HPbar = HPbar - originalHPbar/10;
                   currentHPX = currentHPX + originalHPX/10;         
-                  println(10);
+                  
                 } 
                 foeTFlash = false;
                 foeTAttack = false;
