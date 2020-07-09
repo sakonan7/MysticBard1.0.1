@@ -81,6 +81,8 @@ PImage dead;
 
 PImage victoryS;
 
+PImage point;
+
 float foe1SizeX;
 float foe1SizeY;
 float foe2SizeX;
@@ -482,6 +484,8 @@ boolean stage1V = false;
 boolean stage2V = false;
 boolean lastStageV = false;
 
+boolean noAttack = true;
+
 PFont Font1;
 PFont Font2;
 PFont Font3;
@@ -570,6 +574,8 @@ void setup() {
   dead = loadImage("Loss.png");
   
   victoryS = loadImage("victoryS.jpg");
+  
+  point = loadImage("point.png");
   
   minim = new Minim(this);
   player = minim.loadFile("Title Theme.mp3", 800);
@@ -709,7 +715,7 @@ void draw() {
     text("Thank You For Playing" + "\n", 50, height - height + 90);     
     textFont(Font1);
     fill(#FFFFFF);
-    text("This Is The Last Level For Now" + "\n", 50, height - height + 150);
+    text("This is the last level for now" + "\n", 50, height - height + 150);
     
     textFont(Font1);
     fill(#FFF300);
@@ -2517,7 +2523,7 @@ void draw() {
         if (foe4disapp == false) {
           image(foe4, foe4CoordX, foe4CoordY, foe4SizeX, foe4SizeY);
         }
-        if (foe4Attack == false && foe4HP > 0) {
+        if (foe4Attack == false && foe4HP > 0 && noAttack == false) {
           foe4t = foe4interval-int(millis()/1000);
             
           if(foe4t <= 0){
@@ -2545,7 +2551,7 @@ void draw() {
       }
       if (foe5Alive == true) {
         if (foe5disapp == false) {
-          image(foe5, foe5CoordX, foe5CoordY, foe5SizeX, foe5SizeY);
+          image(foe5, foe5CoordX, foe5CoordY, foe5SizeX, foe5SizeY);          
         }
         if (foe5Attack == false && foe5HP > 0) {
           foe5t = foe4interval-int(millis()/1000);
