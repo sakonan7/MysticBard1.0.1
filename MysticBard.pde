@@ -824,26 +824,43 @@ void draw() {
       rect(13, height - 148, 235, 135, 8);
     }     
     if (tutorialStage == true) {
-        if (foeTAlive == true) {
+        if (foeTHP > 0) {
           image(foetutorial, foetutorialX, foetutorialY, foetutorialSizeX, foetutorialSizeY);
         }
-        if (foeT2Alive == true) {
+        if (foeT2HP > 0) {
           image(foeT2, foeT2X, foeT2Y, foeT2SizeX, foeT2SizeY);
         }
-        if (foeT3Alive == true) {
+        if (foeT3HP > 0) {
           image(foeT3, foeT3X, foeT3Y, foeT3SizeX, foeT3SizeY);
         }      
     }
     if (stage1 == true) {
-        if (foe1Alive == true) {
+        if (foe1HP > 0) {
           image(foe1, foe1CoordX, foe1CoordY, foe1SizeX, foe1SizeY);
         }
-        if (foe2Alive == true) {
+        if (foe2HP > 0) {
           image(foe2, foe2CoordX, foe2CoordY, foe2SizeX, foe2SizeY);
         }
-        if (foe3Alive == true) {
+        if (foe3HP > 0) {
           image(foe3, foe3CoordX, foe3CoordY, foe3SizeX, foe3SizeY);
         }      
+    } 
+    if (stage2 == true) {
+        if (foe4HP > 0) {
+          image(foe4, foe4CoordX, foe4CoordY, foe4SizeX, foe4SizeY);
+        }
+        if (foe5HP > 0) {
+          image(foe5, foe5CoordX, foe5CoordY, foe5SizeX, foe5SizeY);
+        }
+        if (foe6HP > 0) {
+          image(foe6, foe6CoordX, foe6CoordY, foe6SizeX, foe6SizeY);
+        } 
+        if (foe7HP > 0) {
+          image(foe7, foe7CoordX, foe7CoordY, foe7SizeX, foe7SizeY);
+        }        
+        if (foe8HP > 0) {
+          image(foe8, foe8CoordX, foe8CoordY, foe8SizeX, foe8SizeY);
+        }        
     }    
     fill(117,0,0,175);   
     rect(0, 1, 1100, 900); 
