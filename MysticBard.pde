@@ -722,7 +722,7 @@ void draw() {
     fill(#FFFFFF);
     //+ 51
     image(bardEnd, 226, 190, 654, 515);
-    text("Stay Tuned For More Updates" + "\n", 50, 772);
+    text("Stay tuned for more levels!" + "\n", 50, 772);
     fill(#FFF300);
     textFont(Font1);
     text("\n" + "\n" + "Click Right for Music Credits", width - 465, height - 165);     
@@ -2490,7 +2490,6 @@ void draw() {
                
             }
             else if (first2Attack == false) {
-              //may have to change
               foe2whiteint += 3;
               foe2flashint += 4;
               foe2redint += 5;
@@ -2540,7 +2539,7 @@ void draw() {
         if (foe4disapp == false) {
           image(foe4, foe4CoordX, foe4CoordY, foe4SizeX, foe4SizeY);
         }
-        if (foe4Attack == false && foe4HP > 0 && noAttack == false) {
+        if (foe4Attack == false && foe4HP > 0) {
           foe4t = foe4interval-int(millis()/1000);
             
           if(foe4t <= 0){
@@ -2582,7 +2581,6 @@ void draw() {
                
             }
             else if (first5Attack == false) {
-              //may have to change
               foe5whiteint += 3;
               foe5flashint += 4;
               foe5redint += 5;
@@ -2612,7 +2610,6 @@ void draw() {
                
             }
             else if (first6Attack == false) {
-              //may have to change
               foe6whiteint += 3;
               foe6flashint += 4;
               foe6redint += 5;
@@ -2642,7 +2639,6 @@ void draw() {
                
             }
             else if (first7Attack == false) {
-              //may have to change
               foe7whiteint += 3;
               foe7flashint += 4;
               foe7redint += 5;
@@ -2672,7 +2668,6 @@ void draw() {
                
             }
             else if (first8Attack == false) {
-              //may have to change
               foe8whiteint += 3;
               foe8flashint += 4;
               foe8redint += 5;
