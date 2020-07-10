@@ -720,8 +720,8 @@ void draw() {
     textFont(Font1);
     fill(#FFF300);
     fill(#FFFFFF);
-   
-    image(bardEnd, 230, 190, 692, 550);
+    //+ 51
+    image(bardEnd, 226, 190, 654, 515);
     text("Stay Tuned For More Updates" + "\n", 50, 772);
     fill(#FFF300);
     textFont(Font1);
@@ -1273,8 +1273,8 @@ void draw() {
     textFont(Font1);
     fill(#FFF300);
     fill(#FFFFFF);
-    text("Foes will attack in intervals of 5 seconds, indicated by their flashing"
-    + "\n" + "But at the start, they will attack in intervals of 5 to 8 seconds", 50, 210);
+    text("Foes will attack in intervals of 4 seconds, indicated by their flashing"
+    + "\n" + "But at the start, they will attack in intervals of 3 to 8 seconds", 50, 210);
 
     image(nonAttack, 140, 350, 188, 246);
     image(attack, 343, 350, 188, 246);
