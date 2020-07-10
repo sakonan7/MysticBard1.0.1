@@ -2924,7 +2924,7 @@ void mousePressed () {
                   text("  " + 15, foetutorialX + foetutorialSizeX/5, foetutorialY - 60);
                   foeTHP -= 15;
                 }
-                if (foeTHP > 0) {
+                if (foeT2HP > 0) {
                   image(foeT2, foeT2X - 10, foeT2Y - 60, foeT2SizeX * 1.1, foeT2SizeY * 1.1);
                   image(musicNote2, foeT2X + 5, foeT2Y - 60, 100, 100);
                   text("  " + 15, foeT2X + foeT2SizeX/5, foeT2Y - 60);
