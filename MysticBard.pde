@@ -2715,6 +2715,22 @@ void keyPressed () {
   if (key == 'a' || key == 'A') {
     weapon = "Trombone";
   }
+  //healing
+  if ((key == 's' || key == 'S') && messageOver == true) {
+    if (playerHP >= 70) {
+      //injured boolean
+      playerHP = 100;
+      currentHP = playerHP;
+      HPbar = originalHPbar;
+      currentHPX = originalHPX;      
+    }
+    else {
+      playerHP += 30;
+      HPbar = HPbar + (3 * originalHPbar/10);
+      currentHPX = currentHPX - (3 * originalHPX/10);      
+    }
+    
+  }  
 }  
 void mousePressed () {
   color damageWave = #DEA3DA;
@@ -4138,7 +4154,19 @@ void mousePressed () {
                 foe7redint = int(millis()/1000) + 3; 
                 foe7flash2int = int(millis()/1000) + 3;   
                 player2 = minim2.loadFile("violinFlinch.mp3", 500);
-                player2.play();            
+                player2.play();
+                
+                foe5Attack = false;
+                foe5Alive = true;
+                foe5Interupt = true; 
+                foe5Flash = false;
+                foe5interval = int(millis()/1000) + 5;
+                foe5whiteint = int(millis()/1000) + 3; 
+                foe5flashint = int(millis()/1000) + 3;
+                foe5redint = int(millis()/1000) + 3; 
+                foe5flash2int = int(millis()/1000) + 3;   
+                player2 = minim2.loadFile("violinFlinch.mp3", 500);
+                player2.play();                
               }        
               else if (foe7Flash == false) {
                 player2 = minim2.loadFile("violin.mp3", 400);
@@ -4213,6 +4241,16 @@ void mousePressed () {
       if (foe5HP <= 0) {
         foe5Alive = false;
       }
+      if (foe6HP <= 0) {
+        foe6Alive = false;
+      }
+      if (foe7HP <= 0) {
+        foe7Alive = false;
+      }  
+      if (foe8HP <= 0) {
+        foe8Alive = false;
+      }      
+      
       if (foeTHP <= 0) {
         foeTAlive = false;
       }
