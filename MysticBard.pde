@@ -1376,6 +1376,7 @@ void draw() {
       tromboneDrained = true;
       violinReplenish = int(millis()/1000) + 5;
       tromboneReplenish = int(millis()/1000) + 10;
+      
       //split this for tutorial and stages
       if (tutorialStage == true) {
         foeTinterval = int(millis()/1000) + int(random(3,8));
@@ -1412,6 +1413,8 @@ void draw() {
         tromboneBar = originalWeaponBar;
         currentTromboneBarX = originalTromboneBarX; 
         tromboneDrained = false;
+        firstBlast = true;
+        secondBlast = false;
       }
 
     }        
@@ -2656,7 +2659,7 @@ void draw() {
         if (foe8disapp == false) {
           image(foe8, foe8CoordX, foe8CoordY, foe8SizeX, foe8SizeY);
         }
-        if (foe8Attack == false && foe8HP > 0) {
+        if (foe8Attack == false && foe8HP > 0 && noAttack == false) {
           foe8t = foe8interval-int(millis()/1000);
             
           if(foe8t <= 0){
@@ -2888,14 +2891,6 @@ void mousePressed () {
           currentTromboneBarX += originalWeaponBar/2; 
           if (monsterTrombone == true) {
             monsterTrombone = false; 
-            if (firstBlast == true) {
-              firstBlast = false;
-              secondBlast = true;
-            }
-            else if (secondBlast == true) {
-              firstBlast = true;
-              secondBlast = false;
-            }
 
             if (shield == true) {
               shield = false;
@@ -2982,7 +2977,9 @@ void mousePressed () {
                 if (foeTInterupt == true) {
                   foeTInterupt = false;
                   foeTattacked = false;       
-                }                
+                } 
+                firstBlast = false;
+                secondBlast = true;                
               }              
             }
             if (secondBlast == true) {
@@ -3197,7 +3194,9 @@ void mousePressed () {
                 if (foe3Interupt == true) {
                   foe3Interupt = false;
                   foe3attacked = false;       
-                }                 
+                } 
+                firstBlast = false;
+                secondBlast = true;                
               }              
             }
             //need to add interupt code to other foes
@@ -3496,7 +3495,9 @@ void mousePressed () {
                 if (foe8Interupt == true) {
                   foe8Interupt = false;
                   foe8attacked = false;       
-                }                
+                }  
+                firstBlast = false;
+                secondBlast = true;                
               }              
             }
             if (secondBlast == true) {
@@ -4316,7 +4317,8 @@ void mousePressed () {
       currentShieldBarX = originalShieldBarX;
       shieldDrained = false;
       playerAlive = true;
-      weapon = "Violin";
+      weapon = "Violin";     
+      
       minim3.stop();
       
       player = minim.loadFile("Battle.mp3", 800);
@@ -4360,7 +4362,8 @@ void mousePressed () {
       currentShieldBarX = originalShieldBarX;
       shieldDrained = false;
       playerAlive = true;
-      weapon = "Violin";
+      weapon = "Violin";      
+      
       minim3.stop();
       
       player = minim.loadFile("Battle.mp3", 800);
@@ -4426,7 +4429,7 @@ void mousePressed () {
       foe8Alive = true;
       
       playerAlive = true;
-      weapon = "Violin";
+      weapon = "Violin";      
       
       stage1 = false;
       stage2 = false;
@@ -4486,7 +4489,8 @@ void mousePressed () {
       playerAlive = true;
       tutorialRestart = false;
       redTDead = false;
-      weapon = "Violin";
+      weapon = "Violin";      
+      
       minim3.stop();
       
       player = minim.loadFile("Battle.mp3", 800);
@@ -4562,6 +4566,7 @@ void mousePressed () {
         foe6Alive = true;  
         foe7Alive = true;
         foe8Alive = true;
+        //trying adding onto their intervals here
       }      
       
       minim3.stop();
