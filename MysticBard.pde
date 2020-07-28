@@ -12,8 +12,6 @@ Minim minim3;
 AudioPlayer player4;
 Minim minim4;
 
-//monster attack and blocking
-
 static final int FADE = 2200;
 
 PImage background;
@@ -825,6 +823,7 @@ void draw() {
       stroke(#FFCE46);
       rect(13, height - 148, 235, 135, 8);
     }     
+    //tutorialSDead == true
     if (tutorialStage == true) {
         if (foeTHP > 0) {
           image(foetutorial, foetutorialX, foetutorialY, foetutorialSizeX, foetutorialSizeY);
@@ -1373,6 +1372,7 @@ void draw() {
       stroke(#FFCE46);
       rect(13, height - 148, 235, 135, 8);
     }   
+    //change
     if (warmUp == true) {
       violinDrained = true;
       tromboneDrained = true;
@@ -1524,6 +1524,8 @@ void draw() {
       playerAttacked = false;
       if (playerHP <= 0 && tutorialStage == true) {
         //may need to do if stage2, foe not alive to make them disappear
+        tutorialStage = false;
+        //tutorialSDead = true;
         playerAlive = false;
         redTDead = true;
         redDeadPage = true;
@@ -1531,6 +1533,7 @@ void draw() {
       } 
       else if (playerHP <= 0 && stage1 == true) {
         //may need to do if stage2, foe not alive to make them disappear
+        stage1 = false;
         stage1Dead = true;
         playerAlive = false;
         redDead = true;
@@ -1539,6 +1542,7 @@ void draw() {
       }        
       else if (playerHP <= 0 && stage2 == true) {
         //may need to do if stage2, foe not alive to make them disappear
+        stage2 = false;
         stage2Dead = true;
         playerAlive = false;
         redDead = true;
@@ -2707,7 +2711,8 @@ void keyPressed () {
     messageLast = false;
 
     messageOver = true;
-    tutorialStage = true;
+    //tutorialStage = true;
+    stage2 = true;
     minim.stop();
     player = minim.loadFile("Battle.mp3", 800);
     player.play();
@@ -4457,7 +4462,11 @@ void mousePressed () {
     //use this for starting another level
     //stageOne = true;
     else if (mouseButton == RIGHT && tutorialRestart == true) {
+      tutorialStage = true;
       warmUp = true;
+
+      foeTinterval = int(millis()/1000) + 3;
+      
       firstTAttack = true;
       playerHP = 100;
       currentHP = playerHP;
@@ -4525,7 +4534,8 @@ void mousePressed () {
       redDead = false;
       
       //depending on stage, different stage will be restarted
-      if (stage1Dead == true) {
+      if (stage1Dead == true) {       
+        
         stage1Dead = false;
         stage1 = true;
         first1Attack = true;
@@ -4538,7 +4548,8 @@ void mousePressed () {
         foe2Alive = true;
         foe3Alive = true;      
       }
-      if (stage2Dead == true) {
+      if (stage2Dead == true) {       
+        
         stage2Dead = false;
         stage2 = true;
         first4Attack = true;
@@ -4556,7 +4567,6 @@ void mousePressed () {
         foe6Alive = true;  
         foe7Alive = true;
         foe8Alive = true;
-        //trying adding onto their intervals here
       }      
       
       minim3.stop();
