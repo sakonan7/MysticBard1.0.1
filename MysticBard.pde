@@ -12,13 +12,16 @@ Minim minim3;
 AudioPlayer player4;
 Minim minim4;
 
+//trumpet
+AudioPlayer player5;
+Minim minim5;
+
 static final int FADE = 2200;
 
 PImage background;
 
 PImage musicNote1;
 PImage musicNote2;
-PImage musicNote3;
 
 PImage foe1;
 PImage foe2;
@@ -208,19 +211,14 @@ boolean stage2Dead = false;
 
 int foeTinterval = int(random(5, 8));
 int foeTt = 0;
-String foeTtime = "005";
 int foeTwhiteint = 3;
 int foeTwhitet = 0;
-String foeTwhitetime = "003";
 int foeTflashint = 3;
 int foeTflasht = 0;
-String foeTflashtime = "003";
 int foeTflash2int = 3;
 int foeTflash2t = 0;
-String foeTflash2time = "003";
 int foeTredint = 3;
 int foeTredt = 0;
-String foeTredtime = "003";
 boolean foeTFlash = false;
 
 boolean warmUp = true;
@@ -238,156 +236,112 @@ boolean first8Attack = true;
 
 int foe1interval = 5;
 int foe1t = 0;
-String foe1time = "005";
 int foe1whiteint = 3;
 int foe1whitet = 0;
-String foe1whitetime = "003";
 int foe1flashint = 3;
 int foe1flasht = 0;
-String foe1flashtime = "003";
 int foe1flash2int = 3;
 int foe1flash2t = 0;
-String foe1flash2time = "003";
 int foe1redint = 3;
 int foe1redt = 0;
-String foe1redtime = "003";
 boolean foe1Flash = false;
 
 int foe2interval = 10;
 int foe2t = 0;
-String foe2time = "005";
 int foe2whiteint = 3;
 int foe2whitet = 0;
-String foe2whitetime = "003";
 int foe2flashint = 3;
 int foe2flasht = 0;
-String foe2flashtime = "003";
 int foe2flash2int = 3;
 int foe2flash2t = 0;
-String foe2flash2time = "003";
 int foe2redint = 3;
 int foe2redt = 0;
-String foe2redtime = "003";
 boolean foe2Flash = false;
 
 int foe3interval = 10;
 int foe3t = 0;
-String foe3time = "005";
 int foe3whiteint = 3;
 int foe3whitet = 0;
-String foe3whitetime = "003";
 int foe3flashint = 3;
 int foe3flasht = 0;
-String foe3flashtime = "003";
 int foe3flash2int = 3;
 int foe3flash2t = 0;
-String foe3flash2time = "003";
 int foe3redint = 3;
 int foe3redt = 0;
-String foe3redtime = "003";
 boolean foe3Flash = false;
 
 int foe4interval = 10;
 int foe4t = 0;
-String foe4time = "005";
 int foe4whiteint = 3;
 int foe4whitet = 0;
-String foe4whitetime = "003";
 int foe4flashint = 3;
 int foe4flasht = 0;
-String foe4flashtime = "003";
 int foe4flash2int = 3;
 int foe4flash2t = 0;
-String foe4flash2time = "003";
 int foe4redint = 3;
 int foe4redt = 0;
-String foe4redtime = "003";
 boolean foe4Flash = false;
 
 int foe5interval = 10;
 int foe5t = 0;
-String foe5time = "005";
 int foe5whiteint = 3;
 int foe5whitet = 0;
-String foe5whitetime = "003";
 int foe5flashint = 3;
 int foe5flasht = 0;
-String foe5flashtime = "003";
 int foe5flash2int = 3;
 int foe5flash2t = 0;
-String foe5flash2time = "003";
 int foe5redint = 3;
 int foe5redt = 0;
-String foe5redtime = "003";
 boolean foe5Flash = false;
 
 int foe6interval = 10;
 int foe6t = 0;
-String foe6time = "005";
 int foe6whiteint = 3;
 int foe6whitet = 0;
-String foe6whitetime = "003";
 int foe6flashint = 3;
 int foe6flasht = 0;
-String foe6flashtime = "003";
 int foe6flash2int = 3;
 int foe6flash2t = 0;
-String foe6flash2time = "003";
 int foe6redint = 3;
 int foe6redt = 0;
-String foe6redtime = "003";
 boolean foe6Flash = false;
 
 int foe7interval = 10;
 int foe7t = 0;
-String foe7time = "005";
 int foe7whiteint = 3;
 int foe7whitet = 0;
-String foe7whitetime = "003";
 int foe7flashint = 3;
 int foe7flasht = 0;
-String foe7flashtime = "003";
 int foe7flash2int = 3;
 int foe7flash2t = 0;
-String foe7flash2time = "003";
 int foe7redint = 3;
 int foe7redt = 0;
-String foe7redtime = "00victory";
 boolean foe7Flash = false;
 
 int foe8interval = 10;
 int foe8t = 0;
-String foe8time = "005";
 int foe8whiteint = 3;
 int foe8whitet = 0;
-String foe8whitetime = "003";
 int foe8flashint = 3;
 int foe8flasht = 0;
-String foe8flashtime = "003";
 int foe8flash2int = 3;
 int foe8flash2t = 0;
-String foe8flash2time = "003";
 int foe8redint = 3;
 int foe8redt = 0;
-String foe8redtime = "00victory";
 boolean foe8Flash = false;
 
 boolean shield = false;
 int shieldInterval = 3;
 int shieldt = 0;
-String shieldtime = "003";
 
 int shieldReplenish = 5;
 int shieldReplenisht = 0;
-String shieldReplenishtime = "005";
 
 int violinReplenish = int(millis()/1000) + 10;
 int violinReplenisht = 0;
-String violinReplenishtime = "010";
 
 int tromboneReplenish = int(millis()/1000) + 15;
 int tromboneReplenisht = 0;
-String tromboneReplenishtime = "015";
 
 boolean firstBlast = true;
 
@@ -490,9 +444,6 @@ PFont Font1;
 PFont Font2;
 PFont Font3;
 
-PImage treasure;
-PImage death;
-
 String weapon;
 
 color c1 = color(#F1F200);
@@ -530,7 +481,6 @@ void setup() {
   
   village = loadImage("village.png");
   monsters = loadImage("monsters2.png");
-  //loss = loadImage("Loss.png");
   violinAttack = loadImage("violinAttack.png");
   violinUse = loadImage("violinUse.png");
   tutorial = loadImage("tutorial.png");
