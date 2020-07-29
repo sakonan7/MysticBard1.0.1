@@ -202,6 +202,7 @@ boolean tutorialStage = false;
 boolean stage1 = false;
 boolean stage2 = false;
 
+boolean tutorialSDead = false;
 boolean stage1Dead = false;
 boolean stage2Dead = false;
 
@@ -822,8 +823,7 @@ void draw() {
       stroke(#FFCE46);
       rect(13, height - 148, 235, 135, 8);
     }     
-    //tutorialSDead == true
-    if (tutorialStage == true) {
+    if (tutorialSDead == true) {
         if (foeTHP > 0) {
           image(foetutorial, foetutorialX, foetutorialY, foetutorialSizeX, foetutorialSizeY);
         }
@@ -834,7 +834,7 @@ void draw() {
           image(foeT3, foeT3X, foeT3Y, foeT3SizeX, foeT3SizeY);
         }      
     }
-    if (stage1 == true) {
+    if (stage1Dead == true) {
         if (foe1HP > 0) {
           image(foe1, foe1CoordX, foe1CoordY, foe1SizeX, foe1SizeY);
         }
@@ -845,7 +845,7 @@ void draw() {
           image(foe3, foe3CoordX, foe3CoordY, foe3SizeX, foe3SizeY);
         }      
     } 
-    if (stage2 == true) {
+    if (stage2Dead == true) {
         if (foe4HP > 0) {
           image(foe4, foe4CoordX, foe4CoordY, foe4SizeX, foe4SizeY);
         }
@@ -1523,7 +1523,7 @@ void draw() {
       if (playerHP <= 0 && tutorialStage == true) {
         //may need to do if stage2, foe not alive to make them disappear
         tutorialStage = false;
-        //tutorialSDead = true;
+        tutorialSDead = true;
         playerAlive = false;
         redTDead = true;
         redDeadPage = true;
@@ -4461,6 +4461,7 @@ void mousePressed () {
     //stageOne = true;
     else if (mouseButton == RIGHT && tutorialRestart == true) {
       tutorialStage = true;
+      tutorialSDead = false;
       warmUp = true;
 
       foeTinterval = int(millis()/1000) + 3;
