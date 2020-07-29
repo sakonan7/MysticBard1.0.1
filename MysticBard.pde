@@ -389,7 +389,6 @@ int tromboneReplenisht = 0;
 String tromboneReplenishtime = "015";
 
 boolean firstBlast = true;
-boolean secondBlast = false;
 
 boolean playerAttacked = false;
 boolean attackBlocked = false;
@@ -1416,7 +1415,6 @@ void draw() {
         currentTromboneBarX = originalTromboneBarX; 
         tromboneDrained = false;
         firstBlast = true;
-        secondBlast = false;
       }
 
     }        
@@ -2986,11 +2984,10 @@ void mousePressed () {
                   foeTInterupt = false;
                   foeTattacked = false;       
                 } 
-                firstBlast = false;
-                secondBlast = true;                
+                firstBlast = false;                
               }              
             }
-            if (secondBlast == true) {
+            else if (firstBlast == false) {
               if (mouseX <= foetutorialSizeX + foetutorialX + 140 && mouseX >= foetutorialX - 140
               && (mouseY <= foetutorialSizeY + foetutorialY + 140 && mouseY >= foetutorialY - 140) && foeTHP > 0) { 
 
@@ -3204,12 +3201,11 @@ void mousePressed () {
                   foe3Interupt = false;
                   foe3attacked = false;       
                 } 
-                firstBlast = false;
-                secondBlast = true;                
+                firstBlast = false;               
               }              
             }
             //need to add interupt code to other foes
-            if (secondBlast == true) {
+            else if (firstBlast == false) {
               if (mouseX <= foe1SizeX + foe1CoordX + 140 && mouseX >= foe1CoordX - 140
               && (mouseY <= foe1SizeY + foe1CoordY + 140 && mouseY >= foe1CoordY - 140) && foe1HP > 0) { 
 
@@ -3506,11 +3502,10 @@ void mousePressed () {
                   foe8Interupt = false;
                   foe8attacked = false;       
                 }  
-                firstBlast = false;
-                secondBlast = true;                
+                firstBlast = false;                
               }              
             }
-            if (secondBlast == true) {
+            else if (firstBlast == false) {
               if (mouseX <= foe4SizeX + foe4CoordX + 140 && mouseX >= foe4CoordX - 140
               && (mouseY <= foe4SizeY + foe4CoordY + 140 && mouseY >= foe4CoordY - 140) && foe4HP > 0) { 
 
