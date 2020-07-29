@@ -12,9 +12,13 @@ Minim minim3;
 AudioPlayer player4;
 Minim minim4;
 
-//trumpet
+//first trumpet
 AudioPlayer player5;
 Minim minim5;
+
+//shielding
+
+//muffled
 
 static final int FADE = 2200;
 
@@ -537,6 +541,9 @@ void setup() {
   minim2 = new Minim(this);
   minim3 = new Minim(this);
   minim4 = new Minim(this);  
+  minim5 = new Minim(this);
+  
+  player5 = minim2.loadFile("firstTrumpet.mp3", 500);
   
   foetutorialSizeX = 125 * 1.1;
   foetutorialSizeY = 200 * 1.1;
@@ -2913,9 +2920,8 @@ void mousePressed () {
                 rect(13, height - 148, 235, 135, 8);
                 foeTattacked = true;
                 monsterTrombone = true;
-                player2 = minim2.loadFile("firstTrumpet.mp3", 500);
-                player2.play();
-                player2.shiftGain(player2.getGain(), -30,FADE); 
+                player5.play();
+                player5.shiftGain(player2.getGain(), -30,FADE); 
                 if (foeTFlash == true && foeTattacked == true) {
                   foeTAttack = false;
                   foeTAlive = true;
@@ -3096,9 +3102,8 @@ void mousePressed () {
                 foe3attacked = true;
                 
                 monsterTrombone = true;
-                player2 = minim2.loadFile("firstTrumpet.mp3", 500);
-                player2.play();
-                player2.shiftGain(player2.getGain(), -30,FADE); 
+                player5.play();
+                player5.shiftGain(player2.getGain(), -30,FADE); 
                 //Need to add code to all foes
                 if (foe1Flash == true && foe1attacked == true) {
                   foe1Attack = false;
@@ -3363,9 +3368,8 @@ void mousePressed () {
                 foe8attacked = true;
                 
                 monsterTrombone = true;
-                player2 = minim2.loadFile("firstTrumpet.mp3", 500);
-                player2.play();
-                player2.shiftGain(player2.getGain(), -30,FADE); 
+                player5.play();
+                player5.shiftGain(player2.getGain(), -30,FADE); 
                 //Need to add code to all foes
                 if (foe4Flash == true && foe4attacked == true) {
                   foe4Attack = false;
