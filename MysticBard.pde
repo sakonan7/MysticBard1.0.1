@@ -8,9 +8,7 @@ Minim minim2;
 //Victory and Death music
 AudioPlayer player3;
 Minim minim3;
-//shielding and axe punch
-//separate
-//Don't load axe punch because it will have muffled variation
+//axe punch
 AudioPlayer player4;
 Minim minim4;
 
@@ -25,6 +23,8 @@ AudioPlayer player7;
 Minim minim7;
 
 //shielding
+AudioPlayer player8;
+Minim minim8;
 
 //muffled
 
@@ -161,7 +161,7 @@ int foe6HP = 150;
 int foe7HP = 150;
 int foe8HP = 150;
 
-int playerHP = 1000;
+int playerHP = 100;
 
 int damage = 10;
 float HPbar = 600;
@@ -552,6 +552,7 @@ void setup() {
   minim5 = new Minim(this);
   minim6 = new Minim(this);
   minim7 = new Minim(this);
+  minim8 = new Minim(this);
   
   foetutorialSizeX = 125 * 1.1;
   foetutorialSizeY = 200 * 1.1;
@@ -2820,8 +2821,8 @@ void mousePressed () {
    
   else if (messageOver == true && playerAlive == true) {    
     if (mouseButton == RIGHT && shieldDrained == false && shield == false) {
-      player4 = minim4.loadFile("shielding.mp3", 600);
-      player4.play();
+      player8 = minim8.loadFile("shielding.mp3", 600);
+      player8.play();
       if ((mouseX <= width && mouseX > 0) && (mouseY <= height && mouseY > 0)) {
         shieldInterval = int(millis()/1000) + 2;
 
@@ -2837,8 +2838,8 @@ void mousePressed () {
       }
     }
     else if (mouseButton == RIGHT && shieldDrained == false && shield == true) {
-      player4 = minim4.loadFile("shielding.mp3", 600);
-      player4.play();    
+      player8 = minim8.loadFile("shielding.mp3", 600);
+      player8.play();    
       if ((mouseX <= width && mouseX > 0) && (mouseY <= height && mouseY > 0)) {
         shieldInterval = int(millis()/1000) + 2;
         shieldBar -= originalShieldBar/2;
