@@ -1593,6 +1593,7 @@ void draw() {
                 if (shield == true) {
                   foeTAttack = false;
                   attackBlocked = true;
+                  //put muffled attack sound here
                 
                   foeTinterval = int(millis()/1000) + 5;
                   foeTwhiteint = int(millis()/1000) + 3; 
@@ -1838,6 +1839,7 @@ void draw() {
                 if (shield == true) {
                   foe4Attack = false;
                   attackBlocked = true;
+                  
                 
                   foe4interval = int(millis()/1000) + 5;
                   foe4whiteint = int(millis()/1000) + 3; 
@@ -2061,7 +2063,7 @@ void draw() {
     }   
     if (foe8Attack == true) {  
       foe8Alive = false;  
-      foe8whitet = foe7whiteint-int(millis()/1000); 
+      foe8whitet = foe8whiteint-int(millis()/1000); 
       if (foe8HP > 0) {
         if (foe8whitet > 0) {
           image(foeWhite, foe8CoordX, foe8CoordY, foe8SizeX, foe8SizeY);
@@ -2543,7 +2545,7 @@ void draw() {
           image(foe5, foe5CoordX, foe5CoordY, foe5SizeX, foe5SizeY);          
         }
         if (foe5Attack == false && foe5HP > 0) {
-          foe5t = foe4interval-int(millis()/1000);
+          foe5t = foe5interval-int(millis()/1000);
             
           if(foe5t <= 0){
             if (first5Attack == true) {
@@ -2953,6 +2955,7 @@ void mousePressed () {
                 firstBlast = false;                
               }              
             }
+            
             else if (firstBlast == false) {
               if (mouseX <= foetutorialSizeX + foetutorialX + 140 && mouseX >= foetutorialX - 140
               && (mouseY <= foetutorialSizeY + foetutorialY + 140 && mouseY >= foetutorialY - 140) && foeTHP > 0) { 
