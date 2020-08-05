@@ -8,7 +8,7 @@ Minim minim2;
 //Victory and Death music
 AudioPlayer player3;
 Minim minim3;
-//axe punch
+//Trombone flinching
 AudioPlayer player4;
 Minim minim4;
 
@@ -26,7 +26,21 @@ Minim minim7;
 AudioPlayer player8;
 Minim minim8;
 
-//muffled
+//muffled axe punch
+//muffled violin
+
+//axe punches
+AudioPlayer player9;
+Minim minim9;
+AudioPlayer player10;
+Minim minim10;
+AudioPlayer player11;
+Minim minim11;
+AudioPlayer player12;
+Minim minim12;
+AudioPlayer player13;
+Minim minim13;
+
 
 static final int FADE = 2200;
 
@@ -553,6 +567,12 @@ void setup() {
   minim6 = new Minim(this);
   minim7 = new Minim(this);
   minim8 = new Minim(this);
+  
+  minim9 = new Minim(this);
+  minim10 = new Minim(this);
+  minim11 = new Minim(this);
+  minim12 = new Minim(this);
+  minim13 = new Minim(this);
   
   foetutorialSizeX = 125 * 1.1;
   foetutorialSizeY = 200 * 1.1;
@@ -1478,10 +1498,7 @@ void draw() {
         stroke(#FFCE46);
         rect(13, height - 148, 235, 135, 8);
       }        
-                     
-      player4 = minim4.loadFile("axepunch.mp3", 500);
-      player4.play();
-      player4.shiftGain(player4.getGain(), 0,FADE); 
+                      
       //maybe put this code in playerAttacked == false
       //depending on the stage, cancel disapp and make the foes alive
     
@@ -1602,6 +1619,9 @@ void draw() {
                   foeTflash2int = int(millis()/1000) + 3;
                 }
                 else if (shield == false) {
+                  player9 = minim9.loadFile("axepunch.mp3", 500);
+                  player9.play();
+                  player9.shiftGain(player9.getGain(), 0,FADE);                   
                 
                   playerAttacked = true;
                   foeT2Alive = false;
@@ -1664,6 +1684,9 @@ void draw() {
                   foe1flash2int = int(millis()/1000) + 3;
                 }
                 else if (shield == false) {
+                  player9 = minim9.loadFile("axepunch.mp3", 500);
+                  player9.play();
+                  player9.shiftGain(player9.getGain(), 0,FADE);                   
                 
                   playerAttacked = true;
                   foe2Alive = false;
@@ -1725,6 +1748,9 @@ void draw() {
                   foe2flash2int = int(millis()/1000) + 3;
                 }
                 else if (shield == false) {
+                  player10 = minim10.loadFile("axepunch.mp3", 500);
+                  player10.play();
+                  player10.shiftGain(player10.getGain(), 0,FADE);                   
                 
                   playerAttacked = true;
                   foe1Alive = false;
@@ -1786,6 +1812,9 @@ void draw() {
                   foe3flash2int = int(millis()/1000) + 3;
                 }
                 else if (shield == false) {
+                  player11 = minim11.loadFile("axepunch.mp3", 500);
+                  player11.play();
+                  player11.shiftGain(player11.getGain(), 0,FADE);                   
                 
                   playerAttacked = true;
                   foe2Alive = false;
@@ -1848,6 +1877,9 @@ void draw() {
                   foe4flash2int = int(millis()/1000) + 3;
                 }
                 else if (shield == false) {
+                  player9 = minim9.loadFile("axepunch.mp3", 500);
+                  player9.play();
+                  player9.shiftGain(player9.getGain(), 0,FADE);                  
                 
                   playerAttacked = true;
                   foe5Alive = false;
@@ -1910,6 +1942,9 @@ void draw() {
                   foe5flash2int = int(millis()/1000) + 3;
                 }
                 else if (shield == false) {
+                  player10 = minim10.loadFile("axepunch.mp3", 500);
+                  player10.play();
+                  player10.shiftGain(player10.getGain(), 0,FADE);                   
                 
                   playerAttacked = true;
                   foe4Alive = false;
@@ -1972,6 +2007,9 @@ void draw() {
                   foe6flash2int = int(millis()/1000) + 3;
                 }
                 else if (shield == false) {
+                  player11 = minim11.loadFile("axepunch.mp3", 500);
+                  player11.play();
+                  player11.shiftGain(player11.getGain(), 0,FADE);                   
                 
                   playerAttacked = true;
                   foe4Alive = false;
@@ -2034,6 +2072,9 @@ void draw() {
                   foe7flash2int = int(millis()/1000) + 3;
                 }
                 else if (shield == false) {
+                  player12 = minim12.loadFile("axepunch.mp3", 500);
+                  player12.play();
+                  player12.shiftGain(player12.getGain(), 0,FADE);                   
                 
                   playerAttacked = true;
                   foe4Alive = false;
@@ -2096,6 +2137,9 @@ void draw() {
                   foe8flash2int = int(millis()/1000) + 3;
                 }
                 else if (shield == false) {
+                  player13 = minim13.loadFile("axepunch.mp3", 500);
+                  player13.play();
+                  player13.shiftGain(player13.getGain(), 0,FADE);                   
                 
                   playerAttacked = true;
                   foe4Alive = false;
@@ -2677,8 +2721,7 @@ void keyPressed () {
     messageLast = false;
 
     messageOver = true;
-    //tutorialStage = true;
-    stage2 = true;
+    tutorialStage = true;
     minim.stop();
     player = minim.loadFile("Battle.mp3", 800);
     player.play();
